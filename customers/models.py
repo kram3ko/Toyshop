@@ -26,3 +26,6 @@ class User(AbstractUser):
     toy_club = models.ForeignKey(
         ToyClub, on_delete=models.SET_NULL, null=True, blank=True
     )
+
+    def __str__(self):
+        return self.username
