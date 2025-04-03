@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2 class="mb-4">Оформлення замовлення</h2>
+
+    <form method="post" action="{% url 'order:order-create' %}">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="id_user" class="form-label">Username</label>
+          {{ form.user }}
+      </div>
+
+      <div class="mb-3 form-control">
+        <label for="id_recipient" class="form-label">Корзинка</label>
+        {{ form.cart }}
+      </div>
+
+      <div class="mb-3 form-control">
+        <label for="id_recipient" class="form-label">Reciever</label>
+        {{ form.recipient }}
+      </div>
+
+
+      <div class="mb-3">
+        <label for="id_deliver_to" class="form-label">Адреса доставки</label>
+        {{ form.deliver_to }}
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Метод доставки</label><br>
+        {{ form.delivery_method }}
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Метод оплати</label><br>
+        {{ form.payment_method }}
+      </div>
+
+
+      <hr>
+
+      <h4>Ваше замовлення:</h4>
+      {% if cart %}
+        {% for item in cart.cart_items.all %}
+          <div class="border p-2 mb-2">
+            <strong>{{ item.toy.name }}</strong> —
+            {{ item.quantity }} x {{ item.toy.price }} ₴ =
+            {{ item.total_price }} ₴
+          </div>
+        {% endfor %}
+        <div class="mb-3">
+          <label for="id_total_price" class="form-label">Загальна сума до оплати</label>
+          <input type="text" name="total_price" class="form-control" id="id_total_price" value="{{ cart.total_price }}"
+                 readonly>
+        </div>
+      {% else %}
+        <p class="text-danger">Кошик порожній.</p>
+      {% endif %}
+      <button type="submit" class="btn btn-primary mt-3">Оформити замовлення</button>
+    </form>
+    {% if form.errors %}
+      <div class="alert alert-danger">
+        <ul>
+          {% for field, errors in form.errors.items %}
+            <li>{{ field }}: {{ errors|striptags }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

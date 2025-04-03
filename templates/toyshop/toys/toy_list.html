@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Drivers | Taxi Service{% endblock %}
+
+{% block content %}
+  <div class="Toy-container">
+    <h1 class="Toy-title">Toylist
+      <a href="{% url 'toys:create-toy' %}" class="btn btn-primary">add Toy
+        <i class="bi bi-plus-circle"></i>
+      </a>
+    </h1>
+  </div>
+  <br>
+  <div>
+  {% if toy_list %}
+    <table class="table-group">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Toy name</th>
+        <th>Description </th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Manufacturer</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for toy in toy_list %}
+        <tr>
+          <td>{{ toy.id }}</td>
+          <td><a href={% url 'toys:toy-update' toy.pk %}>update</a> {{ toy.name }}</td>
+          <td>{{ toy.description }}</td>
+          <td>{{ toy.price }}</td>
+          <td>{{ toy.category.name }}</td>
+          <td>{{ toy.manufacturer }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="empty-list">No toys</p>
+  {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %} Toy Details | Toy Shop {% endblock %}
+
+{% block content %}
+  <div class="Toy-details">
+    <h2 class="Toy-title"> Toy Details
+      <a href="{% url 'toys:toy-update' toy.pk  %}"> update</a>
+    </h2>
+
+    <ul class="Toy-info">
+      <li><strong>Name:</strong> {{ toy.name }}</li>
+      <li><strong>Description:</strong> {{ toy.description }}</li>
+    </ul>
+  </div>
+{% endblock %}
