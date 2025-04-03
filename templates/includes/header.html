@@ -1,0 +1,67 @@
+<header class="border-bottom shadow-sm bg-white sticky-top py-1">
+  <div class="container-fluid px-3">
+
+    <!-- Верхня панель -->
+    <div class="d-flex justify-content-between align-items-center small text-muted py-1">
+      <span>WELCOME TO TOY SHOP</span>
+      <div class="d-flex gap-3">
+        <a href="#" class="text-decoration-none text-muted">CHECKOUT</a>
+        <a href="{% url 'login' %}" class="text-decoration-none text-muted">MY ACCOUNT</a>
+        <a href="#" class="text-decoration-none text-muted">WISHLIST</a>
+      </div>
+    </div>
+
+    <!-- Основний хедер -->
+    <div class="d-flex justify-content-between align-items-center py-2">
+      <!-- Логотип -->
+      <div class="d-flex align-items-center">
+        <div class="ms-2 lh-sm">
+          <strong class="h5 mb-0 d-block">Toys</strong>
+          <small class="text-muted">shop</small>
+        </div>
+      </div>
+
+      <!-- Навігація -->
+      <nav class="d-none d-md-flex gap-3">
+        <a href="{% url 'toys:toys-index' %}" class="text-decoration-none fw-bold text-dark border-bottom border-2 pb-1">HOME</a>
+        <a href="#" class="text-decoration-none text-muted fw-bold">SHOP</a>
+        <a href="#" class="text-decoration-none text-muted fw-bold">MORE</a>
+      </nav>
+
+      <!-- Контакти -->
+      <div class="d-none d-lg-flex align-items-center border-start ps-3">
+        <div class="me-2 fs-5">📞</div>
+        <div>
+          <strong class="d-block small">FREE CALL US</strong>
+          <span class="text-muted small">(+38-097-842-58-29)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Пошук + кошик -->
+    <div class="row align-items-center py-2">
+      <div class="col-md-10">
+        <form method="get" action="" class="d-flex align-items-center gap-2">
+          <select name="category" class="form-select form-select-sm w-auto">
+            <option value="">All Categories</option>
+            {% for cat in category %}
+              <option value="{{ cat.id }}">{{ cat.name }}</option>
+            {% endfor %}
+          </select>
+
+          <input type="text" name="query" class="form-control form-control-sm" placeholder="Search Products...">
+          <button type="submit" class="btn btn-dark btn-sm">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
+      </div>
+
+      <div class="col-md-2 text-end mt-2 mt-md-0">
+        <button class="btn btn-outline-secondary btn-sm">
+          🛒 <span class="ms-1">(0)</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</header>
