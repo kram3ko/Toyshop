@@ -2,7 +2,6 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 from toys.models import Toy
-from wishlist.models import WishList
 
 
 class ToyClub(models.Model):
@@ -16,6 +15,9 @@ class ToyClub(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.level
+
 
 class User(AbstractUser):
     customer = models.BooleanField(default=True)
@@ -23,7 +25,4 @@ class User(AbstractUser):
     updated_at = models.DateTimeField(auto_now=True)
     toy_club = models.ForeignKey(
         ToyClub, on_delete=models.SET_NULL, null=True, blank=True
-    )
-    wish_list = models.ManyToManyField(
-        Toy, through=WishList, related_name="wishers"
     )

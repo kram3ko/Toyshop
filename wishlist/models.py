@@ -4,6 +4,7 @@ from django.db import models
 from toys.models import Toy
 
 
+
 class WishList(models.Model):
     title = models.CharField(max_length=65)
     user = models.ForeignKey(
@@ -12,7 +13,7 @@ class WishList(models.Model):
         related_name="wishlists",
     )
     toys = models.ManyToManyField(
-        "Toy", through="WishListItem", related_name="wishlists"
+        Toy, through="WishListItem", related_name="wishlists"
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -20,7 +21,7 @@ class WishList(models.Model):
 
 class WishListItem(models.Model):
     wishlist = models.ForeignKey(WishList, on_delete=models.CASCADE)
-    toy = models.ForeignKey("Toy", on_delete=models.CASCADE)
+    toy = models.ForeignKey(Toy, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
 
     class Meta:
