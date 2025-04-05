@@ -7,7 +7,7 @@ from customers.models import User, ToyClub
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
     list_display = UserAdmin.list_display + (
-        "customer",
+        "shop_admin",
         "join_date",
         "updated_at",
         "toy_club",
@@ -16,7 +16,7 @@ class CustomUserAdmin(UserAdmin):
     fieldsets = (
         (None, {"fields": ("username", "password")}),
         ("Personal info", {"fields": ("first_name", "last_name", "email")}),
-        ("Additional info", {"fields": ("customer","toy_club")}),
+        ("Additional info", {"fields": ("shop_admin","toy_club")}),
         ("Permissions", {"fields": ("is_active", "is_staff", "is_superuser",)}),
         ("Important dates", {"fields": ("last_login", "date_joined",)}),
     )
@@ -24,7 +24,7 @@ class CustomUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             "classes": ("wide",),
-            "fields": ("username", "password1", "password2", "first_name", "last_name", "email", "customer", "toy_club"),
+            "fields": ("username", "password1", "password2", "first_name", "last_name", "email", "shop_admin", "toy_club"),
         }),
     )
 
