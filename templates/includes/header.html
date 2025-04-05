@@ -1,74 +1,40 @@
-<header class="main-header sticky-top">
-  <div class="container-fluid px-3">
+<!-- Верхній бар -->
+<div class="header-top" style="background-color: #1c1c1c; color: white; font-size: 14px; padding: 5px 20px; display: flex; justify-content: space-between; align-items: center;">
+  <div style="display: flex; gap: 15px;">
+  </div>
+  <div style="display: flex; gap: 15px; align-items: center;">
+    <a href="{% url 'toys:index' %}" style="color: white; text-decoration: none;">HOME</a>
+  </div>
+  <div style="display: flex; gap: 15px; align-items: center;">
+    <a href="#" style="color: white; text-decoration: none;">📞097-842-58-29</a>
+  </div>
+</div>
 
-    <!-- Top bar -->
-    <div class="header-top d-flex justify-content-between align-items-center small">
-      <span class="welcome-text">WELCOME TO TOY SHOP</span>
-      <div class="header-links d-flex gap-3">
-        {% if user.is_authenticated %}
-          <p>{{ user.first_name }} {{ user.last_name }}</p>
-          <form method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-secondary">Logout</button>
-          </form>
-          <a href="{{ user.get_absolute_url }}">MY ACCOUNT</a>
-        {% else %}
-          <a href="{% url 'login' %}">MY ACCOUNT</a>
-        {% endif %}
-
-        <a href="#">WISHLIST</a>
-      </div>
+<!-- Основний хедер -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <a href="{% url 'toys:index' %}">Toy Shop</a>
     </div>
 
-    <!-- Main header -->
-    <div class="header-main d-flex justify-content-between align-items-center">
-      <!-- Logo -->
-      <div class="logo-block">
-        <div>
-          <strong class="logo-title">Toys</strong>
-          <small class="logo-subtitle">shop</small>
-        </div>
-      </div>
+    <button class="catalog-btn">
+      <span>📦</span> <span>Catalog</span>
+    </button>
 
-      <!-- Nav -->
-      <nav class="main-nav d-none d-md-flex gap-3">
-        <a href="{% url 'toys:index' %}" class="active">HOME</a>
-        <a href="{% url 'toys:toy-list' %}">All Toys</a>
-        <a href="#">About</a>
-      </nav>
-
-      <!-- Contacts -->
-      <div class="contact-info d-none d-lg-flex align-items-center">
-        <div class="phone-icon">📞</div>
-        <div>
-          <strong class="contact-title">FREE CALL US</strong>
-          <span class="contact-number">(+38-097-842-58-29)</span>
-        </div>
-      </div>
+    <div class="search-container" style="margin: 0 20px;">
+      <input type="text" placeholder="Search toys">
+      <button class="search-btn">🔍</button>
     </div>
 
-    <!-- Search -->
-    <div class="row align-items-center header-search">
-      <div class="col-md-10">
-        <form method="get" action="" class="search-form d-flex align-items-center gap-2">
-          <select name="category" class="form-select form-select-sm w-auto">
-            <option value="">All Categories</option>
-            {% for cat in categories_list %}
-              <option value="{{ cat.id }}">{{ cat.name }}</option>
-            {% endfor %}
-          </select>
-          <input type="text" name="query" class="form-control form-control-sm" placeholder="Search Toys...">
-          <button type="submit" class="btn btn-dark btn-sm">
-            <i class="bi bi-search"></i>
-          </button>
-        </form>
-      </div>
-      <div class="col-md-2 text-end mt-2 mt-md-0">
-        <a href="{% url 'order:order-create' %}" class="btn btn-outline-secondary btn-sm">
-          🛒 <span class="ms-1">{{ cart_item_count }}</span>
-        </a>
-      </div>
-    </div>
+    <div class="icons">
+  <a href="{% url 'login' %}" class="icon-btn" title="Профіль">👤</a>
+  <div class="icon-divider"></div>
+
+  <a href="" class="icon-btn" title="Wishlist">❤️</a>
+  <div class="icon-divider"></div>
+
+  <a href="{% url 'order:order-create' %}" class="icon-btn" title="Cart">🛒<sup>{{ cart_item_count }}</sup></a>
+</div>
 
   </div>
 </header>

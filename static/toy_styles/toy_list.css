@@ -1,0 +1,31 @@
+.toy-cards-container .card {
+  transition: box-shadow 0.2s ease;
+  border: 1px solid #f1f1f1;
+  background-color: #ffffff;
+}
+
+.toy-cards-container .card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.toy-cards-container .card-title {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.toy-cards-container .card-text {
+  font-size: 0.95rem;
+  color: #495057;
+}
+
+.toy-cards-container .btn {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+.toy-photo {
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
