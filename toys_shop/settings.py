@@ -39,7 +39,7 @@ ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["127.0.0.1", "localhost"])
 AUTH_USER_MODEL = "customers.User"
 
 # Default login redirect URL
-LOGIN_REDIRECT_URL = reverse_lazy("toys:toys-index")
+LOGIN_REDIRECT_URL = reverse_lazy("toys:index")
 
 
 # Application definition
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # custom apps
     "debug_toolbar",
     "customers",
     "order",
@@ -83,6 +84,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                # custom context
+                "base.context_processors.cart_item_count",
+                "base.context_processors.category_item_list"
             ],
         },
     },
