@@ -2,69 +2,33 @@
 {% block title %}LOL | Taxi Service{% endblock %}
 
 {% block content %}
-  <style>
-    .table-group {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-      font-size: 1rem;
-      font-family: Arial, sans-serif;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .table-group thead {
-      background-color: #007bff;
-      color: white;
-    }
-
-    .table-group th, .table-group td {
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      text-align: left;
-    }
-
-    .table-group tbody tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-
-    .table-group tbody tr:hover {
-      background-color: #f1f1f1;
-    }
-
-    .empty-list {
-      padding: 20px;
-      color: #888;
-      font-style: italic;
-    }
-  </style>
-
   {% if user_list %}
     <table class="table-group">
       <thead>
-        <tr>
-          <th>ID</th>
-          <th>Username</th>
-          <th>First name</th>
-          <th>Last name</th>
-          <th>Toy Club</th>
-        </tr>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Toy Club</th>
+      </tr>
       </thead>
       <tbody>
-        {% for user in user_list %}
-          <tr>
-            <td>{{ user.id }}</td>
-            <td>{{ user.username }}</td>
-            <td>{{ user.first_name }}</td>
-            <td>{{ user.last_name }}</td>
-            <td>
-              {% if user.toy_club %}
-                {{ user.toy_club.level }}
-              {% else %}
-                —
-              {% endif %}
-            </td>
-          </tr>
-        {% endfor %}
+      {% for user in user_list %}
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.first_name }}</td>
+          <td>{{ user.last_name }}</td>
+          <td>
+            {% if user.toy_club %}
+              {{ user.toy_club.level }}
+            {% else %}
+              —
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
       </tbody>
     </table>
   {% else %}

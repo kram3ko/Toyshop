@@ -1,16 +1,18 @@
-<aside class="sidebar">
-  <button class="category-btn">SHOP BY CATEGORY</button>
-  <ul class="category-list">
-    <li><a href="#">Art And Craft Toys</a></li>
-    <li><a href="#">Educational Toys</a></li>
-    <li><a href="#">Executive Toys</a></li>
-    <li><a href="#">Mechanical Toys</a></li>
-    <li><a href="#">Powered Toys</a></li>
-    <li><a href="#">Puppetry</a></li>
-    <li><a href="#">Puzzles</a></li>
-    <li><a href="#">Robots</a></li>
-    <li><a href="#">Toy Vehicles</a></li>
-    <li><a href="#">Train</a></li>
-    <li><a href="#">More</a></li>
+<aside class="sidebar bg-white border-end shadow-sm p-4">
+  <h6 class="text-uppercase text-muted fw-bold mb-4">🧸 Shop by Category</h6>
+
+  <ul class="list-unstyled category-list">
+    {% for cat in categories_list %}
+      <li class="mb-2">
+        <form method="get" action="" class="category-form">
+          <input type="hidden" name="category" value="{{ cat.id }}">
+          <button type="submit"
+                  class="category-tile w-100 text-start px-3 py-2 rounded-3
+                  {% if request.GET.category == cat.id|stringformat:"s" %}active{% endif %}">
+            {{ cat.name }}
+          </button>
+        </form>
+      </li>
+    {% endfor %}
   </ul>
 </aside>

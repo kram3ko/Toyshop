@@ -1,15 +1,48 @@
 {% extends "base.html" %}
-{% block title %} Toy Details | Toy Shop {% endblock %}
+{% block title %}Toy Details | Toy Shop{% endblock %}
 
 {% block content %}
-  <div class="Toy-details">
-    <h2 class="Toy-title"> Toy Details
-      <a href="{% url 'toys:toy-update' toy.pk  %}"> update</a>
-    </h2>
+<div class="container">
+  <div class="card shadow-sm">
+    <div class="row g-0">
+      <!-- Фото -->
+      <div class="col-md-5">
+        {% if toy.photo %}
+          <img src="{{ toy.photo.url }}" class="img-fluid rounded-start" alt="{{ toy.name }}">
+        {% else %}
+          <img src="https://via.placeholder.com/400x300?text=No+Image" class="img-fluid rounded-start" alt="No image">
+        {% endif %}
+      </div>
 
-    <ul class="Toy-info">
-      <li><strong>Name:</strong> {{ toy.name }}</li>
-      <li><strong>Description:</strong> {{ toy.description }}</li>
-    </ul>
+      <!-- Деталі -->
+      <div class="col-md-7">
+        <div class="card-body">
+          <h3 class="card-title">
+            {{ toy.name }}
+            <a href="{% url 'toys:toy-update' toy.pk %}" class="btn btn-sm btn-outline-primary float-end">
+              Редагувати
+            </a>
+          </h3>
+          <p class="card-text text-muted">{{ toy.description }}</p>
+
+          <ul class="list-unstyled">
+            <li><strong>Ціна:</strong> {{ toy.price }} ₴</li>
+            <li><strong>Виробник:</strong> {{ toy.manufacturer }}</li>
+            <li><strong>В наявності:</strong> {{ toy.stock }} шт.</li>
+            <li>
+              <strong>Категорії:</strong>
+              {% for cat in toy.category.all %}
+                <span class="badge bg-secondary">{{ cat.name }}</span>
+              {% empty %}
+                <span class="text-muted">Без категорії</span>
+              {% endfor %}
+            </li>
+            <li><small class="text-muted">Додано: {{ toy.created_at|date:"d.m.Y H:i" }}</small></li>
+            <li><small class="text-muted">Оновлено: {{ toy.updated_at|date:"d.m.Y H:i" }}</small></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 {% endblock %}

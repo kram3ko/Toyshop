@@ -4,28 +4,17 @@
   <div class="container mt-4">
     <h2 class="mb-4">Оформлення замовлення</h2>
 
-    <form method="post" action="{% url 'order:order-create' %}">
-      {% csrf_token %}
-      <div class="mb-3">
-        <label for="id_user" class="form-label">Username</label>
-          {{ form.user }}
-      </div>
-
-      <div class="mb-3 form-control">
-        <label for="id_recipient" class="form-label">Корзинка</label>
-        {{ form.cart }}
-      </div>
-
-      <div class="mb-3 form-control">
-        <label for="id_recipient" class="form-label">Reciever</label>
-        {{ form.recipient }}
-      </div>
-
-
-      <div class="mb-3">
-        <label for="id_deliver_to" class="form-label">Адреса доставки</label>
-        {{ form.deliver_to }}
-      </div>
+{#    <form method="post" action="{% url 'order:order-create' %}">#}
+{#      {% csrf_token %}#}
+{#      <div class="mb-3">#}
+{#        <label for="id_user" class="form-label">Username</label>#}
+{#        {{ form.user }}#}
+{#      </div>#}
+{##}
+{#      <div class="mb-3 form-control">#}
+{#        <label for="id_recipient" class="form-label">Корзинка</label>#}
+{#        {{ form.cart }}#}
+{#      </div>#}
 
       <div class="mb-3">
         <label class="form-label">Метод доставки</label><br>
@@ -37,9 +26,11 @@
         {{ form.payment_method }}
       </div>
 
-
+      <div class="mb-3 form-control">
+        <label for="id_recipient" class="form-label">Reciever</label>
+        {{ form.recipient }}
+      </div>
       <hr>
-
       <h4>Ваше замовлення:</h4>
       {% if cart %}
         {% for item in cart.cart_items.all %}

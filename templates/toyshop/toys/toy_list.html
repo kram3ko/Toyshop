@@ -1,43 +1,49 @@
 {% extends "base.html" %}
-{% block title %}Drivers | Taxi Service{% endblock %}
+{% block title %}Toys | Toy Shop{% endblock %}
 
 {% block content %}
-  <div class="Toy-container">
-    <h1 class="Toy-title">Toylist
-      <a href="{% url 'toys:create-toy' %}" class="btn btn-primary">add Toy
-        <i class="bi bi-plus-circle"></i>
-      </a>
-    </h1>
+  <div class="toys-header mb-4">
+    <h2 class="fw-bold">🧸 Toy List</h2>
   </div>
-  <br>
-  <div>
+
   {% if toy_list %}
-    <table class="table-group">
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>Toy name</th>
-        <th>Description </th>
-        <th>Price</th>
-        <th>Category</th>
-        <th>Manufacturer</th>
-      </tr>
-      </thead>
-      <tbody>
+    <div class="toy-cards-container d-flex flex-column gap-4">
       {% for toy in toy_list %}
-        <tr>
-          <td>{{ toy.id }}</td>
-          <td><a href={% url 'toys:toy-update' toy.pk %}>update</a> {{ toy.name }}</td>
-          <td>{{ toy.description }}</td>
-          <td>{{ toy.price }}</td>
-          <td>{{ toy.category.name }}</td>
-          <td>{{ toy.manufacturer }}</td>
-        </tr>
+        <div class="card shadow-sm border-0 rounded-3 p-3">
+          <div class="row g-3 align-items-center">
+            <div class="col-md-8">
+              <div class="card-body">
+                <h4 class="card-title text-primary fw-bold">{{ toy.name }}</h4>
+
+                <div class="mb-2 text-muted small">
+                  <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
+                    <span>🛠 <strong>{{ toy.manufacturer }}</strong></span>
+                    <span>🕒 {{ toy.updated_at|date:"F d, Y H:i" }}</span>
+                  </div>
+                  <div class="d-flex flex-wrap gap-2">
+                    {% for cat in toy.category.all %}
+                      <span class="badge bg-light border text-dark">{{ cat.name }}</span>
+                    {% empty %}
+                      <span class="text-muted">No categories</span>
+                    {% endfor %}
+                  </div>
+                </div>
+
+                <p class="card-text">{{ toy.description|truncatewords:25 }}</p>
+              </div>
+            </div>
+            <div class="col-md-4 text-end">
+              {% if toy.photo %}
+                <img src="{{ toy.photo.url }}" alt="{{ toy.name }}" class="img-fluid rounded toy-photo">
+              {% else %}
+                <div class="text-muted small">No image</div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
       {% endfor %}
-      </tbody>
-    </table>
+    </div>
   {% else %}
-    <p class="empty-list">No toys</p>
+    <p class="text-muted">No toys found.</p>
   {% endif %}
-  </div>
 {% endblock %}

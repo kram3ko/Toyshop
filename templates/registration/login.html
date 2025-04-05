@@ -1,27 +1,47 @@
 {% extends "base.html" %}
 
-{% block title %}Login Page | Taxi Service{% endblock %}
+{% block title %}Вхід | ToyStore{% endblock %}
 
 {% block content %}
-  <div class="login-container">
-    <h1 class="login-title">🔑 Login</h1>
+<div class="min-h-screen flex items-center justify-center bg-pink-50 px-4">
+  <div class="w-full max-w-md bg-white rounded-3xl shadow-xl p-8 border border-yellow-200">
+    <h2 class="text-3xl font-bold text-center text-pink-600 mb-6">🎠 Увійти в ToyStore</h2>
 
     {% if form.errors %}
-      <p class="error-message">❌ Your username and password didn't match. Please try again.</p>
+      <div class="bg-red-100 text-red-700 p-3 rounded mb-4 text-sm">
+        ❌ Невірний логін або пароль. Спробуй ще раз.
+      </div>
     {% endif %}
 
     {% if next %}
-      <p class="login-info">⚠️ Please login to see this page.</p>
+      <p class="text-sm text-yellow-600 mb-2">🧸 Спочатку увійди, щоб побачити цю сторінку</p>
     {% endif %}
 
-    <div class="login-form-wrapper">
-      <form action="{% url 'login' %}" method="post" class="login-form">
-        {% csrf_token %}
-        {{ form }}
+    <form action="{% url 'login' %}" method="post" class="space-y-5">
+      {% csrf_token %}
 
-        <input type="submit" value="Login" class="btn btn-primary"/>
-        <input type="hidden" name="next" value="{{ next }}"/>
-      </form>
-    </div>
+      <div>
+        <label for="username" class="block mb-1 text-gray-700">Імʼя користувача</label>
+        <input type="text" id="username" name="username" required class="form-input">
+      </div>
+
+      <div>
+        <label for="password" class="block mb-1 text-gray-700">Пароль</label>
+        <input type="password" id="password" name="password" required class="form-input">
+      </div>
+
+      <input type="hidden" name="next" value="{{ next }}"/>
+
+      <button type="submit"
+              class="btn-login">
+        🧩 Увійти
+      </button>
+    </form>
+
+    <p class="text-center text-sm text-gray-500 mt-6">
+      Ще не маєш акаунту? <a href=""
+                             class="text-pink-600 hover:underline font-semibold">Зареєструйся!</a>
+    </p>
   </div>
+</div>
 {% endblock %}
