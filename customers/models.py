@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.urls import reverse
 
 from toys.models import Toy
 
@@ -20,12 +21,15 @@ class ToyClub(models.Model):
 
 
 class User(AbstractUser):
-    customer = models.BooleanField(default=True)
+    shop_admin = models.BooleanField(default=False)
     join_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     toy_club = models.ForeignKey(
         ToyClub, on_delete=models.SET_NULL, null=True, blank=True
     )
+
+    def get_absolute_url(self):
+        return reverse("customers:customer-detail", kwargs={"pk": self.pk})
 
     def __str__(self):
         return self.username
