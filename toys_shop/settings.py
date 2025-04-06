@@ -54,10 +54,10 @@ INSTALLED_APPS = [
     # custom apps
     "debug_toolbar",
     "customers",
-    "order",
+    "orders",
     "toys",
-    "cart",
-    "wishlist",
+    "carts",
+    "wishlists",
 ]
 
 MIDDLEWARE = [

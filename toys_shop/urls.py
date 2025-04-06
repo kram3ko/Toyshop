@@ -8,10 +8,11 @@ from toys_shop import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
-    path("toys/", include("toys.urls", namespace="toys")),
-    path("toys/carts/", include("cart.urls", namespace="carts")),
-    path("toys/customers/", include("customers.urls", namespace="customers")),
-    path("toys/orders/", include("order.urls", namespace="order")),
+    path("", include("toys.urls", namespace="toys")),
+    path("carts/", include("carts.urls", namespace="carts")),
+    path("customers/", include("customers.urls", namespace="customers")),
+    path("orders/", include("orders.urls", namespace="orders")),
+    path("wishlists/", include("wishlists.urls", namespace="wishlists")),
     path("__debug__/", include(debug_toolbar.urls)),
 ]
 if settings.DEBUG:

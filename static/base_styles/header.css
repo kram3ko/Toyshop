@@ -49,6 +49,7 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
+    text-decoration: none;
 }
 
 .search-container {
@@ -87,6 +88,7 @@ body {
     font-size: 20px;
     position: relative;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .icon-btn sup {

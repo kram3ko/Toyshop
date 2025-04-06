@@ -1,4 +1,4 @@
-from cart.models import Cart
+from carts.models import Cart
 from toys.models import Category
 
 

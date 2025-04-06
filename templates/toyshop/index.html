@@ -23,14 +23,16 @@
                    title="Detail info">
                   <i class="bi bi-info-circle"> info</i>
                 </a>
-                <form method="post" action="{% url 'cart:add-to-cart' toy.pk %}" class="w-100">
+                <form method="post" action="{% url 'carts:add-to-cart' toy.pk %}" class="w-100">
                   {% csrf_token %}
+                  <input type="hidden" name="next" value="{{ request.get_full_path }}">
                   <button type="submit" class="btn btn-success btn-sm w-100 toy-action-btn" title="Add to cart">
                     <i class="bi bi-cart-plus"></i>
                   </button>
                 </form>
-                <form method="post" action="" class="w-100">
+                <form method="post" action="{% url 'wishlists:add-to-wishlist' toy.pk %}" class="w-100">
                   {% csrf_token %}
+                  <input type="hidden" name="next" value="{{ request.get_full_path }}">
                   <button type="submit" class="btn btn-warning btn-sm w-100 toy-action-btn" title="Add to wishlist">
                     <i class="bi bi-heart"></i>
                   </button>
@@ -44,23 +46,4 @@
   {% else %}
     <p class="text-muted">No toys available.</p>
   {% endif %}
-{#    <div class="mt-4 d-flex flex-wrap justify-content-between align-items-center gap-3">#}
-{##}
-{#    <div>#}
-{#      <a href="{% url 'toys:toy-list' %}" class="btn btn-outline-primary btn-sm">#}
-{#        <i class="bi bi-box-seam"></i> See all toys#}
-{#      </a>#}
-{#    </div>#}
-{##}
-{#    <div class="alert alert-info d-flex align-items-center mb-0 py-1 px-2 shadow-sm" style="font-size: 0.75rem;">#}
-{#      <i class="bi bi-cube me-1"></i>#}
-{#      Total toys: <strong class="ms-1">{{ count_toys }}</strong>#}
-{#    </div>#}
-{##}
-{##}
-{#    <div class="text-muted small">#}
-{#      <i class="bi bi-eye"></i>#}
-{#      You visited this page <strong>{{ num_visits }}</strong> time{{ num_visits|pluralize }}.#}
-{#    </div>#}
-{#  </div>#}
 {% endblock %}

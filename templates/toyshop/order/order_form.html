@@ -4,17 +4,21 @@
   <div class="container mt-4">
     <h2 class="mb-4">Оформлення замовлення</h2>
 
-{#    <form method="post" action="{% url 'order:order-create' %}">#}
-{#      {% csrf_token %}#}
-{#      <div class="mb-3">#}
-{#        <label for="id_user" class="form-label">Username</label>#}
-{#        {{ form.user }}#}
-{#      </div>#}
-{##}
-{#      <div class="mb-3 form-control">#}
-{#        <label for="id_recipient" class="form-label">Корзинка</label>#}
-{#        {{ form.cart }}#}
-{#      </div>#}
+    <form method="post" action="{% url 'orders:order-create' %}">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="id_user" class="form-label">Username</label>
+        {{ form.user }}
+      </div>
+
+      <div class="mb-3 form-control">
+        <label for="id_recipient" class="form-label">Корзинка</label>
+        {{ form.cart }}
+      </div>
+      <div class="mb-3 form-control">
+        <label for="id_deliver_to" class="form-label">Адреса доставки</label>
+        {{ form.deliver_to }}
+      </div>
 
       <div class="mb-3">
         <label class="form-label">Метод доставки</label><br>
@@ -32,8 +36,8 @@
       </div>
       <hr>
       <h4>Ваше замовлення:</h4>
-      {% if cart %}
-        {% for item in cart.cart_items.all %}
+      {% if carts %}
+        {% for item in carts.cart_items.all %}
           <div class="border p-2 mb-2">
             <strong>{{ item.toy.name }}</strong> —
             {{ item.quantity }} x {{ item.toy.price }} ₴ =
@@ -42,7 +46,7 @@
         {% endfor %}
         <div class="mb-3">
           <label for="id_total_price" class="form-label">Загальна сума до оплати</label>
-          <input type="text" name="total_price" class="form-control" id="id_total_price" value="{{ cart.total_price }}"
+          <input type="text" name="total_price" class="form-control" id="id_total_price" value="{{ carts.total_price }}"
                  readonly>
         </div>
       {% else %}

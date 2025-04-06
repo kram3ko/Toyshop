@@ -2,7 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
-from cart.models import Cart
+from carts.models import Cart
 
 
 class DeliveryMethod(models.TextChoices):
@@ -32,9 +32,12 @@ class Order(models.Model):
         max_length=20, choices=PaymentMethod.choices
     )
     recipient = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)
+
 
     def get_absolute_url(self):
-        return reverse("order:order-detail", kwargs={"pk": self.pk})
+        return reverse("orders:order-detail", kwargs={"pk": self.pk})
 
 
     def __str__(self):

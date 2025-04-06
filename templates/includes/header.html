@@ -1,9 +1,17 @@
 <!-- Верхній бар -->
-<div class="header-top" style="background-color: #1c1c1c; color: white; font-size: 14px; padding: 5px 20px; display: flex; justify-content: space-between; align-items: center;">
+<div class="header-top"
+     style="background-color: #1c1c1c; color: white; font-size: 14px; padding: 5px 20px; display: flex; justify-content: space-between; align-items: center;">
   <div style="display: flex; gap: 15px;">
   </div>
   <div style="display: flex; gap: 15px; align-items: center;">
     <a href="{% url 'toys:index' %}" style="color: white; text-decoration: none;">HOME</a>
+    {% if user.is_authenticated %}
+      <p>{{ user.first_name }} {{ user.last_name }} </p>
+    {% endif %}
+    {% if user.shop_admin %}
+      <p>Shop Administartor</p>
+    {% endif %}
+    <a href="{% url 'orders:order-list' %}">look</a>
   </div>
   <div style="display: flex; gap: 15px; align-items: center;">
     <a href="#" style="color: white; text-decoration: none;">📞097-842-58-29</a>
@@ -17,9 +25,9 @@
       <a href="{% url 'toys:index' %}">Toy Shop</a>
     </div>
 
-    <button class="catalog-btn">
-      <span>📦</span> <span>Catalog</span>
-    </button>
+    <<a href="{% url 'toys:toy-list' %}" class="catalog-btn">
+    <span>📦</span> <span>Catalog</span>
+  </a>
 
     <div class="search-container" style="margin: 0 20px;">
       <input type="text" placeholder="Search toys">
@@ -27,14 +35,14 @@
     </div>
 
     <div class="icons">
-  <a href="{% url 'login' %}" class="icon-btn" title="Профіль">👤</a>
-  <div class="icon-divider"></div>
+      <a href="{% url 'login' %}" class="icon-btn" title="profile">👤</a>
+      <div class="icon-divider"></div>
 
-  <a href="" class="icon-btn" title="Wishlist">❤️</a>
-  <div class="icon-divider"></div>
+      <a href="{% url 'wishlists:wishlist-detail' %}" class="icon-btn" title="Wishlist">❤️</a>
+      <div class="icon-divider"></div>
 
-  <a href="{% url 'order:order-create' %}" class="icon-btn" title="Cart">🛒<sup>{{ cart_item_count }}</sup></a>
-</div>
+      <a href="{% url 'orders:order-create' %}" class="icon-btn" title="Cart">🛒<sup>{{ cart_item_count }}</sup></a>
+    </div>
 
   </div>
 </header>
