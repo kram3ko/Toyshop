@@ -9,8 +9,13 @@ from wishlists.models import WishList, WishListItem
 
 
 class WishListDetailView(LoginRequiredMixin, generic.DetailView):
-    model = WishListItem
+    model = WishList
     template_name = "toyshop/wishlist/wishlist_detail.html"
+
+    def get_queryset(self):
+        return WishList.objects.filter(
+            user=self.request.user
+        ).prefetch_related("items__toy","items__toy__category")
 
     def get_object(self, queryset=None):
         wishlist, created = WishList.objects.get_or_create(user=self.request.user)

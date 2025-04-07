@@ -1,67 +1,43 @@
 {% extends 'base.html' %}
+{% load crispy_forms_filters %}
 
 {% block content %}
   <div class="container mt-4">
-    <h2 class="mb-4">Оформлення замовлення</h2>
+    <h2 class="mb-4">Check out order</h2>
 
+    <div class="mb-3">
+      <label for="id_total_price" class="form-label">Customer</label>
+      <input type="text" name="Customer" class="form-control" id="id_customer"
+             value="{{ user.first_name }} {{ user.last_name }}" readonly>
+    </div>
     <form method="post" action="{% url 'orders:order-create' %}">
       {% csrf_token %}
-      <div class="mb-3">
-        <label for="id_user" class="form-label">Username</label>
-        {{ form.user }}
-      </div>
+      {{ form|crispy }}
 
-      <div class="mb-3 form-control">
-        <label for="id_recipient" class="form-label">Корзинка</label>
-        {{ form.cart }}
-      </div>
-      <div class="mb-3 form-control">
-        <label for="id_deliver_to" class="form-label">Адреса доставки</label>
-        {{ form.deliver_to }}
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Метод доставки</label><br>
-        {{ form.delivery_method }}
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Метод оплати</label><br>
-        {{ form.payment_method }}
-      </div>
-
-      <div class="mb-3 form-control">
-        <label for="id_recipient" class="form-label">Reciever</label>
-        {{ form.recipient }}
-      </div>
-      <hr>
-      <h4>Ваше замовлення:</h4>
-      {% if carts %}
-        {% for item in carts.cart_items.all %}
+      <h4>Your order:</h4>
+      {% if cart %}
+        {% for item in cart.cart_items.all %}
           <div class="border p-2 mb-2">
             <strong>{{ item.toy.name }}</strong> —
             {{ item.quantity }} x {{ item.toy.price }} ₴ =
             {{ item.total_price }} ₴
+            {% if item.toy.photo %}
+              <div class="mt-2">
+                <img src="{{ item.toy.photo.url }}" alt="{{ item.toy.name }}" class="img-thumbnail"
+                     style="max-height: 100px;">
+              </div>
+            {% endif %}
           </div>
         {% endfor %}
         <div class="mb-3">
-          <label for="id_total_price" class="form-label">Загальна сума до оплати</label>
-          <input type="text" name="total_price" class="form-control" id="id_total_price" value="{{ carts.total_price }}"
+          <label for="id_total_price" class="form-label">Total price</label>
+          <input type="text" name="total_price" class="form-control" id="id_total_price" value="{{ cart.total_price }}"
                  readonly>
         </div>
       {% else %}
-        <p class="text-danger">Кошик порожній.</p>
+        <p class="text-danger">Empty cart.</p>
       {% endif %}
-      <button type="submit" class="btn btn-primary mt-3">Оформити замовлення</button>
+      <button type="submit" class="btn btn-primary mt-3">Make order</button>
     </form>
-    {% if form.errors %}
-      <div class="alert alert-danger">
-        <ul>
-          {% for field, errors in form.errors.items %}
-            <li>{{ field }}: {{ errors|striptags }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
   </div>
 {% endblock %}

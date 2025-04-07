@@ -10,7 +10,7 @@
         
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
             <div class="p-6">
-                <form method="post" class="space-y-6">
+                <form method="post" class="space-y-6" novalidate>
                     {% csrf_token %}
                     
                     {% if form.errors %}
@@ -20,6 +20,7 @@
                                 {% for field, errors in form.errors.items %}
                                     {% for error in errors %}
                                         <li>{{ error }}</li>
+                                        <li>{{ field }}</li>
                                     {% endfor %}
                                 {% endfor %}
                             </ul>

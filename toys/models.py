@@ -22,9 +22,9 @@ class Toy(models.Model):
     stock = models.PositiveIntegerField()
     manufacturer = models.CharField(max_length=100)
     category = models.ManyToManyField(Category, related_name="toys")
+    photo = models.ImageField(upload_to="toys/", null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    photo = models.ImageField(upload_to="toys/", null=True, blank=True)
 
     def get_absolute_url(self):
         return reverse("toys:toy-detail", kwargs={"pk": self.pk})

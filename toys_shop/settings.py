@@ -58,6 +58,9 @@ INSTALLED_APPS = [
     "toys",
     "carts",
     "wishlists",
+    # django crispy forms
+    "crispy_forms",
+    "crispy_bootstrap5"
 ]
 
 MIDDLEWARE = [
@@ -86,7 +89,9 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 # custom context
                 "base.context_processors.cart_item_count",
-                "base.context_processors.category_item_list"
+                "base.context_processors.category_item_list",
+                "base.context_processors.get_toy_search_form",
+                "base.context_processors.wishlist_item_count",
             ],
         },
     },
@@ -154,3 +159,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Django debug tools
 INTERNAL_IPS = ["127.0.0.1"]
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+# CSRF_TRUSTED_ORIGINS = [
+#     "https://79fb-5-58-140-153.ngrok-free.app",
+# ]

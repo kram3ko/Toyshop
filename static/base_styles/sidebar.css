@@ -5,30 +5,29 @@
   top: 80px;
   background-color: #fff;
   border-right: 1px solid #e9ecef;
+  padding: 1rem;
+  height: fit-content;
 }
 
-.category-form {
-  margin: 0;
-}
+/* Адаптація для мобільних */
+@media (max-width: 768px) {
+  .sidebar {
+    min-width: 100%;
+    max-width: 100%;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid #e9ecef;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
 
-.category-tile {
-  background-color: #f8f9fa;
-  border: 1px solid transparent;
-  font-weight: 500;
-  font-size: 0.95rem;
-  color: #495057;
-  transition: all 0.25s ease;
-}
+  .category-tile {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
 
-.category-tile:hover {
-  background-color: #e2e6ea;
-  color: #212529;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.category-tile.active {
-  background-color: #0d6efd;
-  color: #fff;
-  border-color: #0d6efd;
-  box-shadow: 0 4px 8px rgba(13, 110, 253, 0.15);
+  .category-form {
+    margin-bottom: 0.5rem;
+  }
 }

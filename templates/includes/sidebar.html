@@ -4,7 +4,7 @@
   <ul class="list-unstyled category-list">
     {% for cat in categories_list %}
       <li class="mb-2">
-        <form method="get" action="" class="category-form">
+        <form method="get" action="{% url 'toys:toy-list' %}" class="category-form">
           <input type="hidden" name="category" value="{{ cat.id }}">
           <button type="submit"
                   class="category-tile w-100 text-start px-3 py-2 rounded-3

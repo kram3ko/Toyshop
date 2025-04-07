@@ -1,7 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views import generic
 
+from toys.forms import ToyCreateForm, ToySearchForm
 from toys.models import Toy, Category
 
 
@@ -11,51 +13,45 @@ class HomePageView(generic.ListView):
     def get_queryset(self):
         return Toy.objects.order_by("-updated_at")[:8]
 
-
-class CategoryListView(generic.ListView):
-    model = Category
-
-
 class ToyListView(generic.ListView):
-    model = Toy
     template_name = "toyshop/toys/toy_list.html"
     paginate_by = 12
 
     def get_queryset(self):
         queryset = Toy.objects.prefetch_related("category")
-        search_query = self.request.GET.get("q")
-        category_id = self.request.GET.get("category")
 
-        if search_query:
+        category_id = self.request.GET.get("category")
+        if category_id:
+            return queryset.filter(category__id=category_id).distinct()
+
+        form = ToySearchForm(self.request.GET)
+        if form.is_valid():
             queryset = queryset.filter(
-                Q(name__icontains=search_query) |
-                Q(description__icontains=search_query) |
-                Q(manufacturer__icontains=search_query)
+                Q(name__icontains=form.cleaned_data["toy"]) |
+                Q(description__icontains=form.cleaned_data["toy"]) |
+                Q(manufacturer__icontains=form.cleaned_data["toy"])
             )
 
-        if category_id:
-            queryset = queryset.filter(category__id=category_id)
+        return queryset
 
-        return queryset.order_by("-updated_at")
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["categories"] = Category.objects.all()
-        context["search_query"] = self.request.GET.get("q", "")
-        context["selected_category"] = self.request.GET.get("category")
-        return context
-
-class ToyCreateView(generic.CreateView):
+class ToyCreateView(LoginRequiredMixin, generic.CreateView):
     model = Toy
+    form_class = ToyCreateForm
+    template_name = "toyshop/toys/toy_form.html"
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        form.save()
+        return super().form_valid(form)
 
     def get_success_url(self):
         return reverse("toys:toy-detail", kwargs={"pk": self.object.pk})
 
 
-class ToyUpdateView(generic.UpdateView):
+class ToyUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Toy
+    form_class = ToyCreateForm
     template_name = "toyshop/toys/toy_form.html"
-    fields = "__all__"
 
     def get_success_url(self):
         return reverse("toys:toy-detail", kwargs={"pk": self.object.pk})
@@ -64,3 +60,9 @@ class ToyUpdateView(generic.UpdateView):
 class ToyDetailView(generic.DetailView):
     model = Toy
     template_name = "toyshop/toys/toy_detail.html"
+
+
+class ToyDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Toy
+    template_name = "toyshop/toys/toy_confirm_delete.html"
+    success_url = reverse_lazy("toys:toy-list")

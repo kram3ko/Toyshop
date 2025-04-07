@@ -33,9 +33,9 @@
               <dt class="col-sm-4 text-muted">Member Since:</dt>
               <dd class="col-sm-8">{{ user.join_date|date:"F j, Y" }}</dd>
 
-              <dt class="col-sm-4 text-muted">Customer:</dt>
+              <dt class="col-sm-4 text-muted">Shop Administrator:</dt>
               <dd class="col-sm-8">
-                {% if user.customer %}
+                {% if user.shop_admin %}
                   <span class="badge bg-success px-3 py-1">Yes</span>
                 {% else %}
                   <span class="badge bg-secondary px-3 py-1">No</span>
