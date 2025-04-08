@@ -6,7 +6,8 @@ from customers.views import (
     CustomerRegisterView,
     CustomerUpdateView,
     ToyClubCreateView,
-    ToyClubListView
+    ToyClubListView,
+    ToyClubAssignView
 )
 
 app_name = "customers"
@@ -17,5 +18,6 @@ urlpatterns = [
     path("<int:pk>/update/", CustomerUpdateView.as_view(),name="customer-update"),
     path("toyclub/create/", ToyClubCreateView.as_view(), name="toy-club-create"),
     path("toyclub/list/", ToyClubListView.as_view(), name="toy-club-list"),
+    path("toyclub/<int:pk>/assign", ToyClubAssignView.as_view(), name="toy-assign")
 
 ]

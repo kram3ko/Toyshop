@@ -38,3 +38,9 @@ class ToyClubCreateView(LoginRequiredMixin, generic.CreateView):
 class ToyClubListView(LoginRequiredMixin, generic.ListView):
     model = ToyClub
     template_name = "toyshop/customers/toy_club_list.html"
+
+class ToyClubAssignView(LoginRequiredMixin, generic.UpdateView):
+    model = ToyClub
+    fields = ["user",]
+    template_name = "toyshop/customers/toy_club_assign.html"
+    success_url = reverse_lazy("customers:toy-club-list")
