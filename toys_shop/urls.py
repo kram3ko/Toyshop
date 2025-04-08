@@ -7,7 +7,7 @@ from toys_shop import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/", include("accounts.urls", namespace="accounts")),
     path("", include("toys.urls", namespace="toys")),
     path("carts/", include("carts.urls", namespace="carts")),
     path("customers/", include("customers.urls", namespace="customers")),

@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # custom apps
     "debug_toolbar",
+    "accounts",
     "customers",
     "orders",
     "toys",
@@ -87,7 +88,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                # custom context
+                # custom context processors
                 "base.context_processors.cart_item_count",
                 "base.context_processors.category_item_list",
                 "base.context_processors.get_toy_search_form",
@@ -108,7 +109,6 @@ DATABASES = {
         "DATABASE_URL", default=f"sqlite:///{BASE_DIR / 'toys_db.sqlite3'}"
     )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -148,7 +148,7 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-
+#Media Urls
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
@@ -160,9 +160,25 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Django debug tools
 INTERNAL_IPS = ["127.0.0.1"]
 
+#Email settings configuration
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = env.int('EMAIL_PORT')
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+
+#TailWind crispy packs
 CRISPY_ALLOWED_TEMPLATE_PACKS = ["tailwind"]
 CRISPY_TEMPLATE_PACK = "tailwind"
 
+
+# Test for tunnels
 CSRF_TRUSTED_ORIGINS = [
     "https://79a9-2a09-bac1-7500-10-00-49-243.ngrok-free.app",
+    "https://2ca5-2a09-bac5-596e-2432-00-39b-100.ngrok-free.app"
 ]

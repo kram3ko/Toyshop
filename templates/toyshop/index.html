@@ -23,7 +23,7 @@
       {% for toy in toy_list|slice:":8" %}
         <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
           {% if toy.photo %}
-            <a href="{{ toy.get_absolute_url }}">
+            <a href="{{ toy.get_absolute_url }}?next={{ request.get_full_path }}">
               <img src="{{ toy.photo.url }}" alt="{{ toy.name }}" class="w-full h-40 object-cover">
             </a>
           {% else %}

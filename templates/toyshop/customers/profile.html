@@ -103,7 +103,7 @@
                     <span>My Wishlist</span>
                   </a>
                   {% if user == request.user %}
-                    <form action="{% url 'logout' %}" method="post">
+                    <form action="{% url 'accounts:logout' %}" method="post">
                       {% csrf_token %}
                       <button
                           class="flex items-center w-full p-3 bg-red-50 rounded-lg hover:bg-red-100 transition-colors text-red-600">

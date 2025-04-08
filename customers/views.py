@@ -15,14 +15,6 @@ class CustomerProfileView(LoginRequiredMixin, generic.DetailView):
     model = User
     template_name = "toyshop/customers/profile.html"
 
-
-class CustomerRegisterView(generic.CreateView):
-    model = User
-    template_name = "toyshop/customers/register.html"
-    form_class = CustomCustomerCreationForm
-    success_url = reverse_lazy("login")
-
-
 class CustomerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = User
     form_class = CustomerUpdateForm

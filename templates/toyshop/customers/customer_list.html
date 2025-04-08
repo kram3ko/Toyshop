@@ -2,7 +2,7 @@
 {% block title %}Customers | Toy shop{% endblock %}
 
 {% block content %}
-  <div class="max-w-5xl mx-auto px-4 py-8">
+  <div class="max-w-6xl mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold text-gray-800 mb-6">User List</h1>
 
     {% if user_list %}
@@ -12,6 +12,7 @@
           <tr>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Username</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">First Name</th>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Name</th>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Shop Admin</th>
@@ -27,6 +28,7 @@
               <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600 font-semibold">
                 <a href="{{ user.get_absolute_url }}">{{ user.username }}</a>
               </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm">{{ user.email }}</td>
               <td class="px-6 py-4 whitespace-nowrap text-sm">{{ user.first_name }}</td>
               <td class="px-6 py-4 whitespace-nowrap text-sm">{{ user.last_name }}</td>
               <td class="px-6 py-4 whitespace-nowrap text-sm">{{ user.shop_admin }}</td>

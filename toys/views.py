@@ -4,9 +4,10 @@ from django.urls import reverse, reverse_lazy
 from django.views import generic
 
 from toys.forms import ToyCreateForm, ToySearchForm
-from toys.models import Toy, Category
+from toys.models import Toy
 
-
+class AboutView(generic.TemplateView):
+    template_name = "toyshop/about.html"
 class HomePageView(generic.ListView):
     template_name = "toyshop/index.html"
 

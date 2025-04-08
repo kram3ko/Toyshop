@@ -10,6 +10,7 @@ from customers.validators import (
 
 
 class CustomCustomerCreationForm(UserCreationForm):
+    email = forms.EmailField(required=True,label="Email address")
     class Meta(UserCreationForm.Meta):
         model = User
         fields = UserCreationForm.Meta.fields + (
