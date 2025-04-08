@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Toys shop"
 requires-python = ">=3.13"
 dependencies = [
-    "crispy-bootstrap5>=2025.4",
+    "crispy-tailwind>=1.0.3",
     "django>=5.1.7",
     "django-crispy-forms>=2.3",
     "django-debug-toolbar>=5.1.0",

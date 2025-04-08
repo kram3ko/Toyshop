@@ -1,49 +1,71 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h4 class="text-secondary mb-4">
-    🧸 Latest seen toys
+  <h4 class="text-gray-600 mb-6 text-lg font-semibold">
+    🧸 Latest seen toy
   </h4>
+  {% if last_viewed_toy %}
+    <div class="last-viewed-toy mb-6">
+      <h5 class="text-xl font-medium text-gray-800">{{ last_viewed_toy.name }}</h5>
+      <p class="text-sm text-gray-600">{{ last_viewed_toy.description }}</p>
+      <a href="{% url 'toys:toy-detail' last_viewed_toy.id %}"
+         class="text-blue-500 hover:underline mt-2 inline-block">
+        View Details
+      </a>
+    </div>
+  {% else %}
+    <p class="text-gray-400 mb-6">You haven't viewed any toys yet.</p>
+  {% endif %}
+
   {% if toy_list %}
-    <div class="row justify-content-center">
-      {% for toy in toy_list %}
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-          <div class="card toy-card">
-            {% if toy.photo %}
-              <img src="{{ toy.photo.url }}" class="card-img-top toy-card-img" alt="{{ toy.name }}">
-            {% else %}
-              <img src="https://via.placeholder.com/300x200?text=No+Image" class="card-img-top toy-card-img"
-                   alt="No image">
-            {% endif %}
-            <div class="card-body toy-card-body">
-              <h6 class="card-title mb-1">{{ toy.name }}</h6>
-              <p class="text-muted mb-1 small"><strong>Price:</strong> ${{ toy.price }}</p>
-              <div class="toy-action-group">
-                <a href="{% url 'toys:toy-detail' toy.pk %}" class="btn btn-outline-primary btn-sm w-100 toy-action-btn"
-                   title="Detail info">
-                  <i class="bi bi-info-circle"> info</i>
-                </a>
-                <form method="post" action="{% url 'carts:add-to-cart' toy.pk %}" class="w-100">
-                  {% csrf_token %}
-                  <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                  <button type="submit" class="btn btn-success btn-sm w-100 toy-action-btn" title="Add to cart">
-                    <i class="bi bi-cart-plus"></i>
-                  </button>
-                </form>
-                <form method="post" action="{% url 'wishlists:add-to-wishlist' toy.pk %}" class="w-100">
-                  {% csrf_token %}
-                  <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                  <button type="submit" class="btn btn-warning btn-sm w-100 toy-action-btn" title="Add to wishlist">
-                    <i class="bi bi-heart"></i>
-                  </button>
-                </form>
-              </div>
+    <div class="ml-16"></div> {# добавляем отступ для сайдбара #}
+    <div class="grid gap-6 grid-cols-2 md:grid-cols-4">
+      {% for toy in toy_list|slice:":8" %}
+        <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
+          {% if toy.photo %}
+            <a href="{{ toy.get_absolute_url }}">
+              <img src="{{ toy.photo.url }}" alt="{{ toy.name }}" class="w-full h-40 object-cover">
+            </a>
+          {% else %}
+            <a href="{{ toy.get_absolute_url }}">
+              <img src="https://via.placeholder.com/300x200?text=No+Image" alt="No image"
+                   class="w-full h-40 object-cover">
+            </a>
+          {% endif %}
+
+          <div class="p-3 space-y-2">
+            <h6 class="text-base font-medium text-gray-800 truncate">{{ toy.name }}</h6>
+            <p class="text-sm text-gray-500"><strong>Price:</strong> ${{ toy.price }}</p>
+
+            <div class="flex justify-between gap-1 pt-1">
+              <a href="{% url 'toys:toy-detail' toy.pk %}"
+                 class="bg-blue-200 hover:bg-blue-400 text-white text-base py-1 px-2 rounded-md text-center w-1/3">
+                ℹ️
+              </a>
+
+              <form method="post" action="{% url 'carts:add-to-cart' toy.pk %}" class="w-1/3">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                <button type="submit"
+                        class="bg-green-200 hover:bg-green-400 text-white text-base py-1 px-2 rounded-md w-full">
+                  🛒
+                </button>
+              </form>
+
+              <form method="post" action="{% url 'wishlists:add-to-wishlist' toy.pk %}" class="w-1/3">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                <button type="submit"
+                        class="bg-yellow-200 hover:bg-yellow-400 text-white text-base py-1 px-2 rounded-md w-full">
+                  ❤️
+                </button>
+              </form>
             </div>
           </div>
         </div>
       {% endfor %}
     </div>
   {% else %}
-    <p class="text-muted">No toys available.</p>
+    <p class="text-gray-400">No toys available.</p>
   {% endif %}
 {% endblock %}

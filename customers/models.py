@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
@@ -10,6 +11,14 @@ class ToyClub(models.Model):
         BRONZE = "bronze", "Bronze"
         SILVER = "silver", "Silver"
         GOLD = "gold", "Gold"
+
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="toy_club",
+        null=True,
+        blank=True
+    )
 
     level = models.CharField(max_length=10, choices=LevelChoice.choices)
     unique_number = models.CharField(max_length=13, unique=True)
@@ -24,9 +33,6 @@ class User(AbstractUser):
     shop_admin = models.BooleanField(default=False)
     join_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    toy_club = models.ForeignKey(
-        ToyClub, on_delete=models.SET_NULL, null=True, blank=True
-    )
 
     def get_absolute_url(self):
         return reverse("customers:profile", kwargs={"pk": self.pk})

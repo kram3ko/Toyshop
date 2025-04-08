@@ -1,64 +1,98 @@
-<!-- Верхній бар -->
-<div class="header-top"
-     style="background-color: #1c1c1c; color: white; font-size: 14px; padding: 5px 20px; display: flex; justify-content: space-between; align-items: center;">
-  <div style="display: flex; gap: 15px;">
+<!--upper panel -->
+<div
+    class="w-full bg-gray-700 shadow-inner border-b border-gray-700 py-3 px-6 text-sm text-gray-300 flex justify-between items-center">
+  <div class="flex justify-center items-center gap-8">
+    <div class="flex-1 text-center">
+      <a href="{% url 'toys:index' %}" class="no-underline hover:text-white text-3xl font-bold transition">Home</a>
+    </div>
+    <div>
+      {% if request.user.shop_admin %}
+        <a href="{% url 'customers:customers-list' %}" class="no-underline hover:text-white transition text-xl">All
+          Customers</a>
+      {% endif %}
+    </div>
+    <div>
+      {% if request.user.shop_admin %}
+      <a href="{% url 'customers:toy-club-list' %}" class="no-underline hover:text-white transition text-xl">
+        ToyClub
+      </a>
+      {% endif %}
+    </div>
   </div>
-  <div style="display: flex; gap: 15px; align-items: center;">
-    <a href="{% url 'toys:index' %}" style="color: white; text-decoration: none;">HOME</a>
+
+
+  <div class="flex gap-4 items-center text-sm sm:text-base">
     {% if user.is_authenticated %}
-      <a href="{% url 'customers:profile' user.pk %}">{{ user.first_name }} {{ user.last_name }}</a>
-    {% endif %}
-    {% if user.shop_admin %}
-      <p>Shop Administartor</p>
-    {% endif %}
-    <a href="{% url 'orders:order-list' %}">order history</a>
-  </div>
-  <div>
-    {% if user.is_authenticated %}
-      <form action="{% url 'logout' %}" method="post">
+      <a href="{% url 'customers:profile' request.user.pk %}"
+         class="no-underline hover:text-white transition text-lg sm:text-xl">
+        {{ request.user.first_name }} {{ request.user.last_name }}
+      </a>
+      {% if request.user.shop_admin %}
+        <span class="text-blue-400 text-lg sm:text-xl">Shop Admin</span>
+      {% endif %}
+      <form action="{% url 'logout' %}" method="post" class="inline">
         {% csrf_token %}
-        <button class="btn btn-secondary">Logout</button>
+        <button class="ml-2 no-underline hover:text-white transition text-lg sm:text-xl">Logout</button>
       </form>
+    {% else %}
+      <a class="sm:text-xl" href="{% url 'login' %}">Login</a>
     {% endif %}
-  </div>
-  <div style="display: flex; gap: 15px; align-items: center;">
-    <a href="#" style="color: white; text-decoration: none;">📞097-842-58-29</a>
+    <span class="text-sm sm:text-base text-right">📞 097-842-58-29</span>
   </div>
 </div>
 
+
 <!-- Основний хедер -->
-<header class="header">
-  <div class="header-inner">
-    <div class="logo">
-      <a href="{% url 'toys:index' %}">Toy Shop</a>
+<header class="bg-black text-white shadow-md py-3">
+  <div class="w-full max-w-screen-xl mx-auto px-2 flex flex-wrap items-center justify-between gap-4 sm:gap-6 lg:gap-8">
+
+    <!-- Логотип + Кнопка -->
+    <div class="flex items-center gap-4">
+      <!-- Логотип -->
+      <div class="text-4xl font-extrabold tracking-tight leading-none">
+        <a href="{% url 'toys:index' %}" class="text-white no-underline hover:text-blue-300 transition">Toy Shop</a>
+      </div>
+
+      <!-- Кнопка Catalog -->
+      <a href="{% url 'toys:toy-list' %}"
+         class="bg-red-600 hover:bg-red-700 text-white px-3 py-2.5 rounded-md flex items-center gap-2 text-sm font-medium transition no-underline">
+        📦 <span>Catalog</span>
+      </a>
     </div>
 
-    <<a href="{% url 'toys:toy-list' %}" class="catalog-btn">
-    <span>📦</span> <span>Catalog</span>
-  </a>
-
-    <div class="search-container" style="margin: 0 20px;">
-      <form method="get" action="{% url 'toys:toy-list' %}" class="d-flex align-items-center gap-2 w-100">
+    <!-- Search -->
+    <div class="w-full sm:flex-1 sm:mx-4">
+      <form method="get" action="{% url 'toys:toy-list' %}" class="flex w-full">
         {{ search_form.toy }}
-        <button type="submit" class="btn btn-outline-primary search-btn">🔍</button>
+        <button type="submit"
+                class="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-r-md">
+          🔍
+        </button>
       </form>
     </div>
 
-    <div class="icons">
+    <!-- Іконки з роздільниками -->
+    <div class="flex items-center gap-4 text-2xl">
       {% if user.is_authenticated %}
-        <a href="{% url 'customers:profile' user.pk %}" class="icon-btn" title="profile">👤</a>
+        <a href="{% url 'customers:profile' user.pk %}" title="Profile"
+           class="text-white hover:text-blue-400 transition no-underline">👤</a>
       {% else %}
-        <a href="{% url 'login' %}" class="icon-btn" title="profile">👤</a>
+        <a href="{% url 'login' %}" title="Login" class="text-white hover:text-blue-400 transition no-underline">👤</a>
       {% endif %}
 
-      <div class="icon-divider"></div>
+      <div class="w-px h-6 bg-gray-500"></div>
 
-      <a href="{% url 'wishlists:wishlist-detail' %}" class="icon-btn"
-         title="Wishlist">❤️<sup>{{ wishlist_item_count }}</sup></a>
-      <div class="icon-divider"></div>
+      <a href="{% url 'wishlists:wishlist-detail' %}" title="Wishlist"
+         class="text-white hover:text-red-400 transition no-underline">
+        ❤️<sup>{{ wishlist_item_count }}</sup>
+      </a>
 
-      <a href="{% url 'orders:order-create' %}" class="icon-btn" title="Cart">🛒<sup>{{ cart_item_count }}</sup></a>
+      <div class="w-px h-6 bg-gray-500"></div>
+
+      <a href="{% url 'orders:order-create' %}" title="Cart"
+         class="text-white hover:text-green-400 transition no-underline">
+        🛒<sup>{{ cart_item_count }}</sup>
+      </a>
     </div>
-
   </div>
 </header>

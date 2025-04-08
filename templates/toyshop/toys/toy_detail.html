@@ -2,53 +2,56 @@
 {% block title %}Toy Details | Toy Shop{% endblock %}
 
 {% block content %}
-  <div class="container">
-    <div class="card shadow-sm">
-      <div class="row g-0">
-        <!-- Фото -->
-        <div class="col-md-5">
-          {% if toy.photo %}
-            <img src="{{ toy.photo.url }}" class="img-fluid rounded-start" alt="{{ toy.name }}">
-          {% else %}
-            <img src="https://via.placeholder.com/400x300?text=No+Image" class="img-fluid rounded-start" alt="No image">
+  <div class="max-w-5xl mx-auto bg-white rounded-lg shadow p-6">
+    <div class="flex flex-col md:flex-row gap-6">
+      <a href="{{ request.GET.next|default:'/list/'}}">Back</a>
+
+      <!-- Фото -->
+      <div class="md:w-1/2">
+        {% if toy.photo %}
+          <img src="{{ toy.photo.url }}" alt="{{ toy.name }}" class="w-full h-auto rounded">
+        {% else %}
+          <img src="https://via.placeholder.com/400x300?text=No+Image" alt="No image" class="w-full h-auto rounded">
+        {% endif %}
+      </div>
+
+      <!-- Деталі -->
+      <div class="md:w-1/2 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-2xl font-bold text-gray-800">{{ toy.name }}</h3>
+          {% if user.shop_admin %}
+            <div class="flex gap-2">
+              <a href="{% url 'toys:toy-update' toy.pk %}"
+                 class="bg-blue-500 hover:bg-blue-600 text-white text-sm px-3 py-1 rounded">
+                Edit
+              </a>
+              <a href="{% url 'toys:toy-delete' toy.pk %}?next={{ request.get_full_path }}"
+                 class="bg-red-500 hover:bg-red-600 text-white text-sm px-3 py-1 rounded">
+                Delete
+              </a>
+            </div>
           {% endif %}
         </div>
 
-        <!-- Деталі -->
-        <div class="col-md-7">
-          <div class="card-body">
-            <h3 class="card-title">
-              {{ toy.name }}
-              {% if user.shop_admin %}
+        <p class="text-gray-600">{{ toy.description }}</p>
 
-                <a href="{% url 'toys:toy-update' toy.pk %}" class="btn btn-sm btn-outline-primary float-end">
-                  Edit
-                </a>
-                <a href="{% url 'toys:toy-delete' toy.pk %}?next={{ request.get_full_path }}"
-                   class="btn btn-sm btn-outline-danger float-end ">
-                  DELETE TOY
-                </a>
-              {% endif %}
-            </h3>
-            <p class="card-text text-muted">{{ toy.description }}</p>
-
-            <ul class="list-unstyled">
-              <li><strong>Price:</strong> {{ toy.price }} ₴</li>
-              <li><strong>Manufacturer:</strong> {{ toy.manufacturer }}</li>
-              <li><strong>Stock:</strong> {{ toy.stock }} шт.</li>
-              <li>
-                <strong>Categories:</strong>
-                {% for cat in toy.category.all %}
-                  <span class="badge bg-secondary">{{ cat.name }}</span>
-                {% empty %}
-                  <span class="text-muted">No category</span>
-                {% endfor %}
-              </li>
-              <li><small class="text-muted">Added: {{ toy.created_at|date:"d.m.Y H:i" }}</small></li>
-              <li><small class="text-muted">Updated: {{ toy.updated_at|date:"d.m.Y H:i" }}</small></li>
-            </ul>
-          </div>
-        </div>
+        <ul class="text-sm text-gray-700 space-y-1">
+          <li><strong>Price:</strong> {{ toy.price }} ₴</li>
+          <li><strong>Manufacturer:</strong> {{ toy.manufacturer }}</li>
+          <li><strong>Stock:</strong> {{ toy.stock }} шт.</li>
+          <li>
+            <strong>Categories:</strong>
+            <div class="flex flex-wrap gap-2 mt-1">
+              {% for cat in toy.category.all %}
+                <span class="bg-gray-200 text-gray-800 px-2 py-0.5 rounded text-xs">{{ cat.name }}</span>
+              {% empty %}
+                <span class="text-gray-400 text-sm">No category</span>
+              {% endfor %}
+            </div>
+          </li>
+          <li><small class="text-gray-400">Added: {{ toy.created_at|date:"d.m.Y H:i" }}</small></li>
+          <li><small class="text-gray-400">Updated: {{ toy.updated_at|date:"d.m.Y H:i" }}</small></li>
+        </ul>
       </div>
     </div>
   </div>

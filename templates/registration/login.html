@@ -1,43 +1,51 @@
 {% extends "base.html" %}
 
-{% block title %}Вхід | ToyStore{% endblock %}
+{% block title %}Login | Toy Store{% endblock %}
 
 {% block content %}
-<div class="login-wrapper">
-  <div class="login-card">
-    <h2 class="login-title">🎠 Login ToyStore</h2>
+<div class="flex items-start justify-center pt-12 px-4">
+  <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
+    <h2 class="text-2xl font-bold text-center mb-6">🎠 Login to ToyStore</h2>
 
     {% if form.errors %}
-      <div class="login-error">
+      <div class="bg-red-100 text-red-700 px-4 py-2 mb-4 rounded text-sm">
         ❌ Incorrect username or password
       </div>
     {% endif %}
 
     {% if next %}
-      <p class="login-warning">🧸 You need to authorized before use site</p>
+      <p class="text-sm text-yellow-600 mb-4">🧸 You need to authorize before using the site
+      </p>
     {% endif %}
 
-    <form action="{% url 'login' %}" method="post" class="login-form">
+    <form action="{% url 'login' %}" method="post" class="space-y-4">
       {% csrf_token %}
 
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required class="form-input">
+      <div>
+        <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+        <input type="text" id="username" name="username" required
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                      focus:outline-none focus:ring-blue-500 focus:border-blue-500">
       </div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required class="form-input">
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" id="password" name="password" required
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                      focus:outline-none focus:ring-blue-500 focus:border-blue-500">
       </div>
 
-      <input type="hidden" name="next" value="{{ next }}"/>
+      <input type="hidden" name="next" value="{{ next }}" />
 
-      <button type="submit" class="btn-login">🧩 Login</button>
+      <button type="submit"
+              class="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+        🧩 Login
+      </button>
     </form>
 
-    <p class="register-note">
-      Dont have account?
-      <a href="{% url 'customers:register' %}" class="register-link">Registration!</a>
+    <p class="mt-4 text-sm text-center text-gray-600">
+      Don’t have an account?
+      <a href="{% url 'customers:register' %}" class="text-blue-600 hover:underline">Register!</a>
     </p>
   </div>
 </div>

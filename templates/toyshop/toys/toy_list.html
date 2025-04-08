@@ -2,81 +2,76 @@
 {% block title %}Toys | Toy Shop{% endblock %}
 
 {% block content %}
-  <div class="toys-header mb-4">
-    <h2 class="fw-bold">🧸 Toy List
-      {% if user.shop_admin %}
-        <a href="{% url 'toys:create-toy' %}?next={{ request.get_full_path }}" class="btn btn-primary small">Add toy</a>
-      {% endif %}
-    </h2>
+  <div class="mb-6 flex items-center justify-between">
+    <h2 class="text-2xl font-bold text-gray-700">🧸 Toy List</h2>
+    {% if user.shop_admin %}
+      <a href="{% url 'toys:create-toy' %}?next={{ request.get_full_path }}"
+         class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm">
+        Add Toy
+      </a>
+    {% endif %}
   </div>
 
   {% if toy_list %}
-    <div class="toy-cards-container d-flex flex-column gap-4">
+    <div class="flex flex-col gap-6">
       {% for toy in toy_list %}
-        <div class="card shadow-sm border-0 rounded-3 p-3">
-          <div class="row g-3 align-items-center">
-            <div class="col-md-8">
-              <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <h4 class="card-title text-primary fw-bold mb-0">
-
-                    <a href="{% url 'toys:toy-detail' toy.pk %}">{{ toy.name }}</a>
-                  </h4>
-                  <div class="d-flex gap-2">
-                    {% if user.shop_admin %}
-                      <a href="{% url 'toys:toy-update' toy.pk %}?next={{ request.get_full_path }}"
-                         class="btn btn-primary small">
-                        update toy
-                      </a>
-                      <a href="{% url 'toys:toy-delete' toy.pk %}?next={{ request.get_full_path }}"
-                         class="btn btn-danger small">
-                        DELETE TOY
-                      </a>
-                    {% endif %}
-                    <form method="post" action="{% url 'carts:add-to-cart' toy.pk %}">
-                      {% csrf_token %}
-                      <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                      <button type="submit" class="btn btn-success btn-sm toy-action-btn" title="Add to cart">
-                        <i class="bi bi-cart-plus"></i>
-                      </button>
-                    </form>
-                    <form method="post" action="{% url 'wishlists:add-to-wishlist' toy.pk %}">
-                      {% csrf_token %}
-                      <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                      <button type="submit" class="btn btn-warning btn-sm toy-action-btn" title="Add to wishlist">
-                        <i class="bi bi-heart"></i>
-                      </button>
-                    </form>
-                  </div>
-                </div>
-                <div class="mb-2 text-muted small">
-                  <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
-                    <span>🛠 <strong>{{ toy.manufacturer }}</strong></span>
-                    <span>🕒 {{ toy.updated_at|date:"F d, Y H:i" }}</span>
-                  </div>
-                  <div class="d-flex flex-wrap gap-2">
-                    {% for cat in toy.category.all %}
-                      <span class="badge bg-light border text-dark">{{ cat.name }}</span>
-                    {% empty %}
-                      <span class="text-muted">No categories</span>
-                    {% endfor %}
-                  </div>
-                </div>
-                <p class="card-text">{{ toy.description|truncatewords:25 }}</p>
+        <div class="bg-white shadow rounded-lg p-4 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+          <div class="flex-1">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-semibold text-blue-700">
+                <a href="{% url 'toys:toy-detail' toy.pk %}" class="hover:underline">{{ toy.name }}</a>
+              </h3>
+              <div class="flex flex-wrap items-center gap-2">
+                <form method="post" action="{% url 'carts:add-to-cart' toy.pk %}" class="inline">
+                  {% csrf_token %}
+                  <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                  <button type="submit" title="Add to cart"
+                          class="bg-green-200 hover:bg-green-500 text-white px-6 py-2 rounded text-lg">
+                    🛒
+                  </button>
+                </form>
+                <form method="post" action="{% url 'wishlists:add-to-wishlist' toy.pk %}" class="inline">
+                  {% csrf_token %}
+                  <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                  <button type="submit" title="Add to wishlist"
+                          class="bg-yellow-400 hover:bg-yellow-500 text-white px-6 py-2 rounded text-lg">
+                    ❤️
+                  </button>
+                </form>
+                {% if user.shop_admin %}
+                  <a href="{% url 'toys:toy-update' toy.pk %}?next={{ request.get_full_path }}"
+                     class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-2 rounded text-xs">Update</a>
+                  <a href="{% url 'toys:toy-delete' toy.pk %}?next={{ request.get_full_path }}"
+                     class="bg-red-500 hover:bg-red-600 text-white px-2 py-2 rounded text-xs">Delete</a>
+                {% endif %}
               </div>
             </div>
-            <div class="col-md-4 text-end">
-              {% if toy.photo %}
-                <img src="{{ toy.photo.url }}" alt="{{ toy.name }}" class="img-fluid rounded toy-photo">
-              {% else %}
-                <div class="text-muted small">No image</div>
-              {% endif %}
+            <div class="text-sm text-gray-500 mb-2">
+              <div class="flex flex-wrap gap-4 mb-1">
+                <span>🛠 <strong>{{ toy.manufacturer }}</strong></span>
+                <span>🕒 {{ toy.updated_at|date:"F d, Y H:i" }}</span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                {% for cat in toy.category.all %}
+                  <span class="px-2 py-0.5 rounded bg-gray-100 text-gray-800 text-xs border">{{ cat.name }}</span>
+                {% empty %}
+                  <span class="text-gray-400 text-xs">No categories</span>
+                {% endfor %}
+              </div>
             </div>
+            <p class="text-gray-700 text-sm">{{ toy.description|truncatewords:25 }}</p>
+          </div>
+          <div class="w-full md:w-1/4 text-right">
+            {% if toy.photo %}
+              <img src="{{ toy.photo.url }}" alt="{{ toy.name }}" class="w-full h-40 object-cover rounded">
+            {% else %}
+              <div class="text-gray-400 text-sm">No image</div>
+            {% endif %}
           </div>
         </div>
       {% endfor %}
     </div>
   {% else %}
-    <p class="text-muted">No toys found.</p>
+    <p class="text-gray-400">No toys found.</p>
   {% endif %}
 {% endblock %}

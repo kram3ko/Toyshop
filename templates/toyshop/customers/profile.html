@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}My Profile - {{ block.super }}{% endblock %}
+{% block title %}My Profile | Toy Shop{% endblock %}
 
 {% block content %}
   <div class="container mx-auto px-4 py-8">
@@ -10,7 +10,6 @@
       <div class="bg-white rounded-lg shadow-md overflow-hidden">
         <div class="p-6">
           <div class="flex flex-col md:flex-row">
-            <!-- Left block: avatar + username -->
             <div class="md:w-1/3 mb-6 md:mb-0 relative">
               <div class="bg-gray-100 rounded-full w-32 h-32 mx-auto flex items-center justify-center relative">
                 <i class="fas fa-user text-5xl text-gray-400"></i>
@@ -67,17 +66,21 @@
                   <p class="font-medium">{{ user.last_login|date:"F d, Y H:i" }}</p>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-500">Shop Admin</p>
-                  <p class="font-medium">{{ user.shop_admin }}</p>
+                  {% if request.user.shop_admin %}
+                    <p class="text-sm text-gray-500">Shop Admin</p>
+                    <p class="font-medium">{{ request.user.shop_admin }}</p>
+                  {% endif %}
                 </div>
               </div>
 
               <!-- Edit profile button -->
               <div class="mt-6">
-                <button type="button"
-                        class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors">
-                  Edit Profile
-                </button>
+                <form action="{% url 'customers:customer-update' user.pk %}">
+                  <button type="submit"
+                          class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors">
+                    Edit Profile
+                  </button>
+                </form>
               </div>
 
               <!-- Quick links -->
@@ -99,14 +102,16 @@
                     <i class="fas fa-heart text-blue-600 mr-3"></i>
                     <span>My Wishlist</span>
                   </a>
-                  <form action="{% url 'logout' %}" method="post">
-                    {% csrf_token %}
-                    <button
-                        class="flex items-center w-full p-3 bg-red-50 rounded-lg hover:bg-red-100 transition-colors text-red-600">
-                      <i class="fas fa-sign-out-alt mr-2"></i>
-                      Logout
-                    </button>
-                  </form>
+                  {% if user == request.user %}
+                    <form action="{% url 'logout' %}" method="post">
+                      {% csrf_token %}
+                      <button
+                          class="flex items-center w-full p-3 bg-red-50 rounded-lg hover:bg-red-100 transition-colors text-red-600">
+                        <i class="fas fa-sign-out-alt mr-2"></i>
+                        Logout
+                      </button>
+                    </form>
+                  {% endif %}
                 </div>
               </div>
 

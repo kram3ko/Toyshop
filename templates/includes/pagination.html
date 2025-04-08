@@ -1,36 +1,39 @@
 {% load query_transform %}
 {% if is_paginated %}
-  <nav class="pagination-container mt-4 d-flex justify-content-center">
-    <ul class="pagination pagination-sm shadow-sm">
-
+  <nav class="flex justify-center mt-6">
+    <ul class="inline-flex items-center gap-1 text-sm">
 
       {% if page_obj.has_previous %}
-        <li class="page-item">
-          <a class="page-link rounded-start" href="?page=1" aria-label="First">
+        <li>
+          <a href="?page=1"
+             class="px-3 py-1 border rounded-l-md bg-gray-100 hover:bg-gray-200 text-gray-700">
             « First
           </a>
         </li>
-        <li class="page-item">
-          <a class="page-link" href="?{% query_transform request page=page_obj.previous_page_number %}" aria-label="Previous">
+        <li>
+          <a href="?{% query_transform request page=page_obj.previous_page_number %}"
+             class="px-3 py-1 border bg-gray-100 hover:bg-gray-200 text-gray-700">
             ‹ Prev
           </a>
         </li>
       {% endif %}
 
-      <li class="page-item active">
-        <span class="page-link bg-primary text-white border-0">
+      <li>
+        <span class="px-4 py-1 border bg-blue-600 text-white font-semibold rounded">
           Page {{ page_obj.number }} of {{ paginator.num_pages }}
         </span>
       </li>
 
       {% if page_obj.has_next %}
-        <li class="page-item">
-          <a class="page-link" href="?{% query_transform request page=page_obj.next_page_number %}" aria-label="Next">
+        <li>
+          <a href="?{% query_transform request page=page_obj.next_page_number %}"
+             class="px-3 py-1 border bg-gray-100 hover:bg-gray-200 text-gray-700">
             Next ›
           </a>
         </li>
-        <li class="page-item">
-          <a class="page-link rounded-end" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+        <li>
+          <a href="?page={{ page_obj.paginator.num_pages }}"
+             class="px-3 py-1 border rounded-r-md bg-gray-100 hover:bg-gray-200 text-gray-700">
             Last »
           </a>
         </li>

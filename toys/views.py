@@ -13,6 +13,19 @@ class HomePageView(generic.ListView):
     def get_queryset(self):
         return Toy.objects.order_by("-updated_at")[:8]
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        last_viewed_toy_id = self.request.session.get("last_viewed_toy")
+        if last_viewed_toy_id:
+            try:
+                last_viewed_toy = Toy.objects.get(id=last_viewed_toy_id)
+                context["last_viewed_toy"] = last_viewed_toy
+            except Toy.DoesNotExist:
+                pass
+
+        return context
+
 class ToyListView(generic.ListView):
     template_name = "toyshop/toys/toy_list.html"
     paginate_by = 12
@@ -60,6 +73,12 @@ class ToyUpdateView(LoginRequiredMixin, generic.UpdateView):
 class ToyDetailView(generic.DetailView):
     model = Toy
     template_name = "toyshop/toys/toy_detail.html"
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        self.request.session["last_viewed_toy"] = obj.id
+        return obj
+
 
 
 class ToyDeleteView(LoginRequiredMixin, generic.DeleteView):

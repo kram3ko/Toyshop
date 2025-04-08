@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     "wishlists",
     # django crispy forms
     "crispy_forms",
-    "crispy_bootstrap5"
+    "crispy_tailwind"
 ]
 
 MIDDLEWARE = [
@@ -160,9 +160,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Django debug tools
 INTERNAL_IPS = ["127.0.0.1"]
 
-CRISPY_TEMPLATE_PACK = "bootstrap5"
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = ["tailwind"]
+CRISPY_TEMPLATE_PACK = "tailwind"
 
-# CSRF_TRUSTED_ORIGINS = [
-#     "https://79fb-5-58-140-153.ngrok-free.app",
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    "https://79a9-2a09-bac1-7500-10-00-49-243.ngrok-free.app",
+]

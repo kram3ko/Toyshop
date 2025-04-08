@@ -21,6 +21,7 @@ class ToyCreateForm(forms.ModelForm):
             "photo"
         ]
 
+
 class ToySearchForm(forms.Form):
     toy = forms.CharField(
         max_length=255,
@@ -29,7 +30,11 @@ class ToySearchForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Search toy",
-                "class": "form-control w-50"
+                "class": (
+                    "w-full h-11 px-4 py-2 rounded-l-md border border-gray-300 "
+                    "text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+                )
             }
         )
     )
+
