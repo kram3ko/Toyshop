@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load tailwind_filters %}
+{% block title %}ToyClub Cards | Toy Shop{% endblock %}
+
+{% block content %}
+  <div class="max-w-4xl mx-auto mt-8 p-4 bg-white shadow-md rounded-lg">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6">ToyClub Cards</h2>
+    <div>
+      <a href="{% url 'customers:toy-club-create' %}"
+         class="inline-block bg-blue-300 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded">
+        ➕ Create New Cart
+      </a>
+    </div>
+    <br>
+    {% if toyclub_list %}
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {% for card in toyclub_list %}
+          <a href="{% url 'customers:toy-assign' card.pk %}">
+            <div class="relative border border-gray-200 rounded-lg p-4 shadow hover:shadow-md transition bg-white">
+
+              <!-- Значок рівня -->
+              {% if card.level == "gold" %}
+                <span
+                    class="absolute top-2 right-2 bg-yellow-400 text-white text-xs font-semibold px-2 py-1 rounded-full shadow">🥇 Gold</span>
+              {% elif card.level == "silver" %}
+                <span
+                    class="absolute top-2 right-2 bg-gray-400 text-white text-xs font-semibold px-2 py-1 rounded-full shadow">🥈 Silver</span>
+              {% elif card.level == "bronze" %}
+                <span
+                    class="absolute top-2 right-2 bg-yellow-700 text-white text-xs font-semibold px-2 py-1 rounded-full shadow">🥉 Bronze</span>
+              {% endif %}
+
+              <p class="text-sm text-gray-500">Level:</p>
+              <p class="text-lg font-semibold text-blue-600">{{ card.level }}</p>
+
+              <p class="text-sm text-gray-500 mt-2">Unique number:</p>
+              <p class="text-md font-medium">{{ card.unique_number }}</p>
+              {% if card.user %}
+                <p class="text-sm text-gray-500 mt-2">User:</p>
+                <p class="text-md font-medium">
+                  {{ card.user.first_name }} {{ card.user.last_name }}
+                  <span class="text-xs text-gray-500">(@{{ card.user.username }})</span>
+                </p>
+              {% else %}
+                <p class="text-sm text-gray-400 italic">No user assigned</p>
+              {% endif %}
+
+              <p class="text-xs text-gray-400 mt-3">Created at: {{ card.created_at|date:"Y-m-d H:i" }}</p>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-center text-gray-500">No ToyClub cards found.</p>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Toys Shop{% endblock %}</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-50 text-gray-800">
+
+<!-- Header -->
+<header class="sticky top-0 bg-white shadow z-10">
+  {% block header %}
+    {% include "includes/header.html" %}
+  {% endblock %}
+</header>
+
+<!-- Main Content Layout -->
+<main class="flex-grow py-6">
+  <div class="max-w-7xl mx-auto px-2 flex flex-col lg:flex-row gap-6">
+
+    <!-- Sidebar -->
+    <aside class="w-full lg:w-1/4">
+      {% block sidebar %}
+        {% include 'includes/sidebar.html' %}
+      {% endblock %}
+    </aside>
+
+    <!-- Page Content -->
+    <section class="w-full lg:w-3/4">
+      {% block content %}
+      {% endblock %}
+
+      {% block pagination %}
+        {% include "includes/pagination.html" %}
+      {% endblock %}
+    </section>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-white shadow border-t mt-auto py-4">
+  <div class="text-center text-sm text-gray-500">
+    © 2025 <strong class="text-blue-600">ToyShop</strong>. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>

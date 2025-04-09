@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load tailwind_filters %}
+
+{% block title %}
+  ToyClub Assign | Toy Shop
+{% endblock %}
+
+{% block content %}
+  <h2 class="text-2xl font-bold mb-4">Assign Toy to Club: {{ toyclub.name }}</h2>
+
+  <form method="post" action="{% url 'customers:toy-assign' toyclub.pk %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded">
+      Save
+    </button>
+  </form>
+{% endblock %}

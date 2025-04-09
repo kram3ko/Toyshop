@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% block title %}My Orders | Toy shop{% endblock %}
+{% block content %}
+  <div class="max-w-6xl mx-auto mt-8">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Check out order</h2>
+    <div class="flex flex-col lg:flex-row gap-8">
+
+      <!-- Left: FORM only here -->
+      <form method="post" action="{% url 'orders:order-create' %}" class="w-full lg:w-2/4" id="orderForm">
+        {% csrf_token %}
+        <div class="mb-4">
+          <label for="id_customer" class="block text-sm font-medium text-gray-700 mb-1">Customer</label>
+          <input type="text" name="Customer" id="id_customer"
+                 value="{{ user }}"
+                 class="w-full border border-gray-300 rounded px-4 py-2 bg-gray-100 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        {{ form|crispy }}
+      </form>
+
+      <!-- Right: Cart & Submit -->
+      <div class="w-full lg:w-2/4 bg-gray-50 p-4 rounded border border-gray-200">
+        <h4 class="text-lg font-semibold text-gray-800 mb-4">Your order:</h4>
+
+        {% if cart.cart_items.exists %}
+          <div class="space-y-4">
+            {% for item in cart.cart_items.all %}
+              <div class="border border-gray-200 rounded p-4">
+                <div class="flex items-start gap-4">
+                  {% if item.toy.photo %}
+                    <img src="{{ item.toy.photo.url }}" alt="{{ item.toy.name }}"
+                         class="w-20 h-20 object-cover rounded">
+                  {% endif %}
+                  <div>
+                    <p class="font-semibold text-gray-800">{{ item.toy.name }}</p>
+                    <p class="text-sm text-gray-600">
+                      {{ item.quantity }} × {{ item.toy.price }} ₴ = <strong>{{ item.total_price }} ₴</strong>
+                    </p>
+                  </div>
+                  <form method="post" action="{% url 'carts:remove-from-cart' item.pk %}">
+                    {% csrf_token %}
+                    <button type="submit"
+                            class="text-red-600 border border-red-300 hover:bg-red-50 hover:text-red-700 transition px-3 py-1 rounded text-sm font-medium">
+                      🗑️ Remove
+                    </button>
+                  </form>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="mt-6">
+            <label for="id_total_price" class="block text-sm font-medium text-gray-700 mb-1">Total price</label>
+            <input type="text" name="total_price" id="id_total_price"
+                   value="{{ cart.total_price }}"
+                   class="w-full border border-gray-300 rounded px-4 py-2 bg-gray-100 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                   readonly>
+          </div>
+
+          <!-- SUBMIT BUTTON OUTSIDE FORM BUT LINKED -->
+          <div>
+            <button type="submit" form="orderForm"
+                    class="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded">
+              Make order
+            </button>
+          </div>
+
+        {% else %}
+          <div class="bg-white rounded-lg shadow-md p-8 text-center">
+            <div class="text-5xl mb-4">❤️</div>
+            <h2 class="text-2xl font-bold text-gray-700 mb-2">Your cart is empty</h2>
+            <p class="text-gray-500 mb-6">Looks like you haven't added any toys to your cart yet.</p>
+            <a href="{% url 'toys:toy-list' %}"
+               class="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 inline-block focus:outline-none focus:ring-2 focus:ring-blue-400">
+              Browse Toys
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

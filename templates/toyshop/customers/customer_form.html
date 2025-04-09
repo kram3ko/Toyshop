@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block title %}Update Customer | Toy Shop{% endblock %}
+
+{% block content %}
+  <div class="flex items-center justify-center bg-gray-100 pt-10">
+    <div class="w-full bg-white rounded-lg shadow-lg p-6">
+      <h1 class="text-2xl font-bold mb-6 text-center">Update account Info</h1>
+
+      <form method="post" class="space-y-4" novalidate>
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <button type="submit"
+                class="w-full py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+          update
+        </button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% load query_transform %}
+{% if is_paginated %}
+  <nav class="flex justify-center mt-6">
+    <ul class="inline-flex items-center gap-1 text-sm">
+
+      {% if page_obj.has_previous %}
+        <li>
+          <a href="?page=1"
+             class="px-3 py-1 border rounded-l-md bg-gray-100 hover:bg-gray-200 text-gray-700">
+            « First
+          </a>
+        </li>
+        <li>
+          <a href="?{% query_transform request page=page_obj.previous_page_number %}"
+             class="px-3 py-1 border bg-gray-100 hover:bg-gray-200 text-gray-700">
+            ‹ Prev
+          </a>
+        </li>
+      {% endif %}
+
+      <li>
+        <span class="px-4 py-1 border bg-blue-600 text-white font-semibold rounded">
+          Page {{ page_obj.number }} of {{ paginator.num_pages }}
+        </span>
+      </li>
+
+      {% if page_obj.has_next %}
+        <li>
+          <a href="?{% query_transform request page=page_obj.next_page_number %}"
+             class="px-3 py-1 border bg-gray-100 hover:bg-gray-200 text-gray-700">
+            Next ›
+          </a>
+        </li>
+        <li>
+          <a href="?page={{ page_obj.paginator.num_pages }}"
+             class="px-3 py-1 border rounded-r-md bg-gray-100 hover:bg-gray-200 text-gray-700">
+            Last »
+          </a>
+        </li>
+      {% endif %}
+
+    </ul>
+  </nav>
+{% endif %}

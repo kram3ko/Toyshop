@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Toy Details | Toy Shop{% endblock %}
+
+{% block content %}
+  <div class="max-w-5xl mx-auto bg-white rounded-lg shadow p-6">
+    <div class="flex flex-col md:flex-row gap-6">
+      <a href="{{ request.GET.next|default:'/list/' }}"
+         class="inline-block self-start px-4 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition">
+        Back
+      </a>
+
+      <!-- Фото -->
+      <div class="md:w-1/2">
+        {% if toy.photo %}
+          <img src="{{ toy.photo.url }}" alt="{{ toy.name }}" class="w-full h-auto rounded">
+        {% else %}
+          <img src="https://via.placeholder.com/400x300?text=No+Image" alt="No image" class="w-full h-auto rounded">
+        {% endif %}
+      </div>
+
+      <!-- Деталі -->
+      <div class="md:w-1/2 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-2xl font-bold text-gray-800">{{ toy.name }}</h3>
+          {% if user.shop_admin %}
+            <div class="flex gap-2">
+              <a href="{% url 'toys:toy-update' toy.pk %}"
+                 class="bg-blue-500 hover:bg-blue-600 text-white text-sm px-3 py-1 rounded">
+                Edit
+              </a>
+              <a href="{% url 'toys:toy-delete' toy.pk %}?next={{ request.get_full_path }}"
+                 class="bg-red-500 hover:bg-red-600 text-white text-sm px-3 py-1 rounded">
+                Delete
+              </a>
+            </div>
+          {% endif %}
+        </div>
+
+        <p class="text-gray-600">{{ toy.description }}</p>
+
+        <ul class="text-sm text-gray-700 space-y-1">
+          <li><strong>Price:</strong> {{ toy.price }} ₴</li>
+          <li><strong>Manufacturer:</strong> {{ toy.manufacturer }}</li>
+          <li><strong>Stock:</strong> {{ toy.stock }} шт.</li>
+          <li>
+            <strong>Categories:</strong>
+            <div class="flex flex-wrap gap-2 mt-1">
+              {% for cat in toy.category.all %}
+                <span class="bg-gray-200 text-gray-800 px-2 py-0.5 rounded text-xs">{{ cat.name }}</span>
+              {% empty %}
+                <span class="text-gray-400 text-sm">No category</span>
+              {% endfor %}
+            </div>
+          </li>
+          <li><small class="text-gray-400">Added: {{ toy.created_at|date:"d.m.Y H:i" }}</small></li>
+          <li><small class="text-gray-400">Updated: {{ toy.updated_at|date:"d.m.Y H:i" }}</small></li>
+        </ul>
+
+        <!-- Buttons -->
+        <div class="flex gap-4 pt-4">
+          <form method="post" action="{% url 'carts:add-to-cart' toy.pk %}">
+            {% csrf_token %}
+            <button type="submit"
+                    class="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded">
+              Add to Cart
+            </button>
+          </form>
+          <form method="post" action="{% url 'wishlists:add-to-wishlist' toy.pk %}">
+            {% csrf_token %}
+            <button type="submit"
+                    class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm px-4 py-2 rounded">
+              Add to Wishlist
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
