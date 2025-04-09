@@ -46,7 +46,7 @@ line-length = 88
 
 
 preview = true
-ignore = ["N999", "ANN002", "ANN003", "ANN201"]
+ignore = ["N999", "ANN002", "ANN003", "ANN201","ARG002","ANN001","PLR6301","ANN204", "ANN202", "ARG001"]
 select = ["E", "F", "W", "N", "ANN", "UP", "I", "Q", "PL", "SIM", "ARG"]
 
 [tool.ruff.format]

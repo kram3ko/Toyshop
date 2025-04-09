@@ -1,10 +1,7 @@
-from pathlib import PureWindowsPath, PurePosixPath
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.urls import reverse, reverse_lazy
 from django.views import generic
-from storages.backends.dropbox import DropboxStorage
 
 from toys.forms import ToyCreateForm, ToySearchForm
 from toys.models import Toy
@@ -48,9 +45,9 @@ class ToyListView(generic.ListView):
         form = ToySearchForm(self.request.GET)
         if form.is_valid():
             queryset = queryset.filter(
-                Q(name__icontains=form.cleaned_data["toy"]) |
-                Q(description__icontains=form.cleaned_data["toy"]) |
-                Q(manufacturer__icontains=form.cleaned_data["toy"])
+                Q(name__icontains=form.cleaned_data["toy"])
+                | Q(description__icontains=form.cleaned_data["toy"])
+                | Q(manufacturer__icontains=form.cleaned_data["toy"])
             )
 
         return queryset

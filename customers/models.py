@@ -3,8 +3,6 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
 
-from toys.models import Toy
-
 
 class ToyClub(models.Model):
     class LevelChoice(models.TextChoices):
@@ -17,7 +15,7 @@ class ToyClub(models.Model):
         on_delete=models.CASCADE,
         related_name="toy_club",
         null=True,
-        blank=True
+        blank=True,
     )
 
     level = models.CharField(max_length=10, choices=LevelChoice.choices)

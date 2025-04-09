@@ -17,9 +17,7 @@ class ExactLenValidator(BaseValidator):
 
 
 class FirstUpperLetter(BaseValidator):
-    message = _(
-        "Ensure the first characters %(limit_value)s are uppercase letters."
-    )
+    message = _("Ensure the first characters %(limit_value)s are uppercase letters.")
     code = "first_upper"
 
     def compare(self, value, required_count):

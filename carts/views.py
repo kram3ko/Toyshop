@@ -22,7 +22,9 @@ class AddToCartView(LoginRequiredMixin, View):
 
 class RemoveFromCartView(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):
-        cart_item = get_object_or_404(CartItem, pk=pk, cart__user=request.user, cart__is_active=True)
+        cart_item = get_object_or_404(
+            CartItem, pk=pk, cart__user=request.user, cart__is_active=True
+        )
         toy_name = cart_item.toy.name
         cart_item.delete()
 

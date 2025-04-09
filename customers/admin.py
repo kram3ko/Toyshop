@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from customers.models import User, ToyClub
+from customers.models import ToyClub, User
 
 
 @admin.register(User)
@@ -16,15 +16,44 @@ class CustomUserAdmin(UserAdmin):
         (None, {"fields": ("username", "password")}),
         ("Personal info", {"fields": ("first_name", "last_name", "email")}),
         ("Additional info", {"fields": ("shop_admin",)}),
-        ("Permissions", {"fields": ("is_active", "is_staff", "is_superuser",)}),
-        ("Important dates", {"fields": ("last_login", "date_joined",)}),
+        (
+            "Permissions",
+            {
+                "fields": (
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
+                )
+            },
+        ),
+        (
+            "Important dates",
+            {
+                "fields": (
+                    "last_login",
+                    "date_joined",
+                )
+            },
+        ),
     )
 
     add_fieldsets = (
-        (None, {
-            "classes": ("wide",),
-            "fields": ("username", "password1", "password2", "first_name", "last_name", "email", "shop_admin", "toy_club"),
-        }),
+        (
+            None,
+            {
+                "classes": ("wide",),
+                "fields": (
+                    "username",
+                    "password1",
+                    "password2",
+                    "first_name",
+                    "last_name",
+                    "email",
+                    "shop_admin",
+                    "toy_club",
+                ),
+            },
+        ),
     )
 
 

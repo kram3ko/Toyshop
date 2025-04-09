@@ -1,12 +1,11 @@
 from django import forms
 
-from toys.models import Toy, Category
+from toys.models import Category, Toy
 
 
 class ToyCreateForm(forms.ModelForm):
     category = forms.ModelMultipleChoiceField(
-        queryset=Category.objects.all(),
-        widget=forms.CheckboxSelectMultiple()
+        queryset=Category.objects.all(), widget=forms.CheckboxSelectMultiple()
     )
 
     class Meta:
@@ -18,7 +17,7 @@ class ToyCreateForm(forms.ModelForm):
             "stock",
             "manufacturer",
             "category",
-            "photo"
+            "photo",
         ]
 
 
@@ -33,7 +32,7 @@ class ToySearchForm(forms.Form):
                 "class": (
                     "w-full h-11 px-4 py-2 rounded-l-md border border-gray-300 "
                     "text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
-                )
+                ),
             }
-        )
+        ),
     )

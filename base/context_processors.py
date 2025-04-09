@@ -19,8 +19,6 @@ def wishlist_item_count(request):
             return {"wishlist_item_count": wish_list.items.count()}
     return {"wishlist_item_count": 0}
 
-def get_user_status(request):
-    return {"user_shop_admin" : user.shop_admin}
 
 def category_item_list(request):
     return {"categories_list": Category.objects.all()}

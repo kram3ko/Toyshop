@@ -1,16 +1,13 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from customers.models import User, ToyClub
-from customers.validators import (
-    ExactLenValidator,
-    FirstUpperLetter,
-    LastDigits
-)
+from customers.models import ToyClub, User
+from customers.validators import ExactLenValidator, FirstUpperLetter, LastDigits
 
 
 class CustomCustomerCreationForm(UserCreationForm):
-    email = forms.EmailField(required=True,label="Email address")
+    email = forms.EmailField(required=True, label="Email address")
+
     class Meta(UserCreationForm.Meta):
         model = User
         fields = UserCreationForm.Meta.fields + (
@@ -40,10 +37,14 @@ class ToyClubCreationForm(forms.ModelForm):
         validators=[
             ExactLenValidator(limit_value=LEN_NUMBER),
             FirstUpperLetter(limit_value=FIRST_UPPER),
-            LastDigits(limit_value=LAST_DIGITS)
-        ]
+            LastDigits(limit_value=LAST_DIGITS),
+        ],
     )
 
     class Meta:
         model = ToyClub
-        fields = ("user","level", "unique_number",)
+        fields = (
+            "user",
+            "level",
+            "unique_number",
+        )

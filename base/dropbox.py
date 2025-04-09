@@ -1,6 +1,7 @@
-from pathlib import PurePosixPath, PurePath
+from pathlib import PurePath, PurePosixPath
 
 from storages.backends.dropbox import DropboxStorage
+
 
 # FIXING MISTAKE that standart way somehpow adding Local disc to path
 class PatchedDropboxStorage(DropboxStorage):
