@@ -152,7 +152,6 @@ STATICFILES_DIRS = [
 STORAGES = {
     "default": {
         "BACKEND": "base.dropbox.PatchedDropboxStorage",
-        # "BACKEND": "storages.backends.dropbox.DropboxStorage",
         "OPTIONS": {
             "oauth2_access_token": env("oauth2_access_token"),
             "oauth2_refresh_token": env("oauth2_refresh_token"),
