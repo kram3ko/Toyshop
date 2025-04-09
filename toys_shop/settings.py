@@ -41,7 +41,6 @@ AUTH_USER_MODEL = "customers.User"
 # Default login redirect URL
 LOGIN_REDIRECT_URL = reverse_lazy("toys:index")
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -51,8 +50,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # custom apps
+    # Storage
+    "storages",
+    # Toolbbar
     "debug_toolbar",
+    # Apllications
     "accounts",
     "customers",
     "orders",
@@ -100,7 +102,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "toys_shop.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -128,7 +129,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -140,7 +140,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
@@ -148,9 +147,21 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-#Media Urls
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+
+# DROPBOX settings storage
+STORAGES = {
+    "default": {
+        "BACKEND": "base.dropbox.PatchedDropboxStorage",
+        # "BACKEND": "storages.backends.dropbox.DropboxStorage",
+        "OPTIONS": {
+            "oauth2_access_token": env("DROPBOX_OAUTH2_TOKEN"),
+            "root_path": "/media/",
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -160,9 +171,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Django debug tools
 INTERNAL_IPS = ["127.0.0.1"]
 
-#Email settings configuration
+# Email settings configuration
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_PORT = env.int('EMAIL_PORT')
 EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
@@ -170,12 +181,9 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-
-
-#TailWind crispy packs
+# TailWind crispy packs
 CRISPY_ALLOWED_TEMPLATE_PACKS = ["tailwind"]
 CRISPY_TEMPLATE_PACK = "tailwind"
-
 
 # Test for tunnels
 CSRF_TRUSTED_ORIGINS = [
