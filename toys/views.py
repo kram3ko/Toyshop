@@ -1,13 +1,19 @@
+from pathlib import PureWindowsPath, PurePosixPath
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.urls import reverse, reverse_lazy
 from django.views import generic
+from storages.backends.dropbox import DropboxStorage
 
 from toys.forms import ToyCreateForm, ToySearchForm
 from toys.models import Toy
 
+
 class AboutView(generic.TemplateView):
     template_name = "toyshop/about.html"
+
+
 class HomePageView(generic.ListView):
     template_name = "toyshop/index.html"
 
@@ -26,6 +32,7 @@ class HomePageView(generic.ListView):
                 pass
 
         return context
+
 
 class ToyListView(generic.ListView):
     template_name = "toyshop/toys/toy_list.html"
@@ -48,6 +55,7 @@ class ToyListView(generic.ListView):
 
         return queryset
 
+
 class ToyCreateView(LoginRequiredMixin, generic.CreateView):
     model = Toy
     form_class = ToyCreateForm
@@ -67,6 +75,10 @@ class ToyUpdateView(LoginRequiredMixin, generic.UpdateView):
     form_class = ToyCreateForm
     template_name = "toyshop/toys/toy_form.html"
 
+    def form_valid(self, form):
+        print(self.request.FILES.get("photo"))
+        return super().form_valid(form)
+
     def get_success_url(self):
         return reverse("toys:toy-detail", kwargs={"pk": self.object.pk})
 
@@ -79,7 +91,6 @@ class ToyDetailView(generic.DetailView):
         obj = super().get_object(queryset)
         self.request.session["last_viewed_toy"] = obj.id
         return obj
-
 
 
 class ToyDeleteView(LoginRequiredMixin, generic.DeleteView):

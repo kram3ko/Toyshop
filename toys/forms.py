@@ -37,4 +37,3 @@ class ToySearchForm(forms.Form):
             }
         )
     )
-
