@@ -17,7 +17,6 @@ from pathlib import Path
 import environ
 from django.urls import reverse_lazy
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -25,14 +24,35 @@ from django.urls import reverse_lazy
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Environment
-# SECURITY WARNING: keep the secret key used in production secret!
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env()
+
+# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("SECRET_KEY", default="fallback-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
+# Enable HTTP Strict Transport Security (HSTS)
+# Forces the browser to always use HTTPS, even on next visits
+SECURE_HSTS_SECONDS = 100500  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_PRELOAD = False
+
+# Redirect all HTTP requests to HTTPS
+# Ensures users never accidentally use an insecure connection
+SECURE_SSL_REDIRECT = False
+
+# Use secure cookies for user sessions
+# Prevents session hijacking over unencrypted HTTP
+SESSION_COOKIE_SECURE = False
+
+# Use secure cookies for CSRF protection
+# Prevents attackers from stealing CSRF tokens via sniffing
+CSRF_COOKIE_SECURE = False
+
+# Allow only trusted hosts (your production domain or IP)
+# Replace with your actual domain
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["127.0.0.1", "localhost"])
 
 # User model
