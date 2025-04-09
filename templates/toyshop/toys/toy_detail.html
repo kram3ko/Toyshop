@@ -9,7 +9,6 @@
         Back
       </a>
 
-
       <!-- Фото -->
       <div class="md:w-1/2">
         {% if toy.photo %}
@@ -56,6 +55,24 @@
           <li><small class="text-gray-400">Added: {{ toy.created_at|date:"d.m.Y H:i" }}</small></li>
           <li><small class="text-gray-400">Updated: {{ toy.updated_at|date:"d.m.Y H:i" }}</small></li>
         </ul>
+
+        <!-- Кнопки: додати в корзину / вишлист -->
+        <div class="flex gap-4 pt-4">
+          <form method="post" action="{% url 'carts:add-to-cart' toy.pk %}">
+            {% csrf_token %}
+            <button type="submit"
+                    class="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded">
+              Add to Cart
+            </button>
+          </form>
+          <form method="post" action="{% url 'wishlists:add-to-wishlist' toy.pk %}">
+            {% csrf_token %}
+            <button type="submit"
+                    class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm px-4 py-2 rounded">
+              Add to Wishlist
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </div>

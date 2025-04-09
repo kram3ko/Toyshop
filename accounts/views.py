@@ -1,4 +1,6 @@
 import logging
+import threading
+
 from django.db import transaction
 from django.shortcuts import render, redirect
 from django.contrib.sites.shortcuts import get_current_site
@@ -91,7 +93,6 @@ class CustomerSignUpView(generic.CreateView):
     model = User
     template_name = "registration/signup.html"
     form_class = CustomCustomerCreationForm
-    success_url = reverse_lazy("login")
 
     @transaction.atomic
     def form_valid(self, form):
@@ -113,8 +114,8 @@ class CustomerSignUpView(generic.CreateView):
             )
             email = EmailMessage(mail_subject, message, to=[user.email])
             email.content_subtype = "html"
-            email.send()
-
+            # email.send()
+            threading.Thread(target=email.send).start()
         except Exception as e:
             logging.error(f"Error sending email: {e}")
             return render(self.request, "registration/signup.html", {"form": form})
