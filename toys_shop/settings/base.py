@@ -20,16 +20,14 @@ from django.urls import reverse_lazy
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Environment
-env = environ.Env(DEBUG=(bool, False))
-environ.Env.read_env()
+env = environ.Env()
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("SECRET_KEY", default="fallback-key")
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
 # Enable HTTP Strict Transport Security (HSTS)
@@ -52,7 +50,7 @@ CSRF_COOKIE_SECURE = False
 
 # Allow only trusted hosts (your production domain or IP)
 # Replace with your actual domain
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["127.0.0.1", "localhost"])
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 
 # User model
 AUTH_USER_MODEL = "customers.User"
@@ -60,8 +58,10 @@ AUTH_USER_MODEL = "customers.User"
 # Default login redirect URL
 LOGIN_REDIRECT_URL = reverse_lazy("toys:index")
 
-# Application definition
+# DB
+DATABASES = {}
 
+# Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -124,11 +124,6 @@ WSGI_APPLICATION = "toys_shop.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    "default": env.db(
-        "DATABASE_URL", default=f"sqlite:///{BASE_DIR / 'toys_db.sqlite3'}"
-    )
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -166,16 +161,17 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+MEDIA_URL = "/media/"
 
 # DROPBOX settings storage
 STORAGES = {
     "default": {
         "BACKEND": "base.dropbox.PatchedDropboxStorage",
         "OPTIONS": {
-            "oauth2_access_token": env("oauth2_access_token"),
-            "oauth2_refresh_token": env("oauth2_refresh_token"),
-            "app_key": env("app_key"),
-            "app_secret": env("app_secret"),
+            "oauth2_access_token": env("oauth2_access_token", default="dummy"),
+            "oauth2_refresh_token": env("oauth2_refresh_token", default="dummy"),
+            "app_key": env("app_key", default="dummy"),
+            "app_secret": env("app_secret", default="dummy"),
             "root_path": "/media/",
         },
     },
@@ -195,11 +191,11 @@ INTERNAL_IPS = ["127.0.0.1"]
 # Email settings configuration
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = env("EMAIL_HOST")
-EMAIL_PORT = env.int("EMAIL_PORT")
-EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS")
-EMAIL_HOST_USER = env("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+EMAIL_HOST = env("EMAIL_HOST", default="dummy")
+EMAIL_PORT = env.int("EMAIL_PORT", default="dummy")
+EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS", default="dummy")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="dummy")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="dummy")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # TailWind crispy packs
