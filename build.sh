@@ -3,9 +3,13 @@
 
 set -o errexit
 # Installing uv
-pip install -r requirements.txt
+pip install --upgrave uv
 
-# Installing dependencies from requirements.txt або pyproject.toml
+# Installing dependencies from pyproject.toml
+uv sync
+
+# Collecting statics
+python manage.py collectstatic --noinput
+
 # Apply any outstanding database migrations
-
 python manage.py migrate
