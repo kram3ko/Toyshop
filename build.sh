@@ -3,7 +3,7 @@
 
 set -o errexit
 # Installing uv
-pip install --upgrave uv
+pip install --upgrade uv
 
 # Installing dependencies from pyproject.toml
 uv sync

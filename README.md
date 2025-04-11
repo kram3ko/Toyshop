@@ -66,6 +66,9 @@ DEBUG=True
 SECRET_KEY=your-secret-key
 ALLOWED_HOSTS=127.0.0.1,localhost
 
+# DB Settings
+Your db settings
+
 # Email (Gmail SMTP)
 EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
 EMAIL_HOST=smtp.gmail.com
@@ -74,8 +77,14 @@ EMAIL_USE_TLS=True
 EMAIL_HOST_USER=your_email@gmail.com
 EMAIL_HOST_PASSWORD=your_app_password
 
-# Dropbox
-DROPBOX_OAUTH2_TOKEN=your-dropbox-token
+#DROPBOX SETTING
+oauth2_access_token=
+
+oauth2_refresh_token=
+app_key=
+app_secret=
+
+
 ```
 
 ---
@@ -86,8 +95,18 @@ DROPBOX_OAUTH2_TOKEN=your-dropbox-token
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
+   
 ```
 
+```
+Defualt users
+login: customer - registered base customer
+login: shop_admin - Shop adminstator with rules
+login: admin - super admin
+password: toyshop0987
+ 
+
+```
 ---
 
 ## 🧼 Code Style
