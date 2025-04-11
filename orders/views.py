@@ -23,6 +23,7 @@ class OrderCreateView(LoginRequiredMixin, generic.CreateView):
         cart, _ = Cart.objects.get_or_create(user=self.request.user, is_active=True)
         form.instance.user = self.request.user
         form.instance.cart = cart
+        form.instance.total_price = cart.total_price
         cart.is_active = False
         cart.save()
         return super().form_valid(form)
