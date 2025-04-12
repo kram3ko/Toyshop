@@ -1,5 +1,5 @@
 <!-- UPPER PANEL -->
-<div class="w-full bg-gray-700 shadow-inner border-b border-gray-700 py-3 px-4 text-xs sm:text-sm text-gray-300 flex flex-wrap items-center gap-2 sm:gap-6 justify-between relative">
+<div class="w-full bg-gray-700 shadow-inner border-b border-gray-700 py-1 px-4 text-xs sm:text-sm text-gray-300 flex flex-wrap items-center gap-2 sm:gap-6 justify-between relative">
 
   <!-- LEFT SIDE -->
   <div class="flex flex-wrap items-center gap-3 sm:gap-6">
@@ -29,7 +29,7 @@
 <!-- USER INFO SECTION (only if logged in) -->
 {% if user.is_authenticated %}
   <div
-      class="w-full bg-gray-800 text-gray-200 py-2 px-6 flex flex-wrap items-center justify-between gap-4 text-sm sm:text-base">
+      class="w-full bg-gray-800 text-gray-200 py-1 px-6 flex flex-wrap items-center justify-between gap-4 text-sm sm:text-base">
 
     <div class="flex gap-4 items-center">
       <a href="{% url 'customers:profile' request.user.pk %}" class="no-underline hover:text-white text-lg sm:text-xl">
@@ -50,7 +50,7 @@
 
 
 <!-- MAIN HEADER -->
-<header class="bg-black text-white shadow-md py-2 px-2 sm:py-3 sm:px-4">
+<header class="bg-black text-white shadow-md py-2 px-2 sm:py-2 sm:px-4">
   <div class="max-w-screen-xl mx-auto flex items-center justify-between flex-wrap gap-2 sm:gap-6">
 
     <!-- LOGO -->

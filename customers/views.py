@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -18,6 +19,11 @@ class CustomersListView(generic.ListView):
 class CustomerProfileView(LoginRequiredMixin, generic.DetailView):
     model = User
     template_name = "toyshop/customers/profile.html"
+
+    def render_to_response(self, context, **response_kwargs):
+        if self.request.headers.get("HX-Request"):
+            return render(self.request, "toyshop/customers/customer_form.html", context)
+        return super().render_to_response(context, **response_kwargs)
 
 
 class CustomerUpdateView(LoginRequiredMixin, generic.UpdateView):

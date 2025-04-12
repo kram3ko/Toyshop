@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
+from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views import generic
 
@@ -33,14 +34,10 @@ class HomePageView(generic.ListView):
 
 class ToyListView(generic.ListView):
     template_name = "toyshop/toys/toy_list.html"
-    paginate_by = 12
+    paginate_by = 5
 
     def get_queryset(self):
         queryset = Toy.objects.prefetch_related("category")
-
-        category_id = self.request.GET.get("category")
-        if category_id:
-            return queryset.filter(category__id=category_id).distinct()
 
         form = ToySearchForm(self.request.GET)
         if form.is_valid():
@@ -50,7 +47,16 @@ class ToyListView(generic.ListView):
                 | Q(manufacturer__icontains=form.cleaned_data["toy"])
             )
 
+        category_id = self.request.GET.get("category")
+        if category_id:
+            return queryset.filter(category__id=category_id).distinct()
+
         return queryset
+
+    def render_to_response(self, context, **response_kwargs):
+        if self.request.headers.get("HX-Request"):
+            return render(self.request, "toyshop/toys/toy_partials/partial_list.html", context)
+        return super().render_to_response(context, **response_kwargs)
 
 
 class ToyCreateView(LoginRequiredMixin, generic.CreateView):

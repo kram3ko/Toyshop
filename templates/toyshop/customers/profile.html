@@ -1,9 +1,7 @@
 {% extends "base.html" %}
-{% load static %}
-
 {% block title %}My Profile | Toy Shop{% endblock %}
-
 {% block content %}
+
   <div class="container mx-auto px-4 py-8">
     <div class="max-w-4xl mx-auto">
       <h1 class="text-3xl font-bold mb-8">👤 Profile Overview</h1>
@@ -39,82 +37,43 @@
                   <span class="text-gray-400 text-sm">Not a member</span>
                 {% endif %}
               </div>
+              <!-- profile data -->
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <p class="text-sm text-gray-500">First Name</p>
-                  <p class="font-medium">{{ user.first_name }}</p>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-500">Last Name</p>
-                  <p class="font-medium">{{ user.last_name }}</p>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-500">Username</p>
-                  <p class="font-medium">{{ user.username }}</p>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-500">Email</p>
-                  <p class="font-medium">{{ user.email }}</p>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-500">Date Joined</p>
-                  <p class="font-medium">{{ user.date_joined|date:"F d, Y" }}</p>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-500">Last Login</p>
-                  <p class="font-medium">{{ user.last_login|date:"F d, Y H:i" }}</p>
-                </div>
-                <div>
-                  {% if request.user.shop_admin %}
-                    <p class="text-sm text-gray-500">Shop Admin</p>
-                    <p class="font-medium">{{ request.user.shop_admin }}</p>
-                  {% endif %}
-                </div>
-              </div>
-
-              <!-- Edit profile button -->
-              <div class="mt-6">
-                <form action="{% url 'customers:customer-update' user.pk %}">
-                  <button type="submit"
-                          class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors">
-                    Edit Profile
-                  </button>
-                </form>
+              <div id="profile_edit">
+                {% include "toyshop/customers/customer_form.html" %}
               </div>
 
               <!-- Quick links -->
-              <div class="mt-8">
-                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="mt-6">
+                <h3 class="text-sm font-semibold mb-2 text-gray-600">Quick Links</h3>
+                <div class="flex flex-wrap gap-2">
                   <a href="{% url 'orders:order-list' %}"
-                     class="flex items-center p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
-                    <i class="fas fa-shopping-bag text-blue-600 mr-3"></i>
-                    <span>My Orders</span>
+                     class="inline-flex items-center gap-2 text-sm px-4 py-1.5 bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-500 text-white rounded-full shadow-md hover:from-purple-600 hover:to-indigo-600 transition-all duration-300 ease-in-out">
+                    <i class="fas fa-shopping-bag text-xs"></i>
+                    Orders
                   </a>
                   <a href="{% url 'orders:order-create' %}"
-                     class="flex items-center p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
-                    <i class="fas fa-shopping-cart text-blue-600 mr-3"></i>
-                    <span>Shopping Cart</span>
+                     class="inline-flex items-center gap-2 text-sm px-4 py-1.5 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full shadow hover:from-emerald-500 hover:to-green-500 transition">
+                    <i class="fas fa-shopping-cart text-xs"></i>
+                    Cart
                   </a>
                   <a href="{% url 'wishlists:wishlist-detail' %}"
-                     class="flex items-center p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
-                    <i class="fas fa-heart text-blue-600 mr-3"></i>
-                    <span>My Wishlist</span>
+                     class="inline-flex items-center gap-2 text-sm px-4 py-1.5 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full shadow hover:from-rose-500 hover:to-pink-500 transition">
+                    <i class="fas fa-heart text-xs"></i>
+                    Wishlist
                   </a>
                   {% if user == request.user %}
                     <form action="{% url 'accounts:logout' %}" method="post">
                       {% csrf_token %}
                       <button
-                          class="flex items-center w-full p-3 bg-red-50 rounded-lg hover:bg-red-100 transition-colors text-red-600">
-                        <i class="fas fa-sign-out-alt mr-2"></i>
+                          class="inline-flex items-center gap-2 text-sm px-4 py-1.5 bg-gradient-to-r from-red-500 to-rose-500 text-white rounded-full shadow hover:from-rose-500 hover:to-red-500 transition">
+                        <i class="fas fa-sign-out-alt text-xs"></i>
                         Logout
                       </button>
                     </form>
                   {% endif %}
                 </div>
               </div>
-
             </div>
           </div>
         </div>

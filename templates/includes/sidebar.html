@@ -1,9 +1,15 @@
-<button class="lg:hidden mb-4 text-gray-700 font-medium flex items-center gap-2"
-        onclick="document.getElementById('mobile-sidebar').classList.toggle('hidden')">
-  ☰ Categories
-</button>
+<!-- Mobile button -->
+<div class="lg:hidden mb-4">
+  <button class="text-gray-700 font-medium flex items-center gap-2"
+          onclick="document.getElementById('mobile-sidebar').classList.toggle('hidden')">
+    ☰ Categories
+  </button>
+</div>
+
+<!-- Desktop Sidebar -->
 <aside id="mobile-sidebar"
-       class="hidden w-full lg:block lg:w-72 bg-white border-r shadow-sm p-4 rounded-lg"
+       class="hidden lg:block fixed top-[104px] lg:w-72 h-[calc(100vh-104px)] overflow-y-auto
+              bg-white border-r shadow-sm p-4 rounded-lg z-20">
   <h6 class="uppercase text-gray-500 font-semibold mb-4 text-sm tracking-widest">
     🧸 Shop by Category
   </h6>
