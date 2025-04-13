@@ -16,7 +16,7 @@ User = get_user_model()
 class CustomerCreateView(LoginRequiredMixin, generic.CreateView):
     model = User
     success_url = reverse_lazy("customers:customers-list")
-class CustomersListView(generic.ListView):
+class CustomersListView(LoginRequiredMixin, generic.ListView):
     model = User
     template_name = "toyshop/customers/customer_list.html"
     paginate_by = 10
