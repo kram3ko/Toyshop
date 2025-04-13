@@ -9,14 +9,17 @@ It allows users to register, log in, browse toys by categories, and place orders
 
 ## 🚀 Features
 
-- 🔐 User authentication and registration
-- 📧 Email verification via SMTP
-- 🧸 Toy catalog with categories
-- 📦 Image upload with automatic resizing (Pillow)
-- ☁️ Dropbox media storage
-- 🧑‍💼 Admin panel for managing the store
-- 🧰 Django Debug Toolbar
-- 🎨 Tailwind-based UI using crispy-tailwind
+- 🔐 User authentication and registration  
+- 📧 Email verification via SMTP  
+- 🧸 Toy catalog with categories  
+- 📦 Image upload with automatic resizing (Pillow)  
+- ☁️ Dropbox media storage  
+- 🧑‍💼 Admin panel for managing the store  
+- 💌 Flash messages via Django messages framework  
+- 💅 Styled forms using Django Crispy Forms + Tailwind (crispy-tailwind)  
+- ⚡ HTMX for partial page updates and dynamic interactions  
+- 🧰 Django Debug Toolbar for development insights  
+- 🛠️ Environment management via django-environ  
 
 ---
 
