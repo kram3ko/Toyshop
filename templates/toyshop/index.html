@@ -5,10 +5,12 @@
     <h4 class="text-gray-600 text-lg font-semibold">
       🧸 Latest seen toy
     </h4>
-    <a href="{% url 'toys:create-toy' %}"
-       class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition">
-      ➕ Add toy
-    </a>
+    {% if request.user.shop_admin %}
+      <a href="{% url 'toys:create-toy' %}"
+         class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition">
+        ➕ Add toy
+      </a>
+    {% endif %}
   </div>
 
   {% if last_viewed_toy %}
@@ -25,10 +27,10 @@
   {% endif %}
 
 
-  {% if toy_list %}
-    <div class="ml-16"></div> {# добавляем отступ для сайдбара #}
+  {% if latest_toys %}
+    <div class="ml-16"></div>
     <div class="grid gap-6 grid-cols-2 md:grid-cols-4">
-      {% for toy in toy_list|slice:":8" %}
+      {% for toy in latest_toys|slice:":8" %}
         <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
           {% if toy.photo %}
             <a href="{{ toy.get_absolute_url }}?next={{ request.get_full_path }}">
@@ -51,7 +53,15 @@
                 ℹ️
               </a>
 
-              <form method="post" action="{% url 'carts:add-to-cart' toy.pk %}" class="w-1/3">
+              <form
+                  method="post"
+                  action="{% url 'carts:add-to-cart' toy.pk %}"
+                  hx-post="{% url 'carts:add-to-cart' toy.pk %}"
+                  hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                  hx-target="#cart-counter"
+                  hx-swap="outerHTML"
+                  class="inline"
+              >
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{{ request.get_full_path }}">
                 <button type="submit"
@@ -60,7 +70,15 @@
                 </button>
               </form>
 
-              <form method="post" action="{% url 'wishlists:add-to-wishlist' toy.pk %}" class="w-1/3">
+              <form
+                  method="post"
+                  action="{% url 'wishlists:add-to-wishlist' toy.pk %}"
+                  hx-post="{% url 'wishlists:add-to-wishlist' toy.pk %}"
+                  hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                  hx-target="#wishlist-counter"
+                  hx-swap="outerHTML"
+                  class="inline"
+              >
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{{ request.get_full_path }}">
                 <button type="submit"

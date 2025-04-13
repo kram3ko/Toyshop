@@ -97,11 +97,11 @@
         </a>
       {% endif %}
       <a href="{% url 'wishlists:wishlist-detail' %}" class="hover:text-red-400">
-        ❤️<sup class="text-xs">{{ wishlist_item_count }}</sup>
+        ❤️<sup id="wishlist-counter" class="text-xs">{{ wishlist_item_count }}</sup>
       </a>
 
       <a href="{% url 'orders:order-create' %}" class="hover:text-green-400">
-        🛒<sup class="text-xs">{{ cart_item_count }}</sup>
+        🛒<sup id="cart-counter" class="text-xs">{{ cart_item_count }}</sup>
       </a>
     </div>
 

@@ -29,7 +29,7 @@ class CustomerProfileView(LoginRequiredMixin, generic.DetailView):
     template_name = "toyshop/customers/profile.html"
 
     def render_to_response(self, context, **response_kwargs):
-        if self.request.headers.get("HX-Request"):
+        if self.request.htmx:
             return render(self.request, "toyshop/customers/customer_form.html", context)
         return super().render_to_response(context, **response_kwargs)
 

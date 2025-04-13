@@ -12,20 +12,17 @@ class AboutView(generic.TemplateView):
     template_name = "toyshop/about.html"
 
 
-class HomePageView(generic.ListView):
+class HomePageView(generic.TemplateView):
     template_name = "toyshop/index.html"
-
-    def get_queryset(self):
-        return Toy.objects.order_by("-updated_at")[:8]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["latest_toys"] = Toy.objects.order_by("-updated_at")[:8]
 
         last_viewed_toy_id = self.request.session.get("last_viewed_toy")
         if last_viewed_toy_id:
             try:
-                last_viewed_toy = Toy.objects.get(id=last_viewed_toy_id)
-                context["last_viewed_toy"] = last_viewed_toy
+                context["last_viewed_toy"] = Toy.objects.get(id=last_viewed_toy_id)
             except Toy.DoesNotExist:
                 pass
 
@@ -54,10 +51,10 @@ class ToyListView(generic.ListView):
         return queryset
 
     def render_to_response(self, context, **response_kwargs):
-        if self.request.headers.get("HX-Request"):
-            return render(
-                self.request, "toyshop/toys/toy_partials/partial_list.html", context
-            )
+        if self.request.htmx:
+            return render(self.request,
+                          "toyshop/toys/toy_partials/partial_list.html",
+                          context)
         return super().render_to_response(context, **response_kwargs)
 
 

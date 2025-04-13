@@ -33,7 +33,15 @@
                 <span class="text-lg font-bold text-blue-600">${{ item.toy.price }}</span>
               </div>
               <div>
-                <form method="post" action="{% url 'carts:add-to-cart' item.toy.pk %}" class="inline">
+                <form
+                    method="post"
+                    action="{% url 'carts:add-to-cart' item.toy.pk %}"
+                    hx-post="{% url 'carts:add-to-cart' item.toy.pk %}"
+                    hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                    hx-target="#cart-counter"
+                    hx-swap="outerHTML"
+                    class="inline"
+                >
                   {% csrf_token %}
                   <input type="hidden" name="next" value="{{ request.get_full_path }}">
                   <button type="submit"
