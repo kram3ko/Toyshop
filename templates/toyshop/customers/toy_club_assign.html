@@ -1,18 +1,37 @@
 {% extends 'base.html' %}
 {% load tailwind_filters %}
 
-{% block title %}
-  ToyClub Assign | Toy Shop
-{% endblock %}
+{% block title %}ToyClub Assign | Toy Shop{% endblock %}
 
 {% block content %}
-  <h2 class="text-2xl font-bold mb-4">Assign Toy to Club: {{ toyclub.name }}</h2>
+  <h2 class="text-2xl font-bold mb-4">Assign Cart to User: {{ toyclub.name }}</h2>
 
-  <form method="post" action="{% url 'customers:toy-assign' toyclub.pk %}">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded">
-      Save
-    </button>
-  </form>
+  {% if club_to_user %}
+    <div>
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Are you sure you want to assign?</h2>
+      <form method="post" class="inline-block mr-4">
+        {% csrf_token %}
+        <input type="hidden" name="club_to_user" value="{{ club_to_user }}">
+        <input type="hidden" name="confirm" value="1">
+        <button type="submit"
+                class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg shadow transition duration-300 ease-in-out transform hover:scale-105">
+          ✅ Confirm
+        </button>
+      </form>
+      <a href="{% url 'customers:toy-club-list' %}"
+         class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium py-2 px-4 rounded-lg shadow transition duration-300 ease-in-out transform hover:scale-105">
+        ← Back
+      </a>
+    </div>
+
+  {% else %}
+    <!-- Choose User -->
+    <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="hidden" name="club_to_user" value="{{ request.POST.user }}">
+      <button type="submit">➡️ Next</button>
+    </form>
+  {% endif %}
+
 {% endblock %}
