@@ -5,21 +5,28 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('toys', '0001_initial'),
-        ('wishlists', '0001_initial'),
+        ("toys", "0001_initial"),
+        ("wishlists", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='wishlistitem',
-            name='toy',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='wish_list', to='toys.toy'),
+            model_name="wishlistitem",
+            name="toy",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="wish_list",
+                to="toys.toy",
+            ),
         ),
         migrations.AlterField(
-            model_name='wishlistitem',
-            name='wishlist',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='items', to='wishlists.wishlist'),
+            model_name="wishlistitem",
+            name="wishlist",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="items",
+                to="wishlists.wishlist",
+            ),
         ),
     ]
