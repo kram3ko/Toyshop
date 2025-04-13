@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import F
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View, generic
 
 from toys.models import Toy
@@ -34,6 +34,8 @@ class AddToWishListView(LoginRequiredMixin, View):
             wish_list_item.quantity = F("quantity") + 1
         wish_list_item.save()
 
+        if request.htmx:
+            return render(request, "includes/part_incl/wishlist.html")
         return redirect(request.POST.get("next", "/"))
 
 

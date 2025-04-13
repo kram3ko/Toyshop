@@ -6,19 +6,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('customers', '0002_alter_user_toy_club'),
+        ("customers", "0002_alter_user_toy_club"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='user',
-            name='toy_club',
+            model_name="user",
+            name="toy_club",
         ),
         migrations.AddField(
-            model_name='toyclub',
-            name='user',
-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='toy_club', to=settings.AUTH_USER_MODEL),
+            model_name="toyclub",
+            name="user",
+            field=models.OneToOneField(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="toy_club",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]

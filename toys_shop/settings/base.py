@@ -71,7 +71,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Storage
     "storages",
-    # Toolbbar
+    #HTMX
+    "django_htmx",
+    # Toolbar
     "debug_toolbar",
     # Apllications
     "accounts",
@@ -89,6 +91,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "django_htmx.middleware.HtmxMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
