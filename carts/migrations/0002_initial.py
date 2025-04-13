@@ -6,29 +6,40 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('carts', '0001_initial'),
-        ('toys', '0001_initial'),
+        ("carts", "0001_initial"),
+        ("toys", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='cart',
-            name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carts', to=settings.AUTH_USER_MODEL),
+            model_name="cart",
+            name="user",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="carts",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AddField(
-            model_name='cartitem',
-            name='cart',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='cart_items', to='carts.cart'),
+            model_name="cartitem",
+            name="cart",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="cart_items",
+                to="carts.cart",
+            ),
         ),
         migrations.AddField(
-            model_name='cartitem',
-            name='toy',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='toys_in_cart', to='toys.toy'),
+            model_name="cartitem",
+            name="toy",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="toys_in_cart",
+                to="toys.toy",
+            ),
         ),
     ]

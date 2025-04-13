@@ -18,5 +18,6 @@ urlpatterns = [
     path(
         "wishlists/<int:pk>/remove",
         RemoveFromWishListView.as_view(),
-        name="remove-from-wishlist")
+        name="remove-from-wishlist",
+    ),
 ]

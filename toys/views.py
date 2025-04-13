@@ -55,7 +55,9 @@ class ToyListView(generic.ListView):
 
     def render_to_response(self, context, **response_kwargs):
         if self.request.headers.get("HX-Request"):
-            return render(self.request, "toyshop/toys/toy_partials/partial_list.html", context)
+            return render(
+                self.request, "toyshop/toys/toy_partials/partial_list.html", context
+            )
         return super().render_to_response(context, **response_kwargs)
 
 
