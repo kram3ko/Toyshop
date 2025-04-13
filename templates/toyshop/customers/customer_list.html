@@ -3,7 +3,13 @@
 
 {% block content %}
   <div class="max-w-screen-xl mx-auto px-4 py-8">
-    <h1 class="text-2xl font-bold text-gray-800 mb-6">User List</h1>
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="text-2xl font-bold text-gray-800">User List</h1>
+      <a href="{% url 'customers:customer-create' %}"
+         class="bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-2 px-4 rounded-lg shadow transition duration-300 ease-in-out transform hover:scale-105">
+        ➕ Add new customer
+      </a>
+    </div>
 
     {% if user_list %}
       <div class="overflow-x-auto bg-white shadow rounded-lg">
@@ -12,12 +18,11 @@
           <tr>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Username</th>
-            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">First Name</th>
-            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Name</th>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Shop Admin</th>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Toy Club</th>
             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Club Number</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+
 
           </tr>
           </thead>
@@ -26,11 +31,9 @@
             <tr class="hover:bg-gray-50">
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ user.id }}</td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600 font-semibold">
-                <a href="{{ user.get_absolute_url }}">{{ user.username }}</a>
+                <a href="{{ user.get_absolute_url }}">{{ user.username }} {% if user == request.user %}
+                  (ME) {% endif %}</a>
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm">{{ user.email }}</td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm">{{ user.first_name }}</td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm">{{ user.last_name }}</td>
               <td class="px-6 py-4 whitespace-nowrap text-sm">{{ user.shop_admin }}</td>
               <td class="px-6 py-4 whitespace-nowrap text-sm">
                 {% if user.toy_club %}
@@ -46,6 +49,16 @@
                 {% endif %}
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm">{{ user.toy_club.unique_number }}</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm">
+                {% if request.user.shop_admin %}
+                  <a href="{% url 'customers:customer-delete' user.pk %}"
+                     class="inline-block bg-red-600 hover:bg-red-700 text-white text-xs px-3 py-1 rounded transition">
+                    🗑️ Delete
+                  </a>
+                {% else %}
+                  <span class="text-gray-300 text-xs">—</span>
+                {% endif %}
+              </td>
             </tr>
           {% endfor %}
           </tbody>

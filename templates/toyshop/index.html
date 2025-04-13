@@ -1,9 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h4 class="text-gray-600 mb-6 text-lg font-semibold">
-    🧸 Latest seen toy
-  </h4>
+  <div class="flex items-center justify-between mb-6">
+    <h4 class="text-gray-600 text-lg font-semibold">
+      🧸 Latest seen toy
+    </h4>
+    <a href="{% url 'toys:create-toy' %}"
+       class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition">
+      ➕ Add toy
+    </a>
+  </div>
+
   {% if last_viewed_toy %}
     <div class="last-viewed-toy mb-6">
       <h5 class="text-xl font-medium text-gray-800">{{ last_viewed_toy.name }}</h5>
@@ -16,6 +23,7 @@
   {% else %}
     <p class="text-gray-400 mb-6">You haven't viewed any toys yet.</p>
   {% endif %}
+
 
   {% if toy_list %}
     <div class="ml-16"></div> {# добавляем отступ для сайдбара #}

@@ -1,22 +1,75 @@
-{% extends "base.html" %}
-{% load crispy_forms_filters %}
-
-{% block title %}Update Customer | Toy Shop{% endblock %}
-
-{% block content %}
-  <div class="flex items-center justify-center bg-gray-100 pt-10">
-    <div class="w-full bg-white rounded-lg shadow-lg p-6">
-      <h1 class="text-2xl font-bold mb-6 text-center">Update account Info</h1>
-
-      <form method="post" class="space-y-4" novalidate>
-        {% csrf_token %}
-        {{ form|crispy }}
-
-        <button type="submit"
-                class="w-full py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
-          update
+{% load tailwind_filters %}
+<div id="profile_edit">
+  {% if form %}
+    <form method="post" action="{% url 'customers:customer-update' user.pk %}"
+          hx-post="{% url 'customers:customer-update' user.pk %}"
+          hx-target="#profile_edit" hx-swap="outerHTML" novalidate>
+      {% csrf_token %}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>{{ form.first_name|as_crispy_field }}</div>
+        <div>{{ form.last_name|as_crispy_field }}</div>
+        <div>{{ form.username|as_crispy_field }}</div>
+        <div>{{ form.email|as_crispy_field }}</div>
+      </div>
+      <div class="flex gap-2 justify-end mt-4">
+        <button type="submit" class="text-sm bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
+          Save
         </button>
-      </form>
+        <button type="button"
+                hx-get="{% url 'customers:profile' user.pk %}"
+                hx-target="#profile_edit"
+                hx-swap="outerHTML"
+                class="text-sm bg-gray-300 text-gray-800 px-3 py-1 rounded hover:bg-gray-400">
+          Cancel
+        </button>
+      </div>
+    </form>
+  {% else %}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <p class="text-sm text-gray-500">First Name</p>
+        <p class="font-medium">{{ user.first_name }}</p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">Last Name</p>
+        <p class="font-medium">{{ user.last_name }}</p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">Username</p>
+        <p class="font-medium">{{ user.username }}</p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">Email</p>
+        <p class="font-medium">{{ user.email }}</p>
+      </div>
     </div>
+    <div class="flex justify-end">
+      <button
+          hx-get="{% url 'customers:customer-update' user.pk %}"
+          hx-target="#profile_edit"
+          hx-swap="outerHTML"
+          class="px-4 py-1 text-xs bg-gradient-to-r from-red-500 to-pink-500 text-white font-medium rounded-full shadow hover:from-pink-500 hover:to-red-500 transition">
+        <i class="fas fa-pen text-xs"></i>
+        Edit
+      </button>
+    </div>
+  {% endif %}
+
+  <!-- 🟢 Always visible block -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+    <div>
+      <p class="text-sm text-gray-500">Date Joined</p>
+      <p class="font-medium">{{ user.date_joined|date:"F d, Y" }}</p>
+    </div>
+    <div>
+      <p class="text-sm text-gray-500">Last Login</p>
+      <p class="font-medium">{{ user.last_login|date:"F d, Y H:i" }}</p>
+    </div>
+    {% if request.user.shop_admin %}
+      <div>
+        <p class="text-sm text-gray-500">Shop Admin</p>
+        <p class="font-medium">True</p>
+      </div>
+    {% endif %}
   </div>
-{% endblock %}
+</div>

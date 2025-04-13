@@ -65,7 +65,7 @@ class ActivateAccountView(View):
             # login(request, user)
             messages.success(
                 request,
-                "Thank you for confirming your email. You can now login to your account.", # noqa E501
+                "Thank you for confirming your email. You can now login to your account.",  # noqa E501
             )
             return redirect("accounts:login")
         else:
