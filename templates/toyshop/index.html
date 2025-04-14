@@ -27,8 +27,7 @@
   {% endif %}
 
 
-  {% if latest_toys %}
-    <div class="ml-16"></div>
+  {% if latest_toys.exists  %}
     <div class="grid gap-6 grid-cols-2 md:grid-cols-4">
       {% for toy in latest_toys|slice:":8" %}
         <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
@@ -48,9 +47,11 @@
             <p class="text-sm text-gray-500"><strong>Price:</strong> ${{ toy.price }}</p>
 
             <div class="flex justify-between gap-1 pt-1">
-              {% url 'carts:add-to-cart' toy.pk as post_url %}
-              {% include 'includes/buttons/cart_button.html' with post_url=post_url %}
-              {% include 'includes/buttons/wishlist_button.html' with post_url=post_url %}
+              {#CART and WISHLIST buttons#}
+              {% url 'carts:add-to-cart' toy.pk as add_to_cart %}
+              {% url 'wishlists:add-to-wishlist' toy.pk as add_to_wishlist %}
+              {% include 'includes/buttons/cart_button.html' with post_url=add_to_cart %}
+              {% include 'includes/buttons/wishlist_button.html' with post_url=add_to_wishlist %}
             </div>
           </div>
         </div>
