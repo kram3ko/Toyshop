@@ -44,8 +44,6 @@ class RemoveFromWishListView(LoginRequiredMixin, View):
         wish_list_item = get_object_or_404(
             WishListItem, pk=pk, wishlist__user=request.user
         )
-        toy_name = wish_list_item.toy.name
-        messages.success(request, f"{toy_name} removed from your wishlist.")
         wish_list_item.delete()
 
         return redirect(request.POST.get("next", "/"))
