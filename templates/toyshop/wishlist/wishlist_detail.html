@@ -36,8 +36,8 @@
                 {#BUTTON ADD TO CART#}
                 {% url 'carts:add-to-cart' item.toy.pk as post_url %}
                 {% include 'includes/buttons/cart_button.html' with post_url=post_url %}
-                {#BUTTON TRASH#}
 
+                {#BUTTON TRASH#}
                 <form method="post" action="{% url 'wishlists:remove-from-wishlist' item.pk %}" class="inline">
                   {% csrf_token %}
                   <input type="hidden" name="next" value="{{ request.get_full_path }}">
