@@ -9,37 +9,11 @@
             <a href="{% url 'toys:toy-detail' toy.pk %}">{{ toy.name }}</a>
           </h3>
           <div class="flex flex-wrap items-center gap-2">
-            <form
-                method="post"
-                action="{% url 'carts:add-to-cart' toy.pk %}"
-                hx-post="{% url 'carts:add-to-cart' toy.pk %}"
-                hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
-                hx-target="#cart-counter"
-                hx-swap="outerHTML"
-                class="inline"
-            >
-              {% csrf_token %}
-              <button type="submit" title="Add to cart"
-                      class="bg-green-200 hover:bg-green-500 text-white px-6 py-2 rounded text-lg">
-                🛒
-              </button>
-            </form>
-           <form
-                method="post"
-                action="{% url 'wishlists:add-to-wishlist' toy.pk %}"
-                hx-post="{% url 'wishlists:add-to-wishlist' toy.pk %}"
-                hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
-                hx-target="#wishlist-counter"
-                hx-swap="outerHTML"
-                class="inline"
-            >
-              {% csrf_token %}
-              <input type="hidden" name="next" value="{{ request.get_full_path }}">
-              <button type="submit" title="Add to wishlist"
-                      class="bg-yellow-400 hover:bg-yellow-500 text-white px-6 py-2 rounded text-lg">
-                ❤️
-              </button>
-            </form>
+            {% url 'carts:add-to-cart' toy.pk as post_url %}
+            {% include 'includes/buttons/cart_button.html' with post_url=post_url %}
+            {% include 'includes/buttons/wishlist_button.html' with post_url=post_url %}
+
+            {#---SHOP ADMIN butons---- #}
             {% if user.shop_admin %}
               <a href="{% url 'toys:toy-update' toy.pk %}?next={{ request.get_full_path }}"
                  class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-2 rounded text-xs">Update</a>

@@ -58,20 +58,8 @@
 
         <!-- Buttons -->
         <div class="flex gap-4 pt-4">
-          <form method="post" action="{% url 'carts:add-to-cart' toy.pk %}">
-            {% csrf_token %}
-            <button type="submit"
-                    class="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded">
-              Add to Cart
-            </button>
-          </form>
-          <form method="post" action="{% url 'wishlists:add-to-wishlist' toy.pk %}">
-            {% csrf_token %}
-            <button type="submit"
-                    class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm px-4 py-2 rounded">
-              Add to Wishlist
-            </button>
-          </form>
+          {% include 'includes/buttons/cart_button.html' %}
+          {% include 'includes/buttons/wishlist_button.html' %}
         </div>
       </div>
     </div>

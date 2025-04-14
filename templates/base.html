@@ -52,13 +52,5 @@
     © 2025 <strong class="text-blue-600">ToyShop</strong>. All rights reserved.
   </div>
 </footer>
-<script>
-    document.body.addEventListener("htmx:afterRequest", function (e) {
-        const url = e.detail.xhr.responseURL;
-        if (url.includes("{% url 'accounts:login' %}")) {
-            window.location.href = url;
-        }
-    });
-</script>
 </body>
 </html>

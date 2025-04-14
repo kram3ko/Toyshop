@@ -33,28 +33,17 @@
                 <span class="text-lg font-bold text-blue-600">${{ item.toy.price }}</span>
               </div>
               <div>
-                <form
-                    method="post"
-                    action="{% url 'carts:add-to-cart' item.toy.pk %}"
-                    hx-post="{% url 'carts:add-to-cart' item.toy.pk %}"
-                    hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
-                    hx-target="#cart-counter"
-                    hx-swap="outerHTML"
-                    class="inline"
-                >
-                  {% csrf_token %}
-                  <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                  <button type="submit"
-                          class="px-3 py-2 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                    <i class="fas fa-shopping-cart mr-1"></i> 🛒
-                  </button>
-                </form>
+                {#BUTTON ADD TO CART#}
+                {% url 'carts:add-to-cart' item.toy.pk as post_url %}
+                {% include 'includes/buttons/cart_button.html' with post_url=post_url %}
+                {#BUTTON TRASH#}
+
                 <form method="post" action="{% url 'wishlists:remove-from-wishlist' item.pk %}" class="inline">
                   {% csrf_token %}
                   <input type="hidden" name="next" value="{{ request.get_full_path }}">
                   <button type="submit"
-                          class="px-3 py-1 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400">
-                    <i class="fas fa-trash mr-1"></i>🗑️
+                          class="text-white text-3xl rounded-md hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <i class="fas fa-shopping-cart mr-1"></i>🗑️
                   </button>
                 </form>
               </div>
