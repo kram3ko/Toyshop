@@ -1,5 +1,6 @@
 import debug_toolbar
 from django.contrib import admin
+from django.http import HttpResponse
 from django.urls import include, path
 
 urlpatterns = [
@@ -11,4 +12,5 @@ urlpatterns = [
     path("toysshop/", include("orders.urls", namespace="orders")),
     path("toysshop/", include("wishlists.urls", namespace="wishlists")),
     path("__debug__/", include(debug_toolbar.urls)),
+    path("ping/", lambda request: HttpResponse("status 200 working", content_type="text/plain"))
 ]
