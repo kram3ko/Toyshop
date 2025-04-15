@@ -40,7 +40,7 @@ It allows users to register, log in, browse toys by categories, and place orders
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/toys-shop.git
+git clone https://github.com/kram3ko/toys-shop.git
 cd toys-shop
 ```
 
@@ -131,7 +131,7 @@ ruff format .
 
 ## 👤 Author
 
-**Volodymyr Vynogradov**  
+**Volodymyr Vynohradov**  
 [GitHub](//https://github.com/kram3ko/)
 
 ---
