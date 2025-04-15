@@ -17,9 +17,9 @@ def start_ping():
                     "User-Agent": "Toyshop service"
                 }
             )
-            logger.info("✅ Ping sent")
+            logger.info("Ping sent")
         except Exception as e:
-            logger.error(f"❌ Ping error: {e}")
+            logger.error(f"Ping error: {e}")
         threading.Timer(random.randrange(45, 90), ping).start()
 
     ping()
