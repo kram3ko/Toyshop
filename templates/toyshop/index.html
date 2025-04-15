@@ -33,12 +33,12 @@
         <div class="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
           {% if toy.photo %}
             <a href="{{ toy.get_absolute_url }}?next={{ request.get_full_path }}">
-              <img src="{{ toy.photo.url }}" alt="{{ toy.name }}" class="w-full h-40 object-cover">
+              <img src="{{ toy.photo.url }}" alt="{{ toy.name }}" class="w-full h-40 object-contain">
             </a>
           {% else %}
             <a href="{{ toy.get_absolute_url }}">
               <img src="https://via.placeholder.com/300x200?text=No+Image" alt="No image"
-                   class="w-full h-40 object-cover">
+                   class="w-full h-40 object-contain">
             </a>
           {% endif %}
 
