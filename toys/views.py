@@ -34,7 +34,7 @@ class ToyListView(generic.ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        queryset = Toy.objects.prefetch_related("category")
+        queryset = Toy.objects.prefetch_related("category").order_by("-updated_at")
 
         form = ToySearchForm(self.request.GET)
         if form.is_valid():
