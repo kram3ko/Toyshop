@@ -71,7 +71,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Storage
     "storages",
-    #HTMX
+    # HTMX
     "django_htmx",
     # Toolbar
     "debug_toolbar",
@@ -85,6 +85,8 @@ INSTALLED_APPS = [
     # django crispy forms
     "crispy_forms",
     "crispy_tailwind",
+    #pinger
+    "pinger.apps.PingerConfig"
 ]
 
 MIDDLEWARE = [
@@ -167,7 +169,6 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-
 # DROPBOX settings storage
 STORAGES = {
     "default": {
@@ -206,3 +207,30 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # TailWind crispy packs
 CRISPY_ALLOWED_TEMPLATE_PACKS = ["tailwind"]
 CRISPY_TEMPLATE_PACK = "tailwind"
+
+# LOGS
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "[{asctime}] {levelname} {name}: {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "ping_file": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "filename": BASE_DIR / "ping.log",
+            "formatter": "verbose",
+        },
+    },
+    "loggers": {
+        "pinger": {
+            "handlers": ["ping_file"],
+            "level": "INFO",
+            "propagate": False,
+        },
+    },
+}
