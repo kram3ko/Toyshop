@@ -19,7 +19,7 @@ class PaymentMethod(models.TextChoices):
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     cart = models.OneToOneField(to=Cart, on_delete=models.PROTECT, related_name="order")
-    total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    total_price = models.PositiveIntegerField(default=0)
     deliver_to = models.CharField(max_length=255)
     delivery_method = models.CharField(max_length=20, choices=DeliveryMethod.choices)
     payment_method = models.CharField(max_length=20, choices=PaymentMethod.choices)
