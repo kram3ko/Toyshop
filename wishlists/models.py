@@ -14,6 +14,9 @@ class WishList(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return f"{self.user.username}'s Wish List"
+
 
 class WishListItem(models.Model):
     wishlist = models.ForeignKey(
@@ -21,3 +24,6 @@ class WishListItem(models.Model):
     )
     toy = models.ForeignKey(Toy, on_delete=models.CASCADE, related_name="wish_list")
     quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.toy.name} - {self.quantity} pcs"
