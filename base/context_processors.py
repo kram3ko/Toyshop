@@ -1,3 +1,4 @@
+from django.core.exceptions import MultipleObjectsReturned
 from django.db.models import Sum
 
 from carts.models import Cart
@@ -18,9 +19,11 @@ def cart_item_count(request):
 def wishlist_item_count(request):
     count = 0
     if request.user.is_authenticated:
-        wish_list = WishList.objects.filter(user=request.user).first()
-        if wish_list:
+        try:
+            wish_list = WishList.objects.get(user=request.user)
             count = wish_list.items.aggregate(total=Sum("quantity"))["total"] or 0
+        except (WishList.DoesNotExist, MultipleObjectsReturned):
+            pass
     return {"wishlist_item_count": count}
 
 

@@ -1,0 +1,1405 @@
+[
+{
+    "model": "customers.toyclub",
+    "pk": 1,
+    "fields": {
+        "user": 3,
+        "level": "bronze",
+        "unique_number": "ABC12345",
+        "created_at": "2025-04-02T09:11:25.372Z",
+        "updated_at": "2025-04-08T08:48:34.203Z"
+    }
+},
+{
+    "model": "customers.toyclub",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "level": "silver",
+        "unique_number": "BBC12345",
+        "created_at": "2025-04-02T09:28:14.771Z",
+        "updated_at": "2025-04-08T08:48:43.096Z"
+    }
+},
+{
+    "model": "customers.toyclub",
+    "pk": 3,
+    "fields": {
+        "user": 4,
+        "level": "gold",
+        "unique_number": "CBA12345",
+        "created_at": "2025-04-02T09:28:38.305Z",
+        "updated_at": "2025-04-08T08:48:54.860Z"
+    }
+},
+{
+    "model": "customers.toyclub",
+    "pk": 5,
+    "fields": {
+        "user": 7,
+        "level": "gold",
+        "unique_number": "ABC1234567",
+        "created_at": "2025-04-07T16:24:10.121Z",
+        "updated_at": "2025-04-08T08:49:34.907Z"
+    }
+},
+{
+    "model": "customers.toyclub",
+    "pk": 7,
+    "fields": {
+        "user": 11,
+        "level": "gold",
+        "unique_number": "ABC1233538",
+        "created_at": "2025-04-07T16:37:52.015Z",
+        "updated_at": "2025-04-07T17:04:56.113Z"
+    }
+},
+{
+    "model": "customers.toyclub",
+    "pk": 8,
+    "fields": {
+        "user": 10,
+        "level": "gold",
+        "unique_number": "ABC0987654",
+        "created_at": "2025-04-12T15:36:37.478Z",
+        "updated_at": "2025-04-12T15:36:50.197Z"
+    }
+},
+{
+    "model": "customers.toyclub",
+    "pk": 9,
+    "fields": {
+        "user": 2,
+        "level": "silver",
+        "unique_number": "ABC1234646",
+        "created_at": "2025-04-12T15:37:35.690Z",
+        "updated_at": "2025-04-12T18:39:41.786Z"
+    }
+},
+{
+    "model": "customers.toyclub",
+    "pk": 10,
+    "fields": {
+        "user": 5,
+        "level": "gold",
+        "unique_number": "GGG1234567",
+        "created_at": "2025-04-12T18:43:32.461Z",
+        "updated_at": "2025-04-12T18:45:35.177Z"
+    }
+},
+{
+    "model": "customers.toyclub",
+    "pk": 11,
+    "fields": {
+        "user": 9,
+        "level": "silver",
+        "unique_number": "AAA1234567",
+        "created_at": "2025-04-12T18:46:22.398Z",
+        "updated_at": "2025-04-12T18:51:11.569Z"
+    }
+},
+{
+    "model": "customers.toyclub",
+    "pk": 12,
+    "fields": {
+        "user": 6,
+        "level": "bronze",
+        "unique_number": "BBB1234567",
+        "created_at": "2025-04-12T18:57:51.677Z",
+        "updated_at": "2025-04-12T19:24:38.067Z"
+    }
+},
+{
+    "model": "customers.toyclub",
+    "pk": 14,
+    "fields": {
+        "user": null,
+        "level": "gold",
+        "unique_number": "ASD1234567",
+        "created_at": "2025-04-15T21:18:02.269Z",
+        "updated_at": "2025-04-15T21:18:02.269Z"
+    }
+},
+{
+    "model": "customers.toyclub",
+    "pk": 15,
+    "fields": {
+        "user": null,
+        "level": "gold",
+        "unique_number": "GGH1234567",
+        "created_at": "2025-04-15T21:18:22.243Z",
+        "updated_at": "2025-04-15T21:18:22.243Z"
+    }
+},
+{
+    "model": "customers.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$JpRSwvWoxxhWYuIRzcoFFi$mJ9+oDUBvI7UvODbEtb5L9tz5Uif2U9hylJmKNg6sVc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "johnsmith",
+        "first_name": "John",
+        "last_name": "Smith",
+        "email": "johnsmith@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-01T18:01:19.520Z",
+        "shop_admin": false,
+        "join_date": "2025-04-01T10:56:44.950Z",
+        "updated_at": "2025-04-01T17:49:09.950Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "customers.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$JpRSwvWoxxhWYuIRzcoFFi$mJ9+oDUBvI7UvODbEtb5L9tz5Uif2U9hylJmKNg6sVc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "emilyjones",
+        "first_name": "Emily",
+        "last_name": "Jones",
+        "email": "emilyjones@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-01T18:01:19.521Z",
+        "shop_admin": false,
+        "join_date": "2025-04-01T10:56:44.950Z",
+        "updated_at": "2025-04-01T17:49:09.950Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "customers.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$JpRSwvWoxxhWYuIRzcoFFi$mJ9+oDUBvI7UvODbEtb5L9tz5Uif2U9hylJmKNg6sVc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "michaelbrown",
+        "first_name": "Michael",
+        "last_name": "Brown",
+        "email": "michaelbrown@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-01T18:01:19.522Z",
+        "shop_admin": false,
+        "join_date": "2025-04-01T10:56:44.950Z",
+        "updated_at": "2025-04-01T17:49:09.950Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "customers.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$JpRSwvWoxxhWYuIRzcoFFi$mJ9+oDUBvI7UvODbEtb5L9tz5Uif2U9hylJmKNg6sVc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sarahjohnson",
+        "first_name": "Sarah",
+        "last_name": "Johnson",
+        "email": "sarahjohnson@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-01T18:01:19.522Z",
+        "shop_admin": false,
+        "join_date": "2025-04-01T10:56:44.950Z",
+        "updated_at": "2025-04-01T17:49:09.950Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "customers.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$nmnzaqpvHhq2JThM3RHeSJ$SL8T36h8b6eB0+WJaNuVnuw9+ysyA4fy3Ma+3W3y720=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "shop_admin",
+        "first_name": "shop",
+        "last_name": "admin",
+        "email": "davidlee@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-01T18:01:19Z",
+        "shop_admin": true,
+        "join_date": "2025-04-01T10:56:44.950Z",
+        "updated_at": "2025-04-17T10:08:19.855Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "customers.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$JpRSwvWoxxhWYuIRzcoFFi$mJ9+oDUBvI7UvODbEtb5L9tz5Uif2U9hylJmKNg6sVc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "laurawilson",
+        "first_name": "Laura",
+        "last_name": "Wilson",
+        "email": "laurawilson@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-01T18:01:19.524Z",
+        "shop_admin": false,
+        "join_date": "2025-04-01T10:56:44.950Z",
+        "updated_at": "2025-04-01T17:49:09.950Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "customers.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$BITwt6vNY6Qph4sjeHeX9S$+ej6GCJrcTui6guKtO4haVnZgrpaN0GfkPkO9Dpd0Ig=",
+        "last_login": "2025-04-09T16:06:25.380Z",
+        "is_superuser": false,
+        "username": "test",
+        "first_name": "test",
+        "last_name": "Tester",
+        "email": "Test@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-01T18:01:19Z",
+        "shop_admin": true,
+        "join_date": "2025-04-01T10:56:44.950Z",
+        "updated_at": "2025-04-09T15:52:53.867Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "customers.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$JpRSwvWoxxhWYuIRzcoFFi$mJ9+oDUBvI7UvODbEtb5L9tz5Uif2U9hylJmKNg6sVc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "oliviaclark",
+        "first_name": "Olivia",
+        "last_name": "Clark",
+        "email": "oliviaclark@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-01T18:01:19.525Z",
+        "shop_admin": false,
+        "join_date": "2025-04-01T10:56:44.950Z",
+        "updated_at": "2025-04-01T17:49:09.950Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "customers.user",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$lUycunvnUBLmoXgz62tXSA$x2nqHmFHhklsx1S1luouyLvKWZQ0u+efV6ufqOZdvW4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "customer",
+        "first_name": "customer",
+        "last_name": "shop customer",
+        "email": "danielhall@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-01T18:01:19Z",
+        "shop_admin": false,
+        "join_date": "2025-04-01T10:56:44.950Z",
+        "updated_at": "2025-04-17T10:07:34.454Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "customers.user",
+    "pk": 10,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$JpRSwvWoxxhWYuIRzcoFFi$mJ9+oDUBvI7UvODbEtb5L9tz5Uif2U9hylJmKNg6sVc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "graceyoung",
+        "first_name": "Grace",
+        "last_name": "Young",
+        "email": "graceyoung@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-01T18:01:19.526Z",
+        "shop_admin": false,
+        "join_date": "2025-04-01T10:56:44.950Z",
+        "updated_at": "2025-04-01T17:49:09.950Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "customers.user",
+    "pk": 11,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$9kCcw5zXcAyLj499nb9wtX$080SB+5iADV3sEFO6wW8On7VpAZkilMzofqDPC0zy4g=",
+        "last_login": "2025-04-17T10:08:53.682Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "admin",
+        "last_name": "super_admin",
+        "email": "admin@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-04-02T07:35:53Z",
+        "shop_admin": true,
+        "join_date": "2025-04-02T07:35:54.004Z",
+        "updated_at": "2025-04-17T10:08:38.486Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "customers.user",
+    "pk": 23,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$0HZF6A8YP4aXlAbLwHWBN7$+/5J76usyTrX7Ul6naVrtlUYRkW+HKB7is/6EXamCPc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "pop",
+        "first_name": "",
+        "last_name": "",
+        "email": "fegeb36331@anlocc.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-17T09:11:51.717Z",
+        "shop_admin": false,
+        "join_date": "2025-04-17T09:11:53.099Z",
+        "updated_at": "2025-04-17T09:12:34.075Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 5,
+    "fields": {
+        "user": 11,
+        "cart": 6,
+        "total_price": "2701.40",
+        "deliver_to": "bv",
+        "delivery_method": "courier",
+        "payment_method": "card",
+        "recipient": "bb",
+        "created_at": "2025-04-11T04:45:27.868Z",
+        "update_at": "2025-04-11T04:45:27.868Z"
+    }
+},
+{
+    "model": "orders.order",
+    "pk": 6,
+    "fields": {
+        "user": 9,
+        "cart": 10,
+        "total_price": "2002.28",
+        "deliver_to": "Juli",
+        "delivery_method": "ukr_post",
+        "payment_method": "card",
+        "recipient": "Vasya",
+        "created_at": "2025-04-15T21:12:33.409Z",
+        "update_at": "2025-04-15T21:12:33.409Z"
+    }
+},
+{
+    "model": "toys.category",
+    "pk": 1,
+    "fields": {
+        "name": "Cars & Vehicles",
+        "created_at": "2025-04-01T17:49:09.968Z",
+        "updated_at": "2025-04-01T17:49:09.968Z"
+    }
+},
+{
+    "model": "toys.category",
+    "pk": 2,
+    "fields": {
+        "name": "Dolls & Accessories",
+        "created_at": "2025-04-01T17:49:09.968Z",
+        "updated_at": "2025-04-01T17:49:09.968Z"
+    }
+},
+{
+    "model": "toys.category",
+    "pk": 3,
+    "fields": {
+        "name": "Building Blocks",
+        "created_at": "2025-04-01T17:49:09.968Z",
+        "updated_at": "2025-04-01T17:49:09.968Z"
+    }
+},
+{
+    "model": "toys.category",
+    "pk": 4,
+    "fields": {
+        "name": "Board Games",
+        "created_at": "2025-04-01T17:49:09.968Z",
+        "updated_at": "2025-04-01T17:49:09.968Z"
+    }
+},
+{
+    "model": "toys.category",
+    "pk": 5,
+    "fields": {
+        "name": "Action Figures",
+        "created_at": "2025-04-01T17:49:09.968Z",
+        "updated_at": "2025-04-01T17:49:09.968Z"
+    }
+},
+{
+    "model": "toys.category",
+    "pk": 6,
+    "fields": {
+        "name": "Stuffed Animals",
+        "created_at": "2025-04-01T17:49:09.968Z",
+        "updated_at": "2025-04-01T17:49:09.968Z"
+    }
+},
+{
+    "model": "toys.category",
+    "pk": 7,
+    "fields": {
+        "name": "Educational Toys",
+        "created_at": "2025-04-01T17:49:09.968Z",
+        "updated_at": "2025-04-01T17:49:09.968Z"
+    }
+},
+{
+    "model": "toys.category",
+    "pk": 8,
+    "fields": {
+        "name": "Outdoor Toys",
+        "created_at": "2025-04-01T17:49:09.968Z",
+        "updated_at": "2025-04-01T17:49:09.968Z"
+    }
+},
+{
+    "model": "toys.category",
+    "pk": 9,
+    "fields": {
+        "name": "Electronic Toys",
+        "created_at": "2025-04-01T17:49:09.968Z",
+        "updated_at": "2025-04-01T17:49:09.968Z"
+    }
+},
+{
+    "model": "toys.category",
+    "pk": 10,
+    "fields": {
+        "name": "Craft Supplies",
+        "created_at": "2025-04-01T17:49:09.968Z",
+        "updated_at": "2025-04-01T17:49:09.968Z"
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 1,
+    "fields": {
+        "owner": 1,
+        "name": "Mirror",
+        "description": "Some dolls acsessories",
+        "price": "905.80",
+        "stock": 11,
+        "manufacturer": "Wilkinson, House and Carter",
+        "photo": "toys/acsessories1.jpeg",
+        "created_at": "2025-04-01T17:49:09.970Z",
+        "updated_at": "2025-04-09T15:20:37.364Z",
+        "category": [
+            2,
+            7
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 2,
+    "fields": {
+        "owner": 9,
+        "name": "Red car",
+        "description": "Super speed red car",
+        "price": "602.80",
+        "stock": 15,
+        "manufacturer": "Wagner-Chavez",
+        "photo": "toys/car1.jpeg",
+        "created_at": "2025-04-01T17:49:09.970Z",
+        "updated_at": "2025-04-09T15:21:18.445Z",
+        "category": [
+            1
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 3,
+    "fields": {
+        "owner": 10,
+        "name": "Yellow car",
+        "description": "Car contructor",
+        "price": "968.50",
+        "stock": 15,
+        "manufacturer": "Booth PLC",
+        "photo": "toys/car2.jpeg",
+        "created_at": "2025-04-01T17:49:09.970Z",
+        "updated_at": "2025-04-09T15:21:51.890Z",
+        "category": [
+            1,
+            10,
+            9
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 4,
+    "fields": {
+        "owner": 7,
+        "name": "Constructor",
+        "description": "aducational contructor for kids",
+        "price": "157.20",
+        "stock": 6,
+        "manufacturer": "Brady, Gomez and Smith",
+        "photo": "toys/constructor1.jpeg",
+        "created_at": "2025-04-01T17:49:09.970Z",
+        "updated_at": "2025-04-09T15:32:10.649Z",
+        "category": [
+            10,
+            5,
+            7
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 5,
+    "fields": {
+        "owner": 9,
+        "name": "Puzzle touch screen",
+        "description": "Lot hit modern.",
+        "price": "827.10",
+        "stock": 8,
+        "manufacturer": "Hensley, Gillespie and Bailey",
+        "photo": "toys/constructor2.jpeg",
+        "created_at": "2025-04-01T17:49:09.971Z",
+        "updated_at": "2025-04-09T15:32:47.741Z",
+        "category": [
+            9,
+            7
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 6,
+    "fields": {
+        "owner": 6,
+        "name": "Abacus",
+        "description": "The child is learning to count on an abacus.",
+        "price": "108.70",
+        "stock": 12,
+        "manufacturer": "Goodman Ltd",
+        "photo": "toys/constructor3.jpeg",
+        "created_at": "2025-04-01T17:49:09.971Z",
+        "updated_at": "2025-04-09T15:34:01.106Z",
+        "category": [
+            4,
+            5
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 7,
+    "fields": {
+        "owner": 5,
+        "name": "Lily Doll",
+        "description": "Us as summer pretty if worry.",
+        "price": "271.90",
+        "stock": 12,
+        "manufacturer": "Taylor, Smith and Cox",
+        "photo": "toys/doll2.jpeg",
+        "created_at": "2025-04-01T17:49:09.971Z",
+        "updated_at": "2025-04-09T15:34:36.799Z",
+        "category": [
+            2,
+            5,
+            7
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 8,
+    "fields": {
+        "owner": 7,
+        "name": "Blue Luffy Dolly",
+        "description": "Help half much where civil ball speech that.",
+        "price": "472.70",
+        "stock": 14,
+        "manufacturer": "Richards-Lopez",
+        "photo": "toys/doll4.jpeg",
+        "created_at": "2025-04-01T17:49:09.972Z",
+        "updated_at": "2025-04-09T15:35:29.861Z",
+        "category": [
+            2,
+            5
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 10,
+    "fields": {
+        "owner": 8,
+        "name": "Logical toy",
+        "description": "Board just major author eight often.",
+        "price": "199.30",
+        "stock": 2,
+        "manufacturer": "Lucas-Oliver",
+        "photo": "toys/kid1.jpeg",
+        "created_at": "2025-04-01T17:49:09.972Z",
+        "updated_at": "2025-04-09T15:36:20.284Z",
+        "category": [
+            10,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 11,
+    "fields": {
+        "owner": 4,
+        "name": "Dinosaur",
+        "description": "T-REX",
+        "price": "833.70",
+        "stock": 10,
+        "manufacturer": "Lang, Harris and Yates",
+        "photo": "toys/monts1.jpeg",
+        "created_at": "2025-04-01T17:49:09.973Z",
+        "updated_at": "2025-04-09T15:37:08.738Z",
+        "category": [
+            8,
+            5,
+            6
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 12,
+    "fields": {
+        "owner": 1,
+        "name": "John's Toy",
+        "description": "Focus measure summer speak.",
+        "price": "817.00",
+        "stock": 8,
+        "manufacturer": "Fernandez, Delacruz and Hanna",
+        "photo": "toys/dol3.jpeg",
+        "created_at": "2025-04-01T17:49:09.973Z",
+        "updated_at": "2025-04-09T15:19:13.321Z",
+        "category": [
+            3
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 13,
+    "fields": {
+        "owner": 3,
+        "name": "Lolly Molly",
+        "description": "Both seven city nothing east.",
+        "price": "755.40",
+        "stock": 17,
+        "manufacturer": "Valenzuela, Boyer and Holmes",
+        "photo": "toys/toy4.jpeg",
+        "created_at": "2025-04-01T17:49:09.974Z",
+        "updated_at": "2025-04-09T15:37:45.459Z",
+        "category": [
+            9,
+            3
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 14,
+    "fields": {
+        "owner": 3,
+        "name": "Joystic Game pad",
+        "description": "Simply for powerful games",
+        "price": "853.70",
+        "stock": 12,
+        "manufacturer": "Sharp Group",
+        "photo": "toys/toy5.jpeg",
+        "created_at": "2025-04-01T17:49:09.974Z",
+        "updated_at": "2025-04-09T15:38:29.677Z",
+        "category": [
+            9,
+            4,
+            5
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 15,
+    "fields": {
+        "owner": 5,
+        "name": "Teddy Bear",
+        "description": "Talk article charge.",
+        "price": "662.20",
+        "stock": 15,
+        "manufacturer": "Welch-Hunt",
+        "photo": "toys/toy6.jpeg",
+        "created_at": "2025-04-01T17:49:09.974Z",
+        "updated_at": "2025-04-09T15:39:15.268Z",
+        "category": [
+            2,
+            5,
+            7
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 16,
+    "fields": {
+        "owner": 9,
+        "name": "RainBow spiral",
+        "description": "Station sense perform do.",
+        "price": "328.80",
+        "stock": 13,
+        "manufacturer": "Anderson Inc",
+        "photo": "toys/toy7.jpeg",
+        "created_at": "2025-04-01T17:49:09.974Z",
+        "updated_at": "2025-04-09T15:39:50.823Z",
+        "category": [
+            8,
+            2,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 17,
+    "fields": {
+        "owner": 7,
+        "name": "Board Deck",
+        "description": "Drive discover crime born cold successful.",
+        "price": "638.90",
+        "stock": 0,
+        "manufacturer": "Burke-Schwartz",
+        "photo": "toys/toy8.jpeg",
+        "created_at": "2025-04-01T17:49:09.975Z",
+        "updated_at": "2025-04-09T15:40:25.198Z",
+        "category": [
+            10,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 18,
+    "fields": {
+        "owner": 8,
+        "name": "Watering can",
+        "description": "A container with a spout, used to water plants.",
+        "price": "630.30",
+        "stock": 4,
+        "manufacturer": "Jensen-Johnson",
+        "photo": "toys/toy9.jpeg",
+        "created_at": "2025-04-01T17:49:09.975Z",
+        "updated_at": "2025-04-09T15:41:45.194Z",
+        "category": [
+            8,
+            10
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 19,
+    "fields": {
+        "owner": 6,
+        "name": "Green water can",
+        "description": "A container with a spout, used to water plants.",
+        "price": "779.00",
+        "stock": 13,
+        "manufacturer": "Padilla-Ford",
+        "photo": "toys/toy10.jpeg",
+        "created_at": "2025-04-01T17:49:09.975Z",
+        "updated_at": "2025-04-09T15:42:38.079Z",
+        "category": [
+            8,
+            10,
+            3,
+            6
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 20,
+    "fields": {
+        "owner": 9,
+        "name": "Tools",
+        "description": "make your life easier",
+        "price": "232.30",
+        "stock": 9,
+        "manufacturer": "Berry, Houston and Li",
+        "photo": "toys/toy11.jpeg",
+        "created_at": "2025-04-01T17:49:09.975Z",
+        "updated_at": "2025-04-09T15:43:21.535Z",
+        "category": [
+            8,
+            10,
+            3
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 21,
+    "fields": {
+        "owner": 5,
+        "name": "Punny Bear",
+        "description": "Education west pattern view world manage run skill.",
+        "price": "220.30",
+        "stock": 1,
+        "manufacturer": "Knight LLC",
+        "photo": "toys/toy12.jpeg",
+        "created_at": "2025-04-01T17:49:09.976Z",
+        "updated_at": "2025-04-09T15:43:58.795Z",
+        "category": [
+            7
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 22,
+    "fields": {
+        "owner": 2,
+        "name": "Globus",
+        "description": "World in your hand",
+        "price": "689.50",
+        "stock": 7,
+        "manufacturer": "Turner, Banks and Cox",
+        "photo": "toys/toy13.jpeg",
+        "created_at": "2025-04-01T17:49:09.976Z",
+        "updated_at": "2025-04-09T15:44:44.533Z",
+        "category": [
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 23,
+    "fields": {
+        "owner": 2,
+        "name": "playdough",
+        "description": "If enter worry.",
+        "price": "583.10",
+        "stock": 14,
+        "manufacturer": "Martin Inc",
+        "photo": "toys/toy15.jpeg",
+        "created_at": "2025-04-01T17:49:09.976Z",
+        "updated_at": "2025-04-09T15:47:36.567Z",
+        "category": [
+            3,
+            5,
+            7
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 24,
+    "fields": {
+        "owner": 3,
+        "name": "playdough red",
+        "description": "Blue fine exactly force room he a necessary.",
+        "price": "666.70",
+        "stock": 20,
+        "manufacturer": "Burch-Murphy",
+        "photo": "toys/toy16.jpeg",
+        "created_at": "2025-04-01T17:49:09.977Z",
+        "updated_at": "2025-04-09T15:48:17.648Z",
+        "category": [
+            2,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 26,
+    "fields": {
+        "owner": 10,
+        "name": "Cute Dolly",
+        "description": "Site result crime involve research.",
+        "price": "856.30",
+        "stock": 20,
+        "manufacturer": "Murphy, Wilson and Hudson",
+        "photo": "toys/doll1.jpeg",
+        "created_at": "2025-04-01T17:49:09.977Z",
+        "updated_at": "2025-04-09T15:18:05.832Z",
+        "category": [
+            2
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 30,
+    "fields": {
+        "owner": 7,
+        "name": "Calculator",
+        "description": "Here consumer economic newspaper Mr clear executive.",
+        "price": "473.40",
+        "stock": 9,
+        "manufacturer": "Thomas Inc",
+        "photo": "toys/toy14.jpeg",
+        "created_at": "2025-04-01T17:49:09.978Z",
+        "updated_at": "2025-04-09T15:46:47.754Z",
+        "category": [
+            9,
+            2,
+            7
+        ]
+    }
+},
+{
+    "model": "toys.toy",
+    "pk": 31,
+    "fields": {
+        "owner": 11,
+        "name": "Black man",
+        "description": "super toy like it",
+        "price": "126.49",
+        "stock": 29,
+        "manufacturer": "Liberty production",
+        "photo": "toys/dol3.jpeg",
+        "created_at": "2025-04-06T08:39:04.074Z",
+        "updated_at": "2025-04-17T10:05:14.738Z",
+        "category": [
+            5,
+            1,
+            4,
+            6,
+            7
+        ]
+    }
+},
+{
+    "model": "carts.cart",
+    "pk": 3,
+    "fields": {
+        "user": 11,
+        "order_time": "2025-04-11T04:22:07.772Z",
+        "is_active": false
+    }
+},
+{
+    "model": "carts.cart",
+    "pk": 4,
+    "fields": {
+        "user": 11,
+        "order_time": "2025-04-11T04:31:12.180Z",
+        "is_active": false
+    }
+},
+{
+    "model": "carts.cart",
+    "pk": 5,
+    "fields": {
+        "user": 11,
+        "order_time": "2025-04-11T04:41:50.260Z",
+        "is_active": false
+    }
+},
+{
+    "model": "carts.cart",
+    "pk": 6,
+    "fields": {
+        "user": 11,
+        "order_time": "2025-04-11T04:45:12.200Z",
+        "is_active": false
+    }
+},
+{
+    "model": "carts.cart",
+    "pk": 7,
+    "fields": {
+        "user": 11,
+        "order_time": "2025-04-12T14:45:44.041Z",
+        "is_active": true
+    }
+},
+{
+    "model": "carts.cart",
+    "pk": 9,
+    "fields": {
+        "user": 7,
+        "order_time": "2025-04-14T06:26:01.725Z",
+        "is_active": true
+    }
+},
+{
+    "model": "carts.cart",
+    "pk": 10,
+    "fields": {
+        "user": 9,
+        "order_time": "2025-04-15T20:22:10.691Z",
+        "is_active": false
+    }
+},
+{
+    "model": "carts.cart",
+    "pk": 11,
+    "fields": {
+        "user": 9,
+        "order_time": "2025-04-15T21:13:06.970Z",
+        "is_active": true
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 3,
+    "fields": {
+        "cart": 3,
+        "toy": 31,
+        "quantity": 1,
+        "total_price": "126.49",
+        "created_at": "2025-04-11T04:22:07.925Z",
+        "updated_at": "2025-04-11T04:22:08.032Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 4,
+    "fields": {
+        "cart": 3,
+        "toy": 24,
+        "quantity": 1,
+        "total_price": "666.70",
+        "created_at": "2025-04-11T04:22:13.022Z",
+        "updated_at": "2025-04-11T04:22:13.117Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 5,
+    "fields": {
+        "cart": 3,
+        "toy": 23,
+        "quantity": 1,
+        "total_price": "583.10",
+        "created_at": "2025-04-11T04:22:13.938Z",
+        "updated_at": "2025-04-11T04:22:14.035Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 6,
+    "fields": {
+        "cart": 4,
+        "toy": 1,
+        "quantity": 1,
+        "total_price": "905.80",
+        "created_at": "2025-04-11T04:31:36.257Z",
+        "updated_at": "2025-04-11T04:31:36.359Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 7,
+    "fields": {
+        "cart": 4,
+        "toy": 2,
+        "quantity": 1,
+        "total_price": "602.80",
+        "created_at": "2025-04-11T04:31:37.964Z",
+        "updated_at": "2025-04-11T04:31:38.061Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 8,
+    "fields": {
+        "cart": 4,
+        "toy": 3,
+        "quantity": 1,
+        "total_price": "968.50",
+        "created_at": "2025-04-11T04:31:38.815Z",
+        "updated_at": "2025-04-11T04:31:38.917Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 9,
+    "fields": {
+        "cart": 5,
+        "toy": 1,
+        "quantity": 1,
+        "total_price": "905.80",
+        "created_at": "2025-04-11T04:42:19.261Z",
+        "updated_at": "2025-04-11T04:42:19.442Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 10,
+    "fields": {
+        "cart": 5,
+        "toy": 2,
+        "quantity": 1,
+        "total_price": "602.80",
+        "created_at": "2025-04-11T04:42:20.078Z",
+        "updated_at": "2025-04-11T04:42:20.175Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 11,
+    "fields": {
+        "cart": 5,
+        "toy": 4,
+        "quantity": 1,
+        "total_price": "157.20",
+        "created_at": "2025-04-11T04:42:21.641Z",
+        "updated_at": "2025-04-11T04:42:21.738Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 12,
+    "fields": {
+        "cart": 6,
+        "toy": 1,
+        "quantity": 1,
+        "total_price": "905.80",
+        "created_at": "2025-04-11T04:45:12.340Z",
+        "updated_at": "2025-04-11T04:45:12.442Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 13,
+    "fields": {
+        "cart": 6,
+        "toy": 3,
+        "quantity": 1,
+        "total_price": "968.50",
+        "created_at": "2025-04-11T04:45:12.891Z",
+        "updated_at": "2025-04-11T04:45:12.988Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 14,
+    "fields": {
+        "cart": 6,
+        "toy": 5,
+        "quantity": 1,
+        "total_price": "827.10",
+        "created_at": "2025-04-11T04:45:14.002Z",
+        "updated_at": "2025-04-11T04:45:14.106Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 80,
+    "fields": {
+        "cart": 10,
+        "toy": 31,
+        "quantity": 2,
+        "total_price": "252.98",
+        "created_at": "2025-04-15T21:11:18.911Z",
+        "updated_at": "2025-04-15T21:11:21.425Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 81,
+    "fields": {
+        "cart": 10,
+        "toy": 23,
+        "quantity": 3,
+        "total_price": "1749.30",
+        "created_at": "2025-04-15T21:11:23.094Z",
+        "updated_at": "2025-04-15T21:11:26.565Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 82,
+    "fields": {
+        "cart": 11,
+        "toy": 31,
+        "quantity": 3,
+        "total_price": "379.47",
+        "created_at": "2025-04-15T21:13:06.985Z",
+        "updated_at": "2025-04-15T21:13:08.638Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 83,
+    "fields": {
+        "cart": 9,
+        "toy": 31,
+        "quantity": 1,
+        "total_price": "126.49",
+        "created_at": "2025-04-15T21:20:26.400Z",
+        "updated_at": "2025-04-15T21:20:26.407Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 84,
+    "fields": {
+        "cart": 7,
+        "toy": 24,
+        "quantity": 2,
+        "total_price": "1333.40",
+        "created_at": "2025-04-17T07:11:52.609Z",
+        "updated_at": "2025-04-17T07:11:53.710Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 85,
+    "fields": {
+        "cart": 7,
+        "toy": 23,
+        "quantity": 2,
+        "total_price": "1166.20",
+        "created_at": "2025-04-17T07:11:53.185Z",
+        "updated_at": "2025-04-17T07:11:55.921Z"
+    }
+},
+{
+    "model": "carts.cartitem",
+    "pk": 86,
+    "fields": {
+        "cart": 7,
+        "toy": 30,
+        "quantity": 1,
+        "total_price": "473.40",
+        "created_at": "2025-04-17T07:11:54.886Z",
+        "updated_at": "2025-04-17T07:11:54.896Z"
+    }
+},
+{
+    "model": "wishlists.wishlist",
+    "pk": 2,
+    "fields": {
+        "user": 11,
+        "created_at": "2025-04-12T15:41:01.474Z",
+        "updated_at": "2025-04-12T15:41:01.474Z"
+    }
+},
+{
+    "model": "wishlists.wishlist",
+    "pk": 4,
+    "fields": {
+        "user": 7,
+        "created_at": "2025-04-14T14:44:30.140Z",
+        "updated_at": "2025-04-14T14:44:30.140Z"
+    }
+},
+{
+    "model": "wishlists.wishlist",
+    "pk": 5,
+    "fields": {
+        "user": 9,
+        "created_at": "2025-04-15T20:22:12.674Z",
+        "updated_at": "2025-04-15T20:22:12.674Z"
+    }
+},
+{
+    "model": "wishlists.wishlistitem",
+    "pk": 62,
+    "fields": {
+        "wishlist": 5,
+        "toy": 31,
+        "quantity": 2
+    }
+},
+{
+    "model": "wishlists.wishlistitem",
+    "pk": 63,
+    "fields": {
+        "wishlist": 4,
+        "toy": 31,
+        "quantity": 2
+    }
+},
+{
+    "model": "wishlists.wishlistitem",
+    "pk": 64,
+    "fields": {
+        "wishlist": 4,
+        "toy": 24,
+        "quantity": 1
+    }
+},
+{
+    "model": "wishlists.wishlistitem",
+    "pk": 65,
+    "fields": {
+        "wishlist": 2,
+        "toy": 24,
+        "quantity": 2
+    }
+},
+{
+    "model": "wishlists.wishlistitem",
+    "pk": 66,
+    "fields": {
+        "wishlist": 2,
+        "toy": 31,
+        "quantity": 1
+    }
+},
+{
+    "model": "wishlists.wishlistitem",
+    "pk": 67,
+    "fields": {
+        "wishlist": 2,
+        "toy": 30,
+        "quantity": 1
+    }
+},
+{
+    "model": "wishlists.wishlistitem",
+    "pk": 68,
+    "fields": {
+        "wishlist": 2,
+        "toy": 23,
+        "quantity": 1
+    }
+}
+]
