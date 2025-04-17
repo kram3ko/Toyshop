@@ -220,7 +220,7 @@ LOGGING = {
     },
     "handlers": {
         "ping_file": {
-            "level": "INFO",
+            "level": "ERROR",
             "class": "logging.FileHandler",
             "filename": BASE_DIR / "ping.log",
             "formatter": "verbose",
