@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load price_filters %}
 {% block title %}Toy Details | Toy Shop{% endblock %}
 
 {% block content %}
@@ -39,7 +40,7 @@
         <p class="text-gray-600">{{ toy.description }}</p>
 
         <ul class="text-sm text-gray-700 space-y-1">
-          <li><strong>Price:</strong> {{ toy.price }} ₴</li>
+          <li><strong>Price:</strong> {{ toy.price|price_format }} ₴</li>
           <li><strong>Manufacturer:</strong> {{ toy.manufacturer }}</li>
           <li><strong>Stock:</strong> {{ toy.stock }} шт.</li>
           <li>
