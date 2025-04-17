@@ -1,3 +1,4 @@
+{% load price_filters %}
 {% load query_transform %}
 <div id="toy_partial" class="flex flex-col gap-6">
   {% for toy in toy_list %}
@@ -8,6 +9,9 @@
           <h3 class="text-xl font-bold text-blue-700 transition duration-300 ease-in-out transform hover:text-red-600 hover:scale-105 hover:underline hover:shadow-md">
             <a href="{% url 'toys:toy-detail' toy.pk %}?next={{ request.get_full_path }}">{{ toy.name }}</a>
           </h3>
+          <div class="text-md font-semibold text-green-700">
+            {{ toy.price|price_format }} ₴
+          </div>
           <div class="flex flex-wrap items-center gap-2">
             {#CART and WISHLIST buttons#}
             {% url 'carts:add-to-cart' toy.pk as add_to_cart %}
