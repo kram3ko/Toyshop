@@ -23,7 +23,7 @@ class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name="cart_items")
     toy = models.ForeignKey(Toy, on_delete=models.CASCADE, related_name="toys_in_cart")
     quantity = models.PositiveIntegerField(default=1)
-    total_price = models.DecimalField(max_digits=10, decimal_places=2)
+    total_price = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

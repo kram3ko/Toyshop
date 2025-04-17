@@ -132,7 +132,7 @@ ruff format .
 
 ## 👤 Author
 
-**Volodymyr Vynogradov**  
+**Volodymyr Vynohradov**  
 [GitHub](//https://github.com/kram3ko/)
 
 ---
