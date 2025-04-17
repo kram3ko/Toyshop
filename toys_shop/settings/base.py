@@ -85,8 +85,8 @@ INSTALLED_APPS = [
     # django crispy forms
     "crispy_forms",
     "crispy_tailwind",
-    #pinger
-    "pinger.apps.PingerConfig"
+    # pinger
+    "pinger.apps.PingerConfig",
 ]
 
 MIDDLEWARE = [
@@ -229,7 +229,7 @@ LOGGING = {
     "loggers": {
         "pinger": {
             "handlers": ["ping_file"],
-            "level": "INFO",
+            "level": "ERROR",
             "propagate": False,
         },
     },

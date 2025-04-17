@@ -6,6 +6,7 @@ import logging
 from django.apps import AppConfig
 
 logger = logging.getLogger("pinger")
+logger.setLevel(logging.ERROR)
 
 
 def start_ping():
@@ -13,9 +14,7 @@ def start_ping():
         try:
             requests.get(
                 "https://toys-shop.onrender.com/ping/",
-                headers={
-                    "User-Agent": "Toyshop service"
-                }
+                headers={"User-Agent": "Toyshop service"},
             )
             logger.info("Ping sent")
         except Exception as e:
