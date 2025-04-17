@@ -1,7 +1,7 @@
 {% autoescape off %}
-<!DOCTYPE html>
-<html>
-<head>
+  <!DOCTYPE html>
+  <html>
+  <head>
     <meta charset="UTF-8">
     <title>Confirm your email</title>
     <style>
@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             max-width: 600px;
             margin: 30px auto;
@@ -19,13 +20,16 @@
             border-radius: 8px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         }
+
         h2 {
             color: #333333;
         }
+
         p {
             color: #555555;
             line-height: 1.6;
         }
+
         .button {
             display: inline-block;
             background-color: #4CAF50;
@@ -36,14 +40,17 @@
             font-size: 16px;
             margin: 24px 0;
         }
+
         .button:hover {
             background-color: #45a049;
         }
+
         .link {
             word-break: break-word;
             font-size: 13px;
             color: #0066cc;
         }
+
         .footer {
             margin-top: 40px;
             font-size: 12px;
@@ -53,33 +60,33 @@
             padding-top: 12px;
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Hi {{ user.username }},</h2>
+  </head>
+  <body>
+  <div class="container">
+    <h2>Hi {{ user.username }},</h2>
 
-        <p>Thank you for registering! Please confirm your email address to complete your registration.</p>
+    <p>Thank you for registering! Please confirm your email address to complete your registration.</p>
 
-        <div style="text-align: center;">
-            <a href="http://{{ domain }}{% url 'accounts:activate' uidb64=uid token=token %}"
-               class="button"
-               target="_blank"
-               rel="noopener noreferrer">
-                Confirm Email Address
-            </a>
-        </div>
-
-        <p>If the button above doesn’t work, please copy and paste this link into your browser:</p>
-
-        <p class="link">
-            http://{{ domain }}{% url 'accounts:activate' uidb64=uid token=token %}
-        </p>
-
-        <div class="footer">
-            <p>If you didn’t register on our site, you can safely ignore this email.</p>
-            <p>This is an automated message. Please do not reply.</p>
-        </div>
+    <div style="text-align: center;">
+      <a href="http://{{ domain }}{% url 'accounts:activate' uidb64=uid token=token %}"
+         class="button"
+         target="_blank"
+         rel="noopener noreferrer">
+        Confirm Email Address
+      </a>
     </div>
-</body>
-</html>
+
+    <p>If the button above doesn’t work, please copy and paste this link into your browser:</p>
+
+    <p class="link">
+      http://{{ domain }}{% url 'accounts:activate' uidb64=uid token=token %}
+    </p>
+
+    <div class="footer">
+      <p>If you didn’t register on our site, you can safely ignore this email.</p>
+      <p>This is an automated message. Please do not reply.</p>
+    </div>
+  </div>
+  </body>
+  </html>
 {% endautoescape %}

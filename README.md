@@ -96,6 +96,7 @@ app_secret=
 
 ```bash
 python manage.py migrate
+python manage.py loaddata toys_fixture.json
 python manage.py createsuperuser
 python manage.py runserver
    

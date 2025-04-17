@@ -40,6 +40,13 @@ class OrderListView(LoginRequiredMixin, generic.ListView):
         return Order.objects.filter(user=self.request.user).order_by("-created_at")
 
 
-class OrderDetailView(generic.DetailView):
+class OrderDetailView(LoginRequiredMixin, generic.DetailView):
     model = Order
     template_name = "toyshop/order/order_checkout.html"
+
+    def get_queryset(self):
+        return (
+            Order.objects.select_related("user", "cart")
+            .prefetch_related("cart__cart_items", "cart__cart_items__toy")
+            .filter(user=self.request.user)
+        )

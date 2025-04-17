@@ -1,4 +1,5 @@
-<div>" class="container mx-auto px-4 py-8">
+{% load tailwind_filters %}
+<div class="container mx-auto px-4 py-8">
   <div class="max-w-4xl mx-auto">
     <h1 class="text-3xl font-bold mb-8">👤 Profile Overview</h1>
     <div class="bg-white rounded-lg shadow-md overflow-hidden">
@@ -108,17 +109,9 @@
                 {% endif %}
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<div hx-target="profile" hx-swap="outerHTML">
- {% csrf_token %}
-        {{ form|crispy }}
-    Click To Edit
-  </button>
 </div>
