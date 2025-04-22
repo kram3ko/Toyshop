@@ -10,7 +10,7 @@
     {% csrf_token %}
     <button id="wishlist-button-{{ toy.pk }}" type="submit" title="Add to wishlist" data-toy-id="{{ toy.pk }}"
             class="text-green text-3xl rounded-md hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
-      ❤️
+      💖
     </button>
   </form>
 {% else %}
@@ -19,16 +19,3 @@
     <i class="fas fa-shopping-cart mr-1"></i> 🤍
   </a>
 {% endif %}
-
-<script>
-    document.addEventListener("click", function (event) {
-        const button = event.target.closest("button");
-        if (button && button.title === "Add to wishlist") {
-            if (button.textContent.trim() === "💖") {
-                button.textContent = "🤍";
-            } else {
-                button.textContent = "💖";
-            }
-        }
-    });
-</script>
