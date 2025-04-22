@@ -18,7 +18,6 @@
           <img src="https://via.placeholder.com/400x300?text=No+Image" alt="No image" class="w-full h-auto rounded">
         {% endif %}
       </div>
-
       <!-- Деталі -->
       <div class="md:w-1/2 space-y-4">
         <div class="flex items-center justify-between">
@@ -36,7 +35,6 @@
             </div>
           {% endif %}
         </div>
-
         <p class="text-gray-600">{{ toy.description }}</p>
 
         <ul class="text-sm text-gray-700 space-y-1">
@@ -60,9 +58,9 @@
         <!-- Buttons -->
         <div class="flex gap-4 pt-4">
           {% url 'carts:add-to-cart' toy.pk as add_to_cart %}
-          {% url 'assign-wishlist' toy.pk as add_to_wishlist %}
+          {% url 'wishlists:assign-wishlist' toy.pk as assign_wishlist %}
           {% include 'includes/buttons/cart_button.html' with post_url=add_to_cart %}
-          {% include 'includes/buttons/wishlist_button_in.html' with post_url=add_to_wishlist %}
+          {% include 'includes/buttons/wishlist_button.html' with post_url=assign_wishlist %}
         </div>
       </div>
     </div>
