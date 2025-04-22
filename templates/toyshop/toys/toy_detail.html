@@ -60,9 +60,9 @@
         <!-- Buttons -->
         <div class="flex gap-4 pt-4">
           {% url 'carts:add-to-cart' toy.pk as add_to_cart %}
-          {% url 'wishlists:add-to-wishlist' toy.pk as add_to_wishlist %}
+          {% url 'assign-wishlist' toy.pk as add_to_wishlist %}
           {% include 'includes/buttons/cart_button.html' with post_url=add_to_cart %}
-          {% include 'includes/buttons/wishlist_button.html' with post_url=add_to_wishlist %}
+          {% include 'includes/buttons/wishlist_button_in.html' with post_url=add_to_wishlist %}
         </div>
       </div>
     </div>

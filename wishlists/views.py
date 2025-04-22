@@ -22,22 +22,21 @@ class WishListDetailView(LoginRequiredMixin, generic.DetailView):
         return wishlist
 
 
-class AddToWishListView(LoginRequiredMixin, View):
+class AssignWishListView(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):
         toy = get_object_or_404(Toy, pk=pk)
 
         wishlist, _ = WishList.objects.get_or_create(user=request.user)
-        wish_list_item, created = WishListItem.objects.get_or_create(
-            wishlist=wishlist, toy=toy
-        )
-        if not created:
-            wish_list_item.quantity = F("quantity") + 1
-        wish_list_item.save()
+        wish_list_item = WishListItem.objects.filter(wishlist=wishlist, toy=toy).first()
+
+        if wish_list_item:
+            wish_list_item.delete()
+        else:
+            WishListItem.objects.create(wishlist=wishlist, toy=toy)
 
         if request.htmx:
             return render(request, "includes/part_incl/wishlist.html")
         return redirect(request.POST.get("next", "/"))
-
 
 class RemoveFromWishListView(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):
