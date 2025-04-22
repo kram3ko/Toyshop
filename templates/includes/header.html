@@ -1,6 +1,6 @@
 <!-- UPPER PANEL -->
 <div
-    class="w-full bg-gray-700 shadow-inner border-b border-gray-700 py-1 px-4 text-xs sm:text-sm text-gray-300 flex flex-wrap items-center gap-2 sm:gap-6 justify-between relative">
+    class="w-full bg-gray-700 shadow-inner border-b border-gray-700 py-0 px-4 text-xs sm:text-sm text-gray-300 flex flex-wrap items-center gap-2 sm:gap-6 justify-between relative">
 
   <!-- LEFT SIDE -->
   <div class="flex flex-wrap items-center gap-3 sm:gap-6">
@@ -28,29 +28,6 @@
     📞 097-842-58-29
   </div>
 </div>
-
-<!-- USER INFO SECTION (only if logged in) -->
-{% if user.is_authenticated %}
-  <div
-      class="w-full bg-gray-800 text-gray-200 py-1 px-6 flex flex-wrap items-center justify-between gap-4 text-sm sm:text-base">
-
-    <div class="flex gap-4 items-center">
-      <a href="{% url 'customers:profile' request.user.pk %}" class="no-underline hover:text-white text-lg sm:text-xl">
-        {{ user }}
-      </a>
-
-      {% if request.user.shop_admin %}
-        <span class="text-blue-400 text-lg sm:text-xl">Shop Admin</span>
-      {% endif %}
-    </div>
-
-    <form action="{% url 'accounts:logout' %}" method="post">
-      {% csrf_token %}
-      <button class="no-underline hover:text-white transition text-lg sm:text-xl">Logout</button>
-    </form>
-  </div>
-{% endif %}
-
 
 <!-- MAIN HEADER -->
 <header class="bg-black text-white shadow-md py-2 px-2 sm:py-2 sm:px-4">
@@ -104,7 +81,12 @@
         🛒<sup id="cart-counter" class="text-xs">{{ cart_item_count }}</sup>
       </a>
     </div>
-
+    {% if user.is_authenticated %}
+      <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <button class="no-underline hover:text-white transition text-lg sm:text-xl">Logout</button>
+      </form>
+    {% endif %}
   </div>
 </header>
 <!-- END OF HEADER -->

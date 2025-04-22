@@ -2,7 +2,7 @@ from django.test import RequestFactory, TestCase
 from django.contrib.auth import get_user_model
 
 from wishlists.models import WishList, WishListItem
-from base.context_processors import wishlist_item_count
+from base.context_processors import wishlist_context
 from toys.models import Toy
 
 User = get_user_model()
@@ -26,5 +26,5 @@ class WishlistContextTest(TestCase):
         request = self.factory.get("/")
         request.user = self.user
 
-        context = wishlist_item_count(request)
+        context = wishlist_context(request)
         self.assertEqual(context["wishlist_item_count"], 3)

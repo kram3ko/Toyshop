@@ -15,10 +15,9 @@
           <div class="flex flex-wrap items-center gap-2">
             {#CART and WISHLIST buttons#}
             {% url 'carts:add-to-cart' toy.pk as add_to_cart %}
-            {% url 'wishlists:add-to-wishlist' toy.pk as add_to_wishlist %}
+            {% url 'wishlists:assign-wishlist' toy.pk as assign_wishlist %}
             {% include 'includes/buttons/cart_button.html' with post_url=add_to_cart %}
-            {% include 'includes/buttons/wishlist_button.html' with post_url=add_to_wishlist %}
-
+            {% include 'includes/buttons/wishlist_button.html' with post_url=assign_wishlist %}
             {#---SHOP ADMIN buttons---- #}
             {% if user.shop_admin %}
               <a href="{% url 'toys:toy-update' toy.pk %}?next={{ request.get_full_path }}"

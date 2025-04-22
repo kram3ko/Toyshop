@@ -8,14 +8,18 @@
       class="inline"
   >
     {% csrf_token %}
-    <button type="submit" title="Add to wishlist"
-            class="text-white text-3xl rounded-md hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
-      <i class="fas fa-shopping-cart mr-1"></i> ❤️
+    <button id="wishlist-button-{{ toy.pk }}" type="submit" title="Add to wishlist" data-toy-id="{{ toy.pk }}"
+            class="text-green text-3xl rounded-md hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      {% if toy.pk in wishlist_items_ids %}
+        💖
+      {% else %}
+        🤍
+      {% endif %}
     </button>
   </form>
 {% else %}
   <a href="{% url 'accounts:login' %}?next={{ request.get_full_path }}"
-     class="text-white text-3xl rounded-md hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
-    <i class="fas fa-shopping-cart mr-1"></i> ❤️
+     class="text-green text-3xl rounded-md hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+    <i class="fas fa-shopping-cart mr-1"></i> 🤍
   </a>
 {% endif %}

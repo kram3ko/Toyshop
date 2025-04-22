@@ -30,13 +30,15 @@ class ToyFormTests(TestCase):
         form_data = {
             "name": "Super Toy",
             "description": "Cool toy",
-            "price": 99.99,
+            "price": 9999,
             "stock": 10,
             "manufacturer": "LEGO",
             "category": [self.category1.pk, self.category2.pk],
         }
         files = MultiValueDict({"photo": [image]})
         form = ToyCreateForm(data=form_data, files=files)
+        if not form.is_valid():
+            print(form.errors)
         self.assertTrue(form.is_valid())
 
     def test_toy_create_form_invalid_missing_fields(self):

@@ -119,7 +119,7 @@ TEMPLATES = [
                 "base.context_processors.cart_item_count",
                 "base.context_processors.category_item_list",
                 "base.context_processors.get_toy_search_form",
-                "base.context_processors.wishlist_item_count",
+                "base.context_processors.wishlist_context",
             ],
         },
     },

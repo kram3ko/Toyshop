@@ -27,7 +27,7 @@ class WishListViewsTest(TestCase):
 
     def test_add_to_wishlist_creates_item(self):
         response = self.client.post(
-            reverse("wishlists:add-to-wishlist", args=[self.toy.pk])
+            reverse("assign-wishlist", args=[self.toy.pk])
         )
         self.assertEqual(WishListItem.objects.count(), 1)
         item = WishListItem.objects.first()
@@ -37,7 +37,7 @@ class WishListViewsTest(TestCase):
     def test_add_to_wishlist_increments_quantity(self):
         wishlist = WishList.objects.create(user=self.user)
         WishListItem.objects.create(wishlist=wishlist, toy=self.toy, quantity=1)
-        self.client.post(reverse("wishlists:add-to-wishlist", args=[self.toy.pk]))
+        self.client.post(reverse("assign-wishlist", args=[self.toy.pk]))
         item = WishListItem.objects.get(wishlist=wishlist, toy=self.toy)
         item.refresh_from_db()
         self.assertEqual(item.quantity, 2)
