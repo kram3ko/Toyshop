@@ -24,7 +24,7 @@ class ToyViewsTest(TestCase):
         self.toy = Toy.objects.create(
             name="Test Toy",
             description="Description",
-            price=99.99,
+            price=9999,
             stock=10,
             manufacturer="LEGO",
             owner=self.user,
@@ -57,7 +57,7 @@ class ToyViewsTest(TestCase):
             {
                 "name": "New Toy",
                 "description": "Fun",
-                "price": 55.55,
+                "price": 5555,
                 "stock": 5,
                 "manufacturer": "Fisher",
                 "category": [self.category.id],
