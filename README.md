@@ -104,9 +104,9 @@ python manage.py runserver
 
 ```
 Defualt users
-login: customer - registered base customer
-login: shop_admin - Shop adminstator with rules
-login: admin - super admin
+login: customer@toyshop.com - registered base customer
+login: shop_admin@toyshop.com - Shop adminstator with rules
+login: admin@toyshop.com - super admin
 password: toyshop0987
  
 
