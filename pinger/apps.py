@@ -13,7 +13,7 @@ def start_ping():
     def ping():
         try:
             requests.get(
-                "https://toys-shop.onrender.com/ping/", timeout=10,
+                "https://toyshop-email.onrender.com/ping/", timeout=10,
                 headers={"User-Agent": "Toyshop service"},
             )
             logger.info("Ping sent")
