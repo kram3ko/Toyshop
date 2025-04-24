@@ -69,6 +69,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
+    # allauth
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
     # Storage
     "storages",
     # HTMX
@@ -76,7 +82,7 @@ INSTALLED_APPS = [
     # Toolbar
     "debug_toolbar",
     # Apllications
-    "accounts",
+    # "accounts_old",
     "customers",
     "orders",
     "toys",
@@ -88,6 +94,7 @@ INSTALLED_APPS = [
     # pinger
     "pinger.apps.PingerConfig",
 ]
+SITE_ID = 1
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -100,6 +107,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "toys_shop.urls"
@@ -127,6 +135,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "toys_shop.wsgi.application"
 
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+ACCOUNT_LOGIN_METHODS = {"email"}
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_SIGNUP_FIELDS = {"email*", "password1", "password2"}
+ACCOUNT_EMAIL_HTML = True
+ACCOUNT_EMAIL_SUBJECT_PREFIX = "[Toys Shop]"
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 

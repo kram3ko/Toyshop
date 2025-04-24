@@ -15,7 +15,7 @@ class WishList(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.user.username}'s Wish List"
+        return f"{self.user.email}'s Wish List"
 
 
 class WishListItem(models.Model):

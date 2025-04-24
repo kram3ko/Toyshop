@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+  <div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 text-center">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">{% trans "Invalid Activation Link" %}</h2>
+      <p class="text-gray-600 mb-6">
+        {% trans "The confirmation link was invalid, possibly because it has already been used or has expired." %}
+      </p>
+      <a href="{% url 'account_email' %}"
+         class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow transition duration-300">
+        {% trans "Request a New Link" %}
+      </a>
+    </div>
+  </div>
+{% endblock %}
