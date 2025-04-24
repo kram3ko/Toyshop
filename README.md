@@ -20,7 +20,7 @@ It allows users to register, log in, browse toys by categories, and place orders
 - ⚡ HTMX for partial page updates and dynamic interactions  
 - 🧰 Django Debug Toolbar for development insights  
 - 🛠️ Environment management via django-environ  
-
+- 🧑‍ allauth for user authentication
 ---
 
 ## 🧠 Tech Stack
