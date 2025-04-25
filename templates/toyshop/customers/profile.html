@@ -21,8 +21,7 @@
                   </span>
                 {% endif %}
               </div>
-              <h2 class="text-xl font-semibold text-center mt-4">{{ user.username }}</h2>
-              <p class="text-gray-500 text-center">{{ user.email }}</p>
+              <h2 class="text-xl font-semibold text-center mt-4">{{ user.email }}</h2>
             </div>
 
             <!-- Right block: profile details -->
@@ -73,7 +72,7 @@
                     Wishlist
                   </a>
                   {% if user == request.user %}
-                    <form action="{% url 'accounts:logout' %}" method="post">
+                    <form action="{% url 'account_logout' %}" method="post">
                       {% csrf_token %}
                       <button
                           class="inline-flex items-center gap-2 text-base px-5 py-2 bg-red-500 text-white rounded-full shadow-md hover:bg-red-700 transition">

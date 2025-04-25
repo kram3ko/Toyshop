@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views import generic
+from django.views.generic.edit import ModelFormMixin
 
 from toys.forms import ToyCreateForm, ToySearchForm
 from toys.models import Toy
@@ -60,7 +61,7 @@ class ToyListView(generic.ListView):
         return super().render_to_response(context, **response_kwargs)
 
 
-class ToyCreateView(LoginRequiredMixin, generic.CreateView):
+class BaseToyFormView(LoginRequiredMixin, ModelFormMixin, generic.View):
     model = Toy
     form_class = ToyCreateForm
     template_name = "toyshop/toys/toy_form.html"
@@ -74,17 +75,12 @@ class ToyCreateView(LoginRequiredMixin, generic.CreateView):
         return reverse("toys:toy-detail", kwargs={"pk": self.object.pk})
 
 
-class ToyUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = Toy
-    form_class = ToyCreateForm
-    template_name = "toyshop/toys/toy_form.html"
+class ToyCreateView(BaseToyFormView, generic.CreateView):
+    pass
 
-    def form_valid(self, form):
-        print(self.request.FILES.get("photo"))
-        return super().form_valid(form)
 
-    def get_success_url(self):
-        return reverse("toys:toy-detail", kwargs={"pk": self.object.pk})
+class ToyUpdateView(BaseToyFormView, generic.UpdateView):
+    pass
 
 
 class ToyDetailView(generic.DetailView):

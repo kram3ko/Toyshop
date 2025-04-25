@@ -14,7 +14,7 @@
           <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
             <a href="{% url 'toys:toy-detail' item.toy.pk %}?next={{ request.get_full_path }}">
               {% if item.toy.photo %}
-                <img src="{{ item.toy.photo.url }}" alt="{{ item.toy.name }}" class="w-full h-48 object-cover">
+                <img src="{{ item.toy.photo.url }}" alt="{{ item.toy.name }}" class="w-full h-48 object-contain">
               {% else %}
                 <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
                   <span class="text-gray-400">No image available</span>

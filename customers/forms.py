@@ -10,19 +10,16 @@ User = get_user_model()
 
 class CustomCustomerCreationForm(UserCreationForm):
     email = forms.EmailField(required=True, label="Email address")
-
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = UserCreationForm.Meta.fields + ("first_name", "last_name", "email")
+        fields = ("email", "first_name", "last_name", "password1", "password2")
 
 
 class CustomerUpdateForm(forms.ModelForm):
-    email = forms.EmailField(label="Email address", required=False)
-    username = forms.CharField(max_length=65, required=False)
-
-    class Meta(UserCreationForm.Meta):
+    email = forms.EmailField(required=False, label="Email address")
+    class Meta:
         model = User
-        fields = UserCreationForm.Meta.fields + ("first_name", "last_name", "email")
+        fields = ("email", "first_name", "last_name")
 
 
 class ToyClubCreationForm(forms.ModelForm):

@@ -129,10 +129,10 @@
         "is_superuser": false,
         "first_name": "John",
         "last_name": "Smith",
-        "email": "johnsmith@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.520Z",
+        "email": "johnsmith@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -149,10 +149,10 @@
         "is_superuser": false,
         "first_name": "Emily",
         "last_name": "Jones",
-        "email": "emilyjones@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.521Z",
+        "email": "emilyjones@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -169,10 +169,10 @@
         "is_superuser": false,
         "first_name": "Michael",
         "last_name": "Brown",
-        "email": "michaelbrown@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.522Z",
+        "email": "michaelbrown@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -189,10 +189,10 @@
         "is_superuser": false,
         "first_name": "Sarah",
         "last_name": "Johnson",
-        "email": "sarahjohnson@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.522Z",
+        "email": "sarahjohnson@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -209,10 +209,10 @@
         "is_superuser": false,
         "first_name": "shop",
         "last_name": "admin",
-        "email": "shop_admin@toyshop.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19Z",
+        "email": "shop_admin@toyshop.com",
         "shop_admin": true,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-17T10:08:19.855Z",
@@ -229,10 +229,10 @@
         "is_superuser": false,
         "first_name": "Laura",
         "last_name": "Wilson",
-        "email": "laurawilson@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.524Z",
+        "email": "laurawilson@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -249,10 +249,10 @@
         "is_superuser": false,
         "first_name": "Olivia",
         "last_name": "Clark",
-        "email": "oliviaclark@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.525Z",
+        "email": "oliviaclark@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -269,10 +269,10 @@
         "is_superuser": false,
         "first_name": "customer",
         "last_name": "shop customer",
-        "email": "customer@toyshop.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19Z",
+        "email": "customer@toyshop.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-17T10:07:34.454Z",
@@ -289,10 +289,10 @@
         "is_superuser": false,
         "first_name": "Grace",
         "last_name": "Young",
-        "email": "graceyoung@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.526Z",
+        "email": "graceyoung@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -305,13 +305,14 @@
     "pk": 11,
     "fields": {
         "password": "pbkdf2_sha256$1000000$9kCcw5zXcAyLj499nb9wtX$080SB+5iADV3sEFO6wW8On7VpAZkilMzofqDPC0zy4g=",
-        "last_login": "2025-04-17T20:47:08.909Z",
+        "last_login": "2025-04-24T08:42:59.724Z",
+        "is_superuser": false,
         "first_name": "admin",
         "last_name": "super_admin",
-        "email": "admin@toyshop.com",
         "is_staff": true,
         "is_active": true,
         "date_joined": "2025-04-02T07:35:53Z",
+        "email": "admin@toyshop.com",
         "shop_admin": true,
         "join_date": "2025-04-02T07:35:54.004Z",
         "updated_at": "2025-04-17T10:08:38.486Z",
@@ -321,40 +322,40 @@
 },
 {
     "model": "customers.user",
-    "pk": 24,
+    "pk": 43,
     "fields": {
-        "password": "pbkdf2_sha256$1000000$3DBzeiplJgJSiDonUo6F4Q$m7Eo7ftHeWuZHZl6D5T0XNhSrb5iQp7ZQtvTSNsfHM4=",
-        "last_login": "2025-04-17T20:43:43.409Z",
+        "password": "pbkdf2_sha256$1000000$cSUHyKxxGxkCxFQFWNTNII$9NgEIhofs9eR2rAiZu6SlYauZubPAh9BnJ8EZNs1zys=",
+        "last_login": "2025-04-23T18:17:07.869Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
-        "email": "waniwak186@agiuse.com",
         "is_staff": false,
         "is_active": true,
-        "date_joined": "2025-04-17T20:42:33.556Z",
+        "date_joined": "2025-04-23T18:06:00.941Z",
+        "email": "yorobod845@asaption.com",
         "shop_admin": false,
-        "join_date": "2025-04-17T20:42:35.800Z",
-        "updated_at": "2025-04-17T20:43:21.943Z",
+        "join_date": "2025-04-23T18:06:01.904Z",
+        "updated_at": "2025-04-23T18:11:17.518Z",
         "groups": [],
         "user_permissions": []
     }
 },
 {
     "model": "customers.user",
-    "pk": 25,
+    "pk": 44,
     "fields": {
-        "password": "pbkdf2_sha256$1000000$MFUwLKFF6x2DgOegjeDygY$VyzxSrWY7+dzSb+AnZ3k8PQeymGdN2nXzxLP2+NYVHI=",
-        "last_login": "2025-04-21T07:54:05.306Z",
+        "password": "pbkdf2_sha256$1000000$B3FtzodmWL9maAxxTItjJk$34cIN2UFEi6988dcqnqM2aMTs3N49uR2fcXIK5zWJ1Q=",
+        "last_login": "2025-04-24T09:19:02.652Z",
         "is_superuser": false,
-        "first_name": "Andrii",
-        "last_name": "Boiko",
-        "email": "1@gmail.com",
+        "first_name": "her",
+        "last_name": "впав",
         "is_staff": false,
         "is_active": true,
-        "date_joined": "2025-04-21T07:47:45.158Z",
+        "date_joined": "2025-04-23T20:57:16.524Z",
+        "email": "rebeb33670@asaption.com",
         "shop_admin": false,
-        "join_date": "2025-04-21T07:47:47.392Z",
-        "updated_at": "2025-04-21T07:53:50.799Z",
+        "join_date": "2025-04-23T20:57:17.394Z",
+        "updated_at": "2025-04-24T09:18:34.899Z",
         "groups": [],
         "user_permissions": []
     }
@@ -372,36 +373,6 @@
         "recipient": "Julia",
         "created_at": "2025-04-17T20:40:32.368Z",
         "update_at": "2025-04-17T20:40:32.368Z"
-    }
-},
-{
-    "model": "orders.order",
-    "pk": 9,
-    "fields": {
-        "user": 24,
-        "cart": 14,
-        "total_price": 318376,
-        "deliver_to": "Kyiv",
-        "delivery_method": "courier",
-        "payment_method": "card",
-        "recipient": "Irina",
-        "created_at": "2025-04-17T20:44:10.118Z",
-        "update_at": "2025-04-17T20:44:10.119Z"
-    }
-},
-{
-    "model": "orders.order",
-    "pk": 10,
-    "fields": {
-        "user": 25,
-        "cart": 15,
-        "total_price": 184300,
-        "deliver_to": "IF",
-        "delivery_method": "new_post",
-        "payment_method": "card",
-        "recipient": "qwe",
-        "created_at": "2025-04-21T07:49:47.711Z",
-        "update_at": "2025-04-21T07:49:47.711Z"
     }
 },
 {
@@ -546,8 +517,8 @@
         "updated_at": "2025-04-17T19:11:43.509Z",
         "category": [
             1,
-            10,
-            9
+            9,
+            10
         ]
     }
 },
@@ -565,8 +536,8 @@
         "created_at": "2025-04-01T17:49:09.971Z",
         "updated_at": "2025-04-17T19:11:43.512Z",
         "category": [
-            9,
-            7
+            7,
+            9
         ]
     }
 },
@@ -623,9 +594,9 @@
         "created_at": "2025-04-01T17:49:09.972Z",
         "updated_at": "2025-04-17T19:11:43.520Z",
         "category": [
-            10,
             3,
-            4
+            4,
+            10
         ]
     }
 },
@@ -643,9 +614,9 @@
         "created_at": "2025-04-01T17:49:09.973Z",
         "updated_at": "2025-04-17T19:11:43.522Z",
         "category": [
-            8,
             5,
-            6
+            6,
+            8
         ]
     }
 },
@@ -681,8 +652,8 @@
         "created_at": "2025-04-01T17:49:09.974Z",
         "updated_at": "2025-04-17T19:11:43.528Z",
         "category": [
-            9,
-            3
+            3,
+            9
         ]
     }
 },
@@ -700,9 +671,9 @@
         "created_at": "2025-04-01T17:49:09.974Z",
         "updated_at": "2025-04-17T19:11:43.530Z",
         "category": [
-            9,
             4,
-            5
+            5,
+            9
         ]
     }
 },
@@ -740,10 +711,10 @@
         "created_at": "2025-04-01T17:49:09.974Z",
         "updated_at": "2025-04-17T19:11:43.536Z",
         "category": [
-            8,
             2,
             3,
-            4
+            4,
+            8
         ]
     }
 },
@@ -780,10 +751,10 @@
         "created_at": "2025-04-01T17:49:09.975Z",
         "updated_at": "2025-04-17T19:11:43.541Z",
         "category": [
-            8,
-            10,
             3,
-            6
+            6,
+            8,
+            10
         ]
     }
 },
@@ -801,9 +772,9 @@
         "created_at": "2025-04-01T17:49:09.975Z",
         "updated_at": "2025-04-17T19:11:43.544Z",
         "category": [
+            3,
             8,
-            10,
-            3
+            10
         ]
     }
 },
@@ -916,9 +887,9 @@
         "created_at": "2025-04-06T08:39:04.074Z",
         "updated_at": "2025-04-17T19:59:29.664Z",
         "category": [
-            5,
             1,
             4,
+            5,
             6,
             7
         ]
@@ -1002,33 +973,6 @@
     "fields": {
         "user": 11,
         "order_time": "2025-04-17T20:41:04.300Z",
-        "is_active": true
-    }
-},
-{
-    "model": "carts.cart",
-    "pk": 14,
-    "fields": {
-        "user": 24,
-        "order_time": "2025-04-17T20:43:47.162Z",
-        "is_active": false
-    }
-},
-{
-    "model": "carts.cart",
-    "pk": 15,
-    "fields": {
-        "user": 25,
-        "order_time": "2025-04-21T07:48:21.504Z",
-        "is_active": false
-    }
-},
-{
-    "model": "carts.cart",
-    "pk": 16,
-    "fields": {
-        "user": 25,
-        "order_time": "2025-04-21T07:50:03.711Z",
         "is_active": true
     }
 },
@@ -1233,7 +1177,7 @@
         "quantity": 2,
         "total_price": 15752,
         "created_at": "2025-04-17T20:07:52.792Z",
-        "updated_at": "2025-04-17T20:07:53.000Z"
+        "updated_at": "2025-04-17T20:07:53Z"
     }
 },
 {
@@ -1298,78 +1242,6 @@
 },
 {
     "model": "carts.cartitem",
-    "pk": 96,
-    "fields": {
-        "cart": 14,
-        "toy": 26,
-        "quantity": 1,
-        "total_price": 85600,
-        "created_at": "2025-04-17T20:43:47.172Z",
-        "updated_at": "2025-04-17T20:43:47.179Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 97,
-    "fields": {
-        "cart": 14,
-        "toy": 31,
-        "quantity": 1,
-        "total_price": 7876,
-        "created_at": "2025-04-17T20:43:47.768Z",
-        "updated_at": "2025-04-17T20:43:47.775Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 98,
-    "fields": {
-        "cart": 14,
-        "toy": 24,
-        "quantity": 1,
-        "total_price": 66700,
-        "created_at": "2025-04-17T20:43:48.373Z",
-        "updated_at": "2025-04-17T20:43:48.383Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 99,
-    "fields": {
-        "cart": 14,
-        "toy": 23,
-        "quantity": 1,
-        "total_price": 58300,
-        "created_at": "2025-04-17T20:43:48.875Z",
-        "updated_at": "2025-04-17T20:43:48.883Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 100,
-    "fields": {
-        "cart": 14,
-        "toy": 19,
-        "quantity": 1,
-        "total_price": 77900,
-        "created_at": "2025-04-17T20:43:49.671Z",
-        "updated_at": "2025-04-17T20:43:49.685Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 101,
-    "fields": {
-        "cart": 14,
-        "toy": 21,
-        "quantity": 1,
-        "total_price": 22000,
-        "created_at": "2025-04-17T20:43:50.536Z",
-        "updated_at": "2025-04-17T20:43:50.544Z"
-    }
-},
-{
-    "model": "carts.cartitem",
     "pk": 104,
     "fields": {
         "cart": 13,
@@ -1378,30 +1250,6 @@
         "total_price": 58300,
         "created_at": "2025-04-19T18:15:45.099Z",
         "updated_at": "2025-04-19T18:15:45.105Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 105,
-    "fields": {
-        "cart": 15,
-        "toy": 26,
-        "quantity": 1,
-        "total_price": 85600,
-        "created_at": "2025-04-21T07:48:21.525Z",
-        "updated_at": "2025-04-21T07:48:21.542Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 106,
-    "fields": {
-        "cart": 15,
-        "toy": 16,
-        "quantity": 3,
-        "total_price": 98700,
-        "created_at": "2025-04-21T07:48:33.144Z",
-        "updated_at": "2025-04-21T07:48:34.655Z"
     }
 },
 {
@@ -1423,15 +1271,6 @@
     }
 },
 {
-    "model": "wishlists.wishlist",
-    "pk": 6,
-    "fields": {
-        "user": 25,
-        "created_at": "2025-04-21T07:48:20.192Z",
-        "updated_at": "2025-04-21T07:48:20.192Z"
-    }
-},
-{
     "model": "wishlists.wishlistitem",
     "pk": 62,
     "fields": {
@@ -1442,9 +1281,18 @@
 },
 {
     "model": "wishlists.wishlistitem",
-    "pk": 70,
+    "pk": 71,
     "fields": {
-        "wishlist": 6,
+        "wishlist": 2,
+        "toy": 24,
+        "quantity": 1
+    }
+},
+{
+    "model": "wishlists.wishlistitem",
+    "pk": 72,
+    "fields": {
+        "wishlist": 2,
         "toy": 26,
         "quantity": 1
     }
