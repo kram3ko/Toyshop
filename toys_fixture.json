@@ -129,10 +129,10 @@
         "is_superuser": false,
         "first_name": "John",
         "last_name": "Smith",
-        "email": "johnsmith@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.520Z",
+        "email": "johnsmith@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -149,10 +149,10 @@
         "is_superuser": false,
         "first_name": "Emily",
         "last_name": "Jones",
-        "email": "emilyjones@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.521Z",
+        "email": "emilyjones@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -169,10 +169,10 @@
         "is_superuser": false,
         "first_name": "Michael",
         "last_name": "Brown",
-        "email": "michaelbrown@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.522Z",
+        "email": "michaelbrown@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -189,10 +189,10 @@
         "is_superuser": false,
         "first_name": "Sarah",
         "last_name": "Johnson",
-        "email": "sarahjohnson@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.522Z",
+        "email": "sarahjohnson@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -209,10 +209,10 @@
         "is_superuser": false,
         "first_name": "shop",
         "last_name": "admin",
-        "email": "shop_admin@toyshop.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19Z",
+        "email": "shop_admin@toyshop.com",
         "shop_admin": true,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-17T10:08:19.855Z",
@@ -229,10 +229,10 @@
         "is_superuser": false,
         "first_name": "Laura",
         "last_name": "Wilson",
-        "email": "laurawilson@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.524Z",
+        "email": "laurawilson@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -249,10 +249,10 @@
         "is_superuser": false,
         "first_name": "Olivia",
         "last_name": "Clark",
-        "email": "oliviaclark@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.525Z",
+        "email": "oliviaclark@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -269,10 +269,10 @@
         "is_superuser": false,
         "first_name": "customer",
         "last_name": "shop customer",
-        "email": "customer@toyshop.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19Z",
+        "email": "customer@toyshop.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-17T10:07:34.454Z",
@@ -289,10 +289,10 @@
         "is_superuser": false,
         "first_name": "Grace",
         "last_name": "Young",
-        "email": "graceyoung@example.com",
         "is_staff": false,
         "is_active": true,
         "date_joined": "2025-04-01T18:01:19.526Z",
+        "email": "graceyoung@example.com",
         "shop_admin": false,
         "join_date": "2025-04-01T10:56:44.950Z",
         "updated_at": "2025-04-01T17:49:09.950Z",
@@ -305,13 +305,14 @@
     "pk": 11,
     "fields": {
         "password": "pbkdf2_sha256$1000000$9kCcw5zXcAyLj499nb9wtX$080SB+5iADV3sEFO6wW8On7VpAZkilMzofqDPC0zy4g=",
-        "last_login": "2025-04-17T20:47:08.909Z",
+        "last_login": "2025-04-25T07:17:36.185Z",
+        "is_superuser": false,
         "first_name": "admin",
         "last_name": "super_admin",
-        "email": "admin@toyshop.com",
         "is_staff": true,
         "is_active": true,
         "date_joined": "2025-04-02T07:35:53Z",
+        "email": "admin@toyshop.com",
         "shop_admin": true,
         "join_date": "2025-04-02T07:35:54.004Z",
         "updated_at": "2025-04-17T10:08:38.486Z",
@@ -321,40 +322,40 @@
 },
 {
     "model": "customers.user",
-    "pk": 24,
+    "pk": 43,
     "fields": {
-        "password": "pbkdf2_sha256$1000000$3DBzeiplJgJSiDonUo6F4Q$m7Eo7ftHeWuZHZl6D5T0XNhSrb5iQp7ZQtvTSNsfHM4=",
-        "last_login": "2025-04-17T20:43:43.409Z",
+        "password": "pbkdf2_sha256$1000000$cSUHyKxxGxkCxFQFWNTNII$9NgEIhofs9eR2rAiZu6SlYauZubPAh9BnJ8EZNs1zys=",
+        "last_login": "2025-04-23T18:17:07.869Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
-        "email": "waniwak186@agiuse.com",
         "is_staff": false,
         "is_active": true,
-        "date_joined": "2025-04-17T20:42:33.556Z",
+        "date_joined": "2025-04-23T18:06:00.941Z",
+        "email": "yorobod845@asaption.com",
         "shop_admin": false,
-        "join_date": "2025-04-17T20:42:35.800Z",
-        "updated_at": "2025-04-17T20:43:21.943Z",
+        "join_date": "2025-04-23T18:06:01.904Z",
+        "updated_at": "2025-04-23T18:11:17.518Z",
         "groups": [],
         "user_permissions": []
     }
 },
 {
     "model": "customers.user",
-    "pk": 25,
+    "pk": 44,
     "fields": {
-        "password": "pbkdf2_sha256$1000000$MFUwLKFF6x2DgOegjeDygY$VyzxSrWY7+dzSb+AnZ3k8PQeymGdN2nXzxLP2+NYVHI=",
-        "last_login": "2025-04-21T07:54:05.306Z",
+        "password": "pbkdf2_sha256$1000000$B3FtzodmWL9maAxxTItjJk$34cIN2UFEi6988dcqnqM2aMTs3N49uR2fcXIK5zWJ1Q=",
+        "last_login": "2025-04-24T09:19:02.652Z",
         "is_superuser": false,
-        "first_name": "Andrii",
-        "last_name": "Boiko",
-        "email": "1@gmail.com",
+        "first_name": "her",
+        "last_name": "впав",
         "is_staff": false,
         "is_active": true,
-        "date_joined": "2025-04-21T07:47:45.158Z",
+        "date_joined": "2025-04-23T20:57:16.524Z",
+        "email": "rebeb33670@asaption.com",
         "shop_admin": false,
-        "join_date": "2025-04-21T07:47:47.392Z",
-        "updated_at": "2025-04-21T07:53:50.799Z",
+        "join_date": "2025-04-23T20:57:17.394Z",
+        "updated_at": "2025-04-24T09:18:34.899Z",
         "groups": [],
         "user_permissions": []
     }
@@ -372,36 +373,6 @@
         "recipient": "Julia",
         "created_at": "2025-04-17T20:40:32.368Z",
         "update_at": "2025-04-17T20:40:32.368Z"
-    }
-},
-{
-    "model": "orders.order",
-    "pk": 9,
-    "fields": {
-        "user": 24,
-        "cart": 14,
-        "total_price": 318376,
-        "deliver_to": "Kyiv",
-        "delivery_method": "courier",
-        "payment_method": "card",
-        "recipient": "Irina",
-        "created_at": "2025-04-17T20:44:10.118Z",
-        "update_at": "2025-04-17T20:44:10.119Z"
-    }
-},
-{
-    "model": "orders.order",
-    "pk": 10,
-    "fields": {
-        "user": 25,
-        "cart": 15,
-        "total_price": 184300,
-        "deliver_to": "IF",
-        "delivery_method": "new_post",
-        "payment_method": "card",
-        "recipient": "qwe",
-        "created_at": "2025-04-21T07:49:47.711Z",
-        "update_at": "2025-04-21T07:49:47.711Z"
     }
 },
 {
@@ -546,8 +517,8 @@
         "updated_at": "2025-04-17T19:11:43.509Z",
         "category": [
             1,
-            10,
-            9
+            9,
+            10
         ]
     }
 },
@@ -565,8 +536,8 @@
         "created_at": "2025-04-01T17:49:09.971Z",
         "updated_at": "2025-04-17T19:11:43.512Z",
         "category": [
-            9,
-            7
+            7,
+            9
         ]
     }
 },
@@ -623,9 +594,9 @@
         "created_at": "2025-04-01T17:49:09.972Z",
         "updated_at": "2025-04-17T19:11:43.520Z",
         "category": [
-            10,
             3,
-            4
+            4,
+            10
         ]
     }
 },
@@ -643,9 +614,9 @@
         "created_at": "2025-04-01T17:49:09.973Z",
         "updated_at": "2025-04-17T19:11:43.522Z",
         "category": [
-            8,
             5,
-            6
+            6,
+            8
         ]
     }
 },
@@ -681,8 +652,8 @@
         "created_at": "2025-04-01T17:49:09.974Z",
         "updated_at": "2025-04-17T19:11:43.528Z",
         "category": [
-            9,
-            3
+            3,
+            9
         ]
     }
 },
@@ -700,9 +671,9 @@
         "created_at": "2025-04-01T17:49:09.974Z",
         "updated_at": "2025-04-17T19:11:43.530Z",
         "category": [
-            9,
             4,
-            5
+            5,
+            9
         ]
     }
 },
@@ -740,10 +711,10 @@
         "created_at": "2025-04-01T17:49:09.974Z",
         "updated_at": "2025-04-17T19:11:43.536Z",
         "category": [
-            8,
             2,
             3,
-            4
+            4,
+            8
         ]
     }
 },
@@ -780,10 +751,10 @@
         "created_at": "2025-04-01T17:49:09.975Z",
         "updated_at": "2025-04-17T19:11:43.541Z",
         "category": [
-            8,
-            10,
             3,
-            6
+            6,
+            8,
+            10
         ]
     }
 },
@@ -801,9 +772,9 @@
         "created_at": "2025-04-01T17:49:09.975Z",
         "updated_at": "2025-04-17T19:11:43.544Z",
         "category": [
+            3,
             8,
-            10,
-            3
+            10
         ]
     }
 },
@@ -888,7 +859,7 @@
     "model": "toys.toy",
     "pk": 26,
     "fields": {
-        "owner": 10,
+        "owner": 11,
         "name": "Cute Dolly",
         "description": "Site result crime involve research.",
         "price": 85600,
@@ -896,9 +867,10 @@
         "manufacturer": "Murphy, Wilson and Hudson",
         "photo": "toys/doll1.jpeg",
         "created_at": "2025-04-01T17:49:09.977Z",
-        "updated_at": "2025-04-17T19:11:43.555Z",
+        "updated_at": "2025-04-24T19:18:11.872Z",
         "category": [
-            2
+            2,
+            3
         ]
     }
 },
@@ -916,9 +888,9 @@
         "created_at": "2025-04-06T08:39:04.074Z",
         "updated_at": "2025-04-17T19:59:29.664Z",
         "category": [
-            5,
             1,
             4,
+            5,
             6,
             7
         ]
@@ -1002,33 +974,6 @@
     "fields": {
         "user": 11,
         "order_time": "2025-04-17T20:41:04.300Z",
-        "is_active": true
-    }
-},
-{
-    "model": "carts.cart",
-    "pk": 14,
-    "fields": {
-        "user": 24,
-        "order_time": "2025-04-17T20:43:47.162Z",
-        "is_active": false
-    }
-},
-{
-    "model": "carts.cart",
-    "pk": 15,
-    "fields": {
-        "user": 25,
-        "order_time": "2025-04-21T07:48:21.504Z",
-        "is_active": false
-    }
-},
-{
-    "model": "carts.cart",
-    "pk": 16,
-    "fields": {
-        "user": 25,
-        "order_time": "2025-04-21T07:50:03.711Z",
         "is_active": true
     }
 },
@@ -1233,7 +1178,7 @@
         "quantity": 2,
         "total_price": 15752,
         "created_at": "2025-04-17T20:07:52.792Z",
-        "updated_at": "2025-04-17T20:07:53.000Z"
+        "updated_at": "2025-04-17T20:07:53Z"
     }
 },
 {
@@ -1298,78 +1243,6 @@
 },
 {
     "model": "carts.cartitem",
-    "pk": 96,
-    "fields": {
-        "cart": 14,
-        "toy": 26,
-        "quantity": 1,
-        "total_price": 85600,
-        "created_at": "2025-04-17T20:43:47.172Z",
-        "updated_at": "2025-04-17T20:43:47.179Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 97,
-    "fields": {
-        "cart": 14,
-        "toy": 31,
-        "quantity": 1,
-        "total_price": 7876,
-        "created_at": "2025-04-17T20:43:47.768Z",
-        "updated_at": "2025-04-17T20:43:47.775Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 98,
-    "fields": {
-        "cart": 14,
-        "toy": 24,
-        "quantity": 1,
-        "total_price": 66700,
-        "created_at": "2025-04-17T20:43:48.373Z",
-        "updated_at": "2025-04-17T20:43:48.383Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 99,
-    "fields": {
-        "cart": 14,
-        "toy": 23,
-        "quantity": 1,
-        "total_price": 58300,
-        "created_at": "2025-04-17T20:43:48.875Z",
-        "updated_at": "2025-04-17T20:43:48.883Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 100,
-    "fields": {
-        "cart": 14,
-        "toy": 19,
-        "quantity": 1,
-        "total_price": 77900,
-        "created_at": "2025-04-17T20:43:49.671Z",
-        "updated_at": "2025-04-17T20:43:49.685Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 101,
-    "fields": {
-        "cart": 14,
-        "toy": 21,
-        "quantity": 1,
-        "total_price": 22000,
-        "created_at": "2025-04-17T20:43:50.536Z",
-        "updated_at": "2025-04-17T20:43:50.544Z"
-    }
-},
-{
-    "model": "carts.cartitem",
     "pk": 104,
     "fields": {
         "cart": 13,
@@ -1378,30 +1251,6 @@
         "total_price": 58300,
         "created_at": "2025-04-19T18:15:45.099Z",
         "updated_at": "2025-04-19T18:15:45.105Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 105,
-    "fields": {
-        "cart": 15,
-        "toy": 26,
-        "quantity": 1,
-        "total_price": 85600,
-        "created_at": "2025-04-21T07:48:21.525Z",
-        "updated_at": "2025-04-21T07:48:21.542Z"
-    }
-},
-{
-    "model": "carts.cartitem",
-    "pk": 106,
-    "fields": {
-        "cart": 15,
-        "toy": 16,
-        "quantity": 3,
-        "total_price": 98700,
-        "created_at": "2025-04-21T07:48:33.144Z",
-        "updated_at": "2025-04-21T07:48:34.655Z"
     }
 },
 {
@@ -1423,15 +1272,6 @@
     }
 },
 {
-    "model": "wishlists.wishlist",
-    "pk": 6,
-    "fields": {
-        "user": 25,
-        "created_at": "2025-04-21T07:48:20.192Z",
-        "updated_at": "2025-04-21T07:48:20.192Z"
-    }
-},
-{
     "model": "wishlists.wishlistitem",
     "pk": 62,
     "fields": {
@@ -1442,11 +1282,770 @@
 },
 {
     "model": "wishlists.wishlistitem",
-    "pk": 70,
+    "pk": 71,
     "fields": {
-        "wishlist": 6,
+        "wishlist": 2,
+        "toy": 24,
+        "quantity": 1
+    }
+},
+{
+    "model": "wishlists.wishlistitem",
+    "pk": 72,
+    "fields": {
+        "wishlist": 2,
         "toy": 26,
         "quantity": 1
+    }
+},
+{
+    "model": "account.emailaddress",
+    "pk": 2,
+    "fields": {
+        "user": 11,
+        "email": "admin@toyshop.com",
+        "verified": true,
+        "primary": true
+    }
+},
+{
+    "model": "account.emailaddress",
+    "pk": 20,
+    "fields": {
+        "user": 43,
+        "email": "yorobod845@asaption.com",
+        "verified": true,
+        "primary": true
+    }
+},
+{
+    "model": "account.emailaddress",
+    "pk": 21,
+    "fields": {
+        "user": 44,
+        "email": "rebeb33670@asaption.com",
+        "verified": true,
+        "primary": true
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 1,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 2,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 2,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 2,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 2,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 3,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 3,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 3,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 3,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 4,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 4,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 4,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 4,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 5,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 5,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 5,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 5,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add site",
+        "content_type": 6,
+        "codename": "add_site"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change site",
+        "content_type": 6,
+        "codename": "change_site"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete site",
+        "content_type": 6,
+        "codename": "delete_site"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view site",
+        "content_type": 6,
+        "codename": "view_site"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add email address",
+        "content_type": 7,
+        "codename": "add_emailaddress"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change email address",
+        "content_type": 7,
+        "codename": "change_emailaddress"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete email address",
+        "content_type": 7,
+        "codename": "delete_emailaddress"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view email address",
+        "content_type": 7,
+        "codename": "view_emailaddress"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add email confirmation",
+        "content_type": 8,
+        "codename": "add_emailconfirmation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change email confirmation",
+        "content_type": 8,
+        "codename": "change_emailconfirmation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete email confirmation",
+        "content_type": 8,
+        "codename": "delete_emailconfirmation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view email confirmation",
+        "content_type": 8,
+        "codename": "view_emailconfirmation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add social account",
+        "content_type": 9,
+        "codename": "add_socialaccount"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change social account",
+        "content_type": 9,
+        "codename": "change_socialaccount"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete social account",
+        "content_type": 9,
+        "codename": "delete_socialaccount"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view social account",
+        "content_type": 9,
+        "codename": "view_socialaccount"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add social application",
+        "content_type": 10,
+        "codename": "add_socialapp"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change social application",
+        "content_type": 10,
+        "codename": "change_socialapp"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete social application",
+        "content_type": 10,
+        "codename": "delete_socialapp"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view social application",
+        "content_type": 10,
+        "codename": "view_socialapp"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+        "name": "Can add social application token",
+        "content_type": 11,
+        "codename": "add_socialtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+        "name": "Can change social application token",
+        "content_type": 11,
+        "codename": "change_socialtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+        "name": "Can delete social application token",
+        "content_type": 11,
+        "codename": "delete_socialtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+        "name": "Can view social application token",
+        "content_type": 11,
+        "codename": "view_socialtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+        "name": "Can add toy club",
+        "content_type": 12,
+        "codename": "add_toyclub"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+        "name": "Can change toy club",
+        "content_type": 12,
+        "codename": "change_toyclub"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+        "name": "Can delete toy club",
+        "content_type": 12,
+        "codename": "delete_toyclub"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+        "name": "Can view toy club",
+        "content_type": 12,
+        "codename": "view_toyclub"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 13,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 13,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 13,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 13,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+        "name": "Can add order",
+        "content_type": 14,
+        "codename": "add_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+        "name": "Can change order",
+        "content_type": 14,
+        "codename": "change_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+        "name": "Can delete order",
+        "content_type": 14,
+        "codename": "delete_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+        "name": "Can view order",
+        "content_type": 14,
+        "codename": "view_order"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+        "name": "Can add category",
+        "content_type": 15,
+        "codename": "add_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+        "name": "Can change category",
+        "content_type": 15,
+        "codename": "change_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+        "name": "Can delete category",
+        "content_type": 15,
+        "codename": "delete_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+        "name": "Can view category",
+        "content_type": 15,
+        "codename": "view_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+        "name": "Can add toy",
+        "content_type": 16,
+        "codename": "add_toy"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+        "name": "Can change toy",
+        "content_type": 16,
+        "codename": "change_toy"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+        "name": "Can delete toy",
+        "content_type": 16,
+        "codename": "delete_toy"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+        "name": "Can view toy",
+        "content_type": 16,
+        "codename": "view_toy"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+        "name": "Can add cart",
+        "content_type": 17,
+        "codename": "add_cart"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+        "name": "Can change cart",
+        "content_type": 17,
+        "codename": "change_cart"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+        "name": "Can delete cart",
+        "content_type": 17,
+        "codename": "delete_cart"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+        "name": "Can view cart",
+        "content_type": 17,
+        "codename": "view_cart"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+        "name": "Can add cart item",
+        "content_type": 18,
+        "codename": "add_cartitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+        "name": "Can change cart item",
+        "content_type": 18,
+        "codename": "change_cartitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+        "name": "Can delete cart item",
+        "content_type": 18,
+        "codename": "delete_cartitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+        "name": "Can view cart item",
+        "content_type": 18,
+        "codename": "view_cartitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+        "name": "Can add wish list",
+        "content_type": 19,
+        "codename": "add_wishlist"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+        "name": "Can change wish list",
+        "content_type": 19,
+        "codename": "change_wishlist"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+        "name": "Can delete wish list",
+        "content_type": 19,
+        "codename": "delete_wishlist"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+        "name": "Can view wish list",
+        "content_type": 19,
+        "codename": "view_wishlist"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 77,
+    "fields": {
+        "name": "Can add wish list item",
+        "content_type": 20,
+        "codename": "add_wishlistitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 78,
+    "fields": {
+        "name": "Can change wish list item",
+        "content_type": 20,
+        "codename": "change_wishlistitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 79,
+    "fields": {
+        "name": "Can delete wish list item",
+        "content_type": 20,
+        "codename": "delete_wishlistitem"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 80,
+    "fields": {
+        "name": "Can view wish list item",
+        "content_type": 20,
+        "codename": "view_wishlistitem"
     }
 }
 ]
