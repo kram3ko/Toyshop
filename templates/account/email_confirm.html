@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block head_title %}
+  {% trans "Confirm Email Address" %}
+{% endblock head_title %}
+{% block content %}
+  <div class="flex flex-col items-center justify-start min-h-screen bg-gray-100 py-12">
+    <div class="w-full max-w-lg bg-white rounded-lg shadow-lg p-8">
+      <h1 class="text-3xl font-bold text-gray-800 text-center mb-6">{% trans "Confirm Email Address" %}</h1>
+      {% if confirmation %}
+        {% if can_confirm %}
+          <p class="text-gray-700 text-center mb-6">
+            {% blocktrans with confirmation.email_address.email as email %}Please confirm that
+              <a href="mailto:{{ email }}" class="text-blue-500 underline">{{ email }}</a> is your email
+              address.{% endblocktrans %}
+          </p>
+          {% url 'account_confirm_email' confirmation.key as action_url %}
+          <form method="post" action="{{ action_url }}" class="text-center">
+            {% csrf_token %}
+            {{ redirect_field }}
+            <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow transition duration-300">
+              {% trans "Confirm" %}
+            </button>
+          </form>
+        {% else %}
+          <p class="text-red-500 text-center">
+            {% blocktrans %}Unable to confirm {{ email }} because it is already confirmed by a different
+              account.{% endblocktrans %}
+          </p>
+        {% endif %}
+      {% else %}
+        {% url 'account_email' as email_url %}
+        <p class="text-red-500 text-center">
+          {% blocktrans %}This email confirmation link expired or is invalid. Please
+            <a href="{{ email_url }}" class="text-blue-500 underline">issue a new email confirmation request</a>
+            .{% endblocktrans %}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock content %}

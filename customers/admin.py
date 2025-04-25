@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from django.utils.translation import gettext_lazy as _
 
 from customers.models import ToyClub, User
 
@@ -13,11 +14,11 @@ class CustomUserAdmin(UserAdmin):
     )
 
     fieldsets = (
-        (None, {"fields": ("username", "password")}),
-        ("Personal info", {"fields": ("first_name", "last_name", "email")}),
-        ("Additional info", {"fields": ("shop_admin",)}),
+        (None, {"fields": ("password",)}),
+        (_("Personal info"), {"fields": ("first_name", "last_name", "email")}),
+        (_("Additional info"), {"fields": ("shop_admin",)}),
         (
-            "Permissions",
+            _("Permissions"),
             {
                 "fields": (
                     "is_active",
@@ -27,7 +28,7 @@ class CustomUserAdmin(UserAdmin):
             },
         ),
         (
-            "Important dates",
+            _("Important dates"),
             {
                 "fields": (
                     "last_login",
@@ -43,7 +44,6 @@ class CustomUserAdmin(UserAdmin):
             {
                 "classes": ("wide",),
                 "fields": (
-                    "username",
                     "password1",
                     "password2",
                     "first_name",
@@ -55,7 +55,7 @@ class CustomUserAdmin(UserAdmin):
             },
         ),
     )
-
+    ordering = ["email"]
 
 @admin.register(ToyClub)
 class ToyAdmin(admin.ModelAdmin):

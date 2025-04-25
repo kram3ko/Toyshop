@@ -62,11 +62,11 @@
         <a href="{% url 'customers:profile' user.pk %}" class="transition hover:opacity-80">
           <img
               src="https://www.dropbox.com/scl/fi/6vf6ogrzc69y1a1696qxb/man.jpg?rlkey=rqegz0tpuo7bkb96i5g4pxfv6&st=gcs1xtzt&raw=1"
-              alt="{{ user.username }}"
+              alt="{{ user.email }}"
               class="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover">
         </a>
       {% else %}
-        <a href="{% url 'accounts:login' %}" class="transition hover:opacity-80">
+        <a href="{% url 'account_login' %}" class="transition hover:opacity-80">
           <img
               src="https://www.dropbox.com/scl/fi/6vf6ogrzc69y1a1696qxb/man.jpg?rlkey=rqegz0tpuo7bkb96i5g4pxfv6&st=gcs1xtzt&raw=1"
               alt="Login"
@@ -82,7 +82,7 @@
       </a>
     </div>
     {% if user.is_authenticated %}
-      <form action="{% url 'accounts:logout' %}" method="post">
+      <form action="{% url 'account_logout' %}" method="post">
         {% csrf_token %}
         <button class="no-underline hover:text-white transition text-lg sm:text-xl">Logout</button>
       </form>
