@@ -1,6 +1,6 @@
 from .base import *
 
-env.read_env(BASE_DIR / "toys_shop/..env.prod")
+env.read_env(BASE_DIR / "toys_shop/.env.prod")
 
 # ALLOWED_HOSTS
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
